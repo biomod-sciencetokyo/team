@@ -6,10 +6,13 @@
     <title>CONTACT | BIOMOD Team Science Tokyo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* 固定ヘッダーの高さ分全体のコンテンツを下に下げます */
+        body { padding-top: 56px; }
+         
         .bg-custom-blue { background-color: #1c3177; }
         .text-custom-blue { color: #1c3177; }
         
-        /* SNSやメールのボタンにマウスを乗せたとき、Science Blueに光るように隠し味 */
+        /* メールのボタン */
         .btn-dark:hover { background-color: #1c3177 !important; border-color: #1c3177 !important; }
         .custom-link { color: #1c3177; }
         .custom-link:hover { color: #7f96c2; }
@@ -17,7 +20,7 @@
 </head>
 <body class="bg-light text-dark">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-blue shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-blue shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">BIOMOD Science Tokyo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -38,16 +41,6 @@
         <div class="bg-white p-5 rounded shadow-sm">
             <h2 class="text-center mb-2 fw-bold text-custom-blue">CONTACT US</h2>
             <p class="text-center text-muted small mb-5">BIOMOD Team Science Tokyoに関するお問い合わせ</p>
-            
-            <div class="my-4 p-4 bg-light rounded text-center">
-                <h3 class="h5 fw-bold mb-3">SNS</h3>
-                <p class="text-muted small">各種SNSでも活動の最新情報を発信しています。</p>
-                <div class="d-grid gap-2 d-sm-block">
-                    <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" class="btn btn-dark m-1">公式YouTube</a>
-                    <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" class="btn btn-dark m-1">公式X</a>
-                    <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" class="btn btn-dark m-1">公式Instagram</a>
-                </div>
-            </div>
 
             <div class="my-4 p-4 bg-light rounded text-center">
                 <h3 class="h5 fw-bold mb-3">メールでのお問い合わせ</h3>
