@@ -71,6 +71,23 @@
                 transform-origin: bottom;
             }
         }
+
+        /* ⬇︎ ロゴが後からふわっと浮かび上がるアニメーション設定 */
+        .logo-fade-in {
+            opacity: 0;
+            transform: scale(0.95); /* 最初は少しだけ小さくしておく */
+            /* 💡 0.5秒待ってから、1.2秒かけて滑らかに表示させる設定です */
+            animation: logoUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.5s; 
+        }
+
+        @keyframes logoUp {
+            to {
+                opacity: 1;
+                transform: scale(1); /* 本来のサイズに戻る */
+            }
+        }
+
     </style>
 </head>
 <body class="bg-light text-dark">
@@ -95,7 +112,7 @@
     <header class="position-relative shadow-sm" style="margin-top: -48px; height: 100vh; min-height: 500px; background: url('img/test1.png') center/cover no-repeat; overflow: hidden;">
         <div class="position-absolute top-50 start-50 translate-middle w-100 text-center p-3" style="z-index: 3;">
             <div class="mx-auto" style="max-width: 550px; width: 100%;">
-                <img src="img/team-logo.png" alt="BIOMOD Team Science Tokyo" class="img-fluid" style="filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.6));">
+                <img src="img/team-logo.png" alt="BIOMOD Team Science Tokyo" class="img-fluid logo-fade-in" style="filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.6));">
             </div>
         </div>
         <div class="position-absolute bottom-0 start-50 translate-middle-x text-center text-white pb-4" style="z-index: 3;">
