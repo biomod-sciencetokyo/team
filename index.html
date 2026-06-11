@@ -17,7 +17,8 @@
         .sns-logo-link:hover img { transform: scale(1.1); }
 
         /* カテゴリバッジの色：サブカラー */
-        .badge-custom-sub { background-color: #7f96c2; color: #white; }
+        .badge-custom-sub { background-color: #7f96c2; color: white; }
+        
         /* ニュース一行全体のリンクデザイン（ホバー時の調整） */
         .news-item {
             text-decoration: none;
@@ -35,11 +36,17 @@
             transition: transform 0.2s;
         }
 
+        /* ⬇︎ 各セクション間の大きな余白（ゆとりのあるデザインの要） */
+        .my-block {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
         /* ⬇︎ アニメーション */
         .fade-in-section {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(40px); /* 浮き上がる距離を少し長めにして滑らかに */
+            transition: opacity 1.0s ease-out, transform 1.0s ease-out;
         }
         .fade-in-section.is-visible {
             opacity: 1;
@@ -85,8 +92,7 @@
         </div>
     </nav>
 
-    <header id="topCarousel" class="carousel slide carousel-fade shadow-sm position-relative" data-bs-ride="carousel" style="margin-top: -48px; height: 100vh; min-height: 500px; overflow: hidden;">
-        
+    <header class="position-relative shadow-sm" style="margin-top: -48px; height: 100vh; min-height: 500px; background: url('img/test1.png') center/cover no-repeat; overflow: hidden;">
         <div class="position-absolute top-50 start-50 translate-middle w-100 text-center p-3" style="z-index: 3;">
             <div class="mx-auto" style="max-width: 550px; width: 100%;">
                 <img src="img/team-logo.png" alt="BIOMOD Team Science Tokyo" class="img-fluid" style="filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.6));">
@@ -96,61 +102,69 @@
             <span class="small fw-bold" style="letter-spacing: 0.2em; font-size: 0.75rem; opacity: 0.8; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">SCROLL</span>
             <div class="scroll-arrow mx-auto mt-1" style="width: 1px; height: 30px; background-color: rgba(255,255,255,0.8); animation: scrollDown 2s infinite ease-in-out;"></div>
         </div>
-
-        <div class="carousel-indicators" style="z-index: 4; bottom: 10px;">
-            <button type="button" data-bs-target="#topCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-            <button type="button" data-bs-target="#topCarousel" data-bs-slide-to="1"></button>
-        </div>
-
-        <div class="carousel-inner h-100">
-            <div class="carousel-item active h-100" data-bs-interval="4000" style="background: url('img/test1.png') center/cover no-repeat;">
-            </div>
-            <div class="carousel-item h-100" data-bs-interval="4000" style="background: url('img/test2.png') center/cover no-repeat;">
-            </div>
-        </div>
     </header>
 
-    <main class="container my-5" style="max-width: 960px;">
+    <!-- 💡 最大幅をさらに広げて写真のスケール感をアップ -->
+    <main class="container px-3 px-md-0" style="max-width: 900px;">
         
-        <section class="fade-in-section row align-items-center bg-white p-4 p-md-5 rounded shadow-sm mb-5 mx-0">
-            <div class="col-md-5 mb-4 mb-md-0 text-center">
-                <img src="img/test3.jpeg" alt="ABOUT US" class="img-fluid rounded" style="max-height: 200px; object-fit: contain;">
-            </div>
-            <div class="col-md-7">
-                <h2 class="h4 fw-bold border-bottom pb-2 text-custom-blue mb-4">ABOUT US</h2>
-                <p class="mb-2">私たちは、国際的な分子ロボティクス（生体分子ナノテクノロジー）の学生コンテスト「BIOMOD」への出場を目指して活動している、東京科学大学（旧・東京工業大学）の学生チームです。</p>
-                <p class="mb-0">DNAやRNA、タンパク質といった生体分子を巧みに設計し、ナノサイズのロボットや人工細胞の創り出す研究・開発を行っています。</p>
-            </div>
-        </section>
-
-        <section class="fade-in-section row align-items-center bg-white p-4 p-md-5 rounded shadow-sm mb-5 mx-0 flex-md-row-reverse">
-            <div class="col-md-5 mb-4 mb-md-0 text-center">
-                <img src="img/test4.jpeg" alt="SOCIAL MEDIA" class="img-fluid rounded" style="max-height: 200px; object-fit: contain;">
-            </div>
-            <div class="col-md-7">
-                <h2 class="h4 fw-bold border-bottom pb-2 text-custom-blue mb-4">SOCIAL MEDIA</h2>
-                <p class="text-muted mb-4">公式SNSアカウントにて、日々の活動様子や研究の進捗を随時発信しています！</p>
-                <div class="d-flex justify-content-start align-items-center gap-4 ps-2">
-                    <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" class="sns-logo-link">
-                        <img src="img/logo-x.jpeg" alt="公式X" class="rounded shadow-sm" style="width: 60px; height: 60px; object-fit: cover; transition: transform 0.2s;">
-                    </a>
-                    <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" class="sns-logo-link">
-                        <img src="img/logo-instagram.jpeg" alt="公式Instagram" class="rounded shadow-sm" style="width: 60px; height: 60px; object-fit: cover; transition: transform 0.2s;">
-                    </a>
-                    <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" class="sns-logo-link">
-                        <img src="img/logo-youtube.jpeg" alt="公式YouTube" class="rounded shadow-sm" style="width: 60px; height: 60px; object-fit: cover; transition: transform 0.2s;">
-                    </a>
+        <!-- 📸 【ABOUT US 写真セクション】完全に文字と分離して独立させました -->
+        <section class="fade-in-section my-block">
+            <div class="row g-3">
+                <div class="col-md-8">
+                    <!-- 主役の超巨大写真（高さを 420px に拡大！） -->
+                    <img src="img/test2.png" alt="実験風景1" class="img-fluid rounded shadow-sm w-100" style="height: 420px; object-fit: cover;">
+                </div>
+                <div class="col-md-4 d-flex flex-column gap-3">
+                    <!-- 横に並ぶ2枚の写真もサイズをアップ -->
+                    <img src="img/test3.jpeg" alt="実験風景2" class="img-fluid rounded shadow-sm w-100" style="height: 202px; object-fit: cover;">
+                    <img src="img/test3.jpeg" alt="ミーティング" class="img-fluid rounded shadow-sm w-100" style="height: 202px; object-fit: cover;">
                 </div>
             </div>
         </section>
 
-        <section class="fade-in-section bg-white p-4 p-md-5 rounded shadow-sm mb-4">
-            <h2 class="h4 fw-bold border-bottom pb-2 text-custom-blue mb-4">LATEST NEWS</h2>
-            <div class="border-top">
-                <a href="news/20251208.html" class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
-                    <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-3 w-100 overflow-hidden">
+        <!-- ✍️ 【ABOUT US 文章セクション】余計な背景を無くし、文字だけで勝負します -->
+        <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+            <h2 class="display-6 fw-bold text-custom-blue mb-4" style="letter-spacing: 0.1em;">ABOUT US</h2>
+            <div class="mt-4 pt-2">
+                <p class="fs-5 mb-4 text-secondary" style="line-height: 2.0; letter-spacing: 0.05em;">
+                    私たちは、国際的な分子ロボティクス（生体分子ナノテクノロジー）の学生コンテスト「BIOMOD」への出場を目指して活動している、東京科学大学（旧・東京工業大学）の学生チームです。
+                </p>
+                <p class="fs-5 mb-0 text-secondary" style="line-height: 2.0; letter-spacing: 0.05em;">
+                    DNAやRNA、タンパク質といった生体分子を巧みに設計し、ナノサイズのロボットや人工細胞の創り出す研究・開発を行っています。
+                </p>
+            </div>
+        </section>
+
+        <!-- 📸 【SOCIAL MEDIA 写真セクション】 -->
+        <section class="fade-in-section my-block">
+            <img src="img/test4.jpeg" alt="SOCIAL MEDIA IMAGE" class="img-fluid rounded shadow-sm w-100" style="height: 380px; object-fit: cover;">
+        </section>
+
+        <!-- ✍️ 【SOCIAL MEDIA リンクセクション】 -->
+        <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+            <h2 class="display-6 fw-bold text-custom-blue mb-4" style="letter-spacing: 0.1em;">SOCIAL MEDIA</h2>
+            <p class="fs-5 text-muted mb-5" style="letter-spacing: 0.05em;">公式SNSアカウントにて、日々の活動様子や研究の進捗を随時発信しています！</p>
+            <div class="d-flex justify-content-center align-items-center gap-5">
+                <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" class="sns-logo-link">
+                    <img src="img/logo-x.jpeg" alt="公式X" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover; transition: transform 0.2s;">
+                </a>
+                <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" class="sns-logo-link">
+                    <img src="img/logo-instagram.jpeg" alt="公式Instagram" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover; transition: transform 0.2s;">
+                </a>
+                <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" class="sns-logo-link">
+                    <img src="img/logo-youtube.jpeg" alt="公式YouTube" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover; transition: transform 0.2s;">
+                </a>
+            </div>
+        </section>
+
+        <!-- 📄 【LATEST NEWS セクション】ここも白箱を無くして境界線を消しました -->
+        <section class="fade-in-section my-block" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+            <h2 class="display-6 fw-bold text-center text-custom-blue mb-5" style="letter-spacing: 0.1em;">LATEST NEWS</h2>
+            <div class="border-top border-secondary-subtle">
+                <a href="news/20251208.html" class="news-item d-flex align-items-center justify-content-between py-4 border-bottom px-2">
+                    <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                         <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
-                            <time class="text-muted fw-bold small" style="min-width: 90px;">2025.12.08</time>
+                            <time class="text-muted fw-bold" style="min-width: 90px;">2025.12.08</time>
                             <span class="badge badge-custom-sub px-2 py-1.5 small fw-normal" style="min-width: 68px; text-align: center;">活動報告</span>
                         </div>
                         <span class="fw-bold news-title text-wrap text-md-truncate">Science Tokyoニュースにて活動が紹介されました。</span>
@@ -158,10 +172,10 @@
                     <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
                 </a>
 
-                <a href="news/20251019.html" class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
-                    <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-3 w-100 overflow-hidden">
+                <a href="news/20251019.html" class="news-item d-flex align-items-center justify-content-between py-4 border-bottom px-2">
+                    <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                         <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
-                            <time class="text-muted fw-bold small" style="min-width: 90px;">2025.10.19</time>
+                            <time class="text-muted fw-bold" style="min-width: 90px;">2025.10.19</time>
                             <span class="badge badge-custom-sub px-2 py-1.5 small fw-normal" style="min-width: 68px; text-align: center;">大会実績</span>
                         </div>
                         <span class="fw-bold news-title text-wrap text-md-truncate">2025 BIOMOD Jamboreeに参加し、Gold Prize（金賞）を獲得しました。</span>
@@ -188,9 +202,10 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // 一度表示されたら監視を解除して挙動をスムーズに
                 }
             });
-        }, { threshold: 0.1 }); // 項目が10%見えたらアニメーション開始
+        }, { threshold: 0.15 }); // 15%見えたらアニメーション
 
         sections.forEach(section => observer.observe(section));
     </script>
