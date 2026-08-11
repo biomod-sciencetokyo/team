@@ -5,109 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOMOD Team Science Tokyo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* 固定ヘッダーの高さ分全体のコンテンツを下に下げます */
-        body { padding-top: 48px; }
-
-        /* メインブランドカラー */
-        .bg-custom-blue { background-color: #1c3177; }
-        .text-custom-blue { color: #1c3177; }
-        .custom-link { color: #1c3177; text-decoration: underline; }
-        .custom-link:hover { color: #7f96c2; }
-        .sns-logo-link:hover img { transform: scale(1.1); }
-
-        /* カテゴリバッジの色：サブカラー */
-        .badge-custom-sub { background-color: #7f96c2; color: white; }
-        
-        /* ニュース一行全体のリンクデザイン（ホバー時の調整） */
-        .news-item {
-            text-decoration: none;
-            color: #212529;
-            transition: background-color 0.2s, color 0.2s;
-        }
-        .news-item:hover {
-            background-color: #f8f9fa; /* マウスを乗せたら背景を薄いグレーに */
-            color: #1c3177;            /* 文字色をScience Blueに */
-        }
-        .news-item:hover .news-arrow {
-            transform: translateX(5px); /* マウスを乗せたら矢印を右に少し動かす */
-        }
-        .news-arrow {
-            transition: transform 0.2s;
-        }
-
-        /* ⬇︎ 各セクション間の大きな余白（ゆとりのあるデザインの要） */
-        .my-block {
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-
-        /* ⬇︎ アニメーション */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(40px); /* 浮き上がる距離を少し長めにして滑らかに */
-            transition: opacity 1.0s ease-out, transform 1.0s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        @keyframes scrollDown {
-            0% {
-                transform: scaleY(0);
-                transform-origin: top;
-            }
-            50% {
-                transform: scaleY(1);
-                transform-origin: top;
-            }
-            51% {
-                transform: scaleY(1);
-                transform-origin: bottom;
-            }
-            100% {
-                transform: scaleY(0);
-                transform-origin: bottom;
-            }
-        }
-
-        /* ⬇︎ ロゴが後からふわっと浮かび上がるアニメーション設定 */
-        .logo-fade-in {
-            opacity: 0;
-            transform: scale(0.95); /* 最初は少しだけ小さくしておく */
-            /* 💡 0.5秒待ってから、1.2秒かけて滑らかに表示させる設定です */
-            animation: logoUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            animation-delay: 0.5s; 
-        }
-
-        @keyframes logoUp {
-            to {
-                opacity: 1;
-                transform: scale(1); /* 本来のサイズに戻る */
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light text-dark">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-blue shadow-sm fixed-top py-1">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">BIOMOD Science Tokyo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="index.html">TOP</a>
-                    <a class="nav-link" href="about-biomod.html">ABOUT BIOMOD</a>
-                    <a class="nav-link" href="news.html">NEWS</a>
-                    <a class="nav-link" href="contact.html">CONTACT</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- ヘッダーがここに読み込まれる -->
+    <div id="header-placeholder"></div>
 
     <header class="position-relative shadow-sm" style="margin-top: -48px; height: 100vh; min-height: 500px; background: url('img/test1.png') center/cover no-repeat; overflow: hidden;">
         <div class="position-absolute top-50 start-50 translate-middle w-100 text-center p-3" style="z-index: 3;">
@@ -121,25 +24,43 @@
         </div>
     </header>
 
-    <!-- 💡 最大幅をさらに広げて写真のスケール感をアップ -->
     <main class="container px-3 px-md-0" style="max-width: 900px;">
         
-        <!-- 📸 【ABOUT US 写真セクション】完全に文字と分離して独立させました -->
-        <section class="fade-in-section my-block">
-            <div class="row g-3">
-                <div class="col-md-8">
-                    <!-- 主役の超巨大写真（高さを 420px に拡大！） -->
-                    <img src="img/test2.png" alt="実験風景1" class="img-fluid rounded shadow-sm w-100" style="height: 420px; object-fit: cover;">
-                </div>
-                <div class="col-md-4 d-flex flex-column gap-3">
-                    <!-- 横に並ぶ2枚の写真もサイズをアップ -->
-                    <img src="img/test3.jpeg" alt="実験風景2" class="img-fluid rounded shadow-sm w-100" style="height: 202px; object-fit: cover;">
-                    <img src="img/test3.jpeg" alt="ミーティング" class="img-fluid rounded shadow-sm w-100" style="height: 202px; object-fit: cover;">
+        <!-- 横無限スクロール -->
+        <section class="fade-in-section my-block overflow-hidden">
+            <div class="scrolling-wrapper">
+                <div class="scrolling-track">
+                    <!-- 画像セット1 -->
+                    <div class="scrolling-card">
+                        <img src="img/test1.png" alt="風景1" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="scrolling-card">
+                        <img src="img/test2.png" alt="風景2" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="scrolling-card">
+                        <img src="img/test3.jpeg" alt="風景3" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="scrolling-card">
+                        <img src="img/test4.jpeg" alt="風景4" class="img-fluid rounded shadow-sm">
+                    </div>
+
+                    <!-- 画像セット2（ループ用。セット1と全く同じ要素を配置） -->
+                    <div class="scrolling-card">
+                        <img src="img/test1.png" alt="風景1" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="scrolling-card">
+                        <img src="img/test2.png" alt="風景2" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="scrolling-card">
+                        <img src="img/test3.jpeg" alt="風景3" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="scrolling-card">
+                        <img src="img/test4.jpeg" alt="風景4" class="img-fluid rounded shadow-sm">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ✍️ 【ABOUT US 文章セクション】余計な背景を無くし、文字だけで勝負します -->
         <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
             <h2 class="display-6 fw-bold text-custom-blue mb-4" style="letter-spacing: 0.1em;">ABOUT US</h2>
             <div class="mt-4 pt-2">
@@ -150,11 +71,6 @@
                     DNAやRNA、タンパク質といった生体分子を巧みに設計し、ナノサイズのロボットや人工細胞の創り出す研究・開発を行っています。
                 </p>
             </div>
-        </section>
-
-        <!-- 📸 【SOCIAL MEDIA 写真セクション】 -->
-        <section class="fade-in-section my-block">
-            <img src="img/test4.jpeg" alt="SOCIAL MEDIA IMAGE" class="img-fluid rounded shadow-sm w-100" style="height: 380px; object-fit: cover;">
         </section>
 
         <!-- ✍️ 【SOCIAL MEDIA リンクセクション】 -->
@@ -182,7 +98,7 @@
                     <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                         <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                             <time class="text-muted fw-bold" style="min-width: 90px;">2025.12.08</time>
-                            <span class="badge badge-custom-sub px-2 py-1.5 small fw-normal" style="min-width: 68px; text-align: center;">活動報告</span>
+                            <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">活動報告</span>
                         </div>
                         <span class="fw-bold news-title text-wrap text-md-truncate">Science Tokyoニュースにて活動が紹介されました。</span>
                     </div>
@@ -193,7 +109,7 @@
                     <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                         <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                             <time class="text-muted fw-bold" style="min-width: 90px;">2025.10.19</time>
-                            <span class="badge badge-custom-sub px-2 py-1.5 small fw-normal" style="min-width: 68px; text-align: center;">大会実績</span>
+                            <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">大会実績</span>
                         </div>
                         <span class="fw-bold news-title text-wrap text-md-truncate">2025 BIOMOD Jamboreeに参加し、Gold Prize（金賞）を獲得しました。</span>
                     </div>
@@ -208,24 +124,11 @@
 
     </main>
 
-    <footer class="text-center py-4 bg-secondary text-white mt-5">
-        <small>&copy; 2026 BIOMOD Team Science Tokyo</small>
-    </footer>
+   <!-- フッターがここに読み込まれる -->
+    <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // 一度表示されたら監視を解除して挙動をスムーズに
-                }
-            });
-        }, { threshold: 0.15 }); // 15%見えたらアニメーション
-
-        sections.forEach(section => observer.observe(section));
-    </script>
+    <script src="main.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,129 @@
+/* =========================================
+   共通スタイル
+   ========================================= */
+/* 固定ヘッダーの高さ分全体のコンテンツを下に下げます */
+body { padding-top: 48px; }
+
+/* メインブランドカラー */
+.bg-custom-blue { background-color: #1c3177; }
+.text-custom-blue { color: #1c3177; }
+.custom-link { color: #1c3177; text-decoration: underline; }
+.custom-link:hover { color: #7f96c2; }
+.sns-logo-link:hover img { transform: scale(1.1); }
+
+/* カテゴリバッジの色：サブカラー */
+.badge-custom-sub { background-color: #7f96c2; color: white; }
+
+/* ニュース一行全体のリンクデザイン */
+.news-item {
+    text-decoration: none;
+    color: #212529;
+    transition: background-color 0.2s, color 0.2s;
+}
+.news-item:hover {
+    background-color: #f8f9fa;
+    color: #1c3177;
+}
+.news-item:hover .news-arrow {
+    transform: translateX(5px);
+}
+.news-arrow {
+    transition: transform 0.2s;
+}
+
+/* 各セクション間の大きな余白 */
+.my-block {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/* スクロール時のフェードインアニメーション */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.0s ease-out, transform 1.0s ease-out;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   各ページ固有のスタイル
+   ========================================= */
+
+/* --- index.html 固有 --- */
+@keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.logo-fade-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: logoUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.5s; 
+}
+@keyframes logoUp {
+    to { opacity: 1; transform: scale(1); }
+}
+/* =========================================
+   横無限スクロールアニメーション
+   ========================================= */
+
+.scrolling-wrapper {
+    width: 100%;
+    /* 画面幅全体に広げたい場合は以下の2行を有効化 */
+    /* width: 100vw; */
+    /* margin-left: calc(50% - 50vw); */
+}
+
+.scrolling-track {
+    display: flex;
+    width: max-content;
+    /* 30秒かけて半分の位置（1セット分）まで移動し、0に戻るループ */
+    animation: scroll-left 30s linear infinite;
+}
+
+.scrolling-card {
+    width: 300px; /* 写真の幅 */
+    padding-right: 20px; /* 写真間の余白。ループ計算を狂わせないため margin や gap ではなく padding を使用 */
+    flex-shrink: 0;
+}
+
+.scrolling-card img {
+    width: 100%;
+    height: 220px; /* 写真の高さ */
+    object-fit: cover;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* 全体の半分の幅（セット1周分）移動 */
+        transform: translateX(-50%);
+    }
+}
+
+/* --- about-biomod.html 固有 --- */
+.text-custom-sub { color: #7f96c2; }
+.border-custom-sub { border-color: #7f96c2 !important; }
+
+
+/* --- contact.html 固有 --- */
+.btn-custom-contact {
+    border: 2px solid #7f96c2;
+    color: #1c3177;
+    transition: all 0.3s ease;
+}
+.btn-custom-contact:hover {
+    background-color: #1c3177;
+    border-color: #1c3177;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 無効だったプロパティを修正 */
+}

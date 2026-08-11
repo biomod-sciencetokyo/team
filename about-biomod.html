@@ -5,40 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABOUT BIOMOD | BIOMOD Team Science Tokyo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* 固定ヘッダーの高さ分全体のコンテンツを下に下げます */
-        body { padding-top: 48px; }
-
-        /* メインブランドカラー：Science Blue */
-        .bg-custom-blue { background-color: #1c3177; }
-        .text-custom-blue { color: #1c3177; }
-        
-        /* サブカラー：引き立て色 */
-        .text-custom-sub { color: #7f96c2; }
-        .border-custom-sub { border-color: #7f96c2 !important; }
-        .badge-custom-sub { background-color: #7f96c2; color: white; }
-        
-        /* リンクの色もブランドカラーに合わせて調整 */
-        .custom-link { color: #1c3177; text-decoration: underline; }
-        .custom-link:hover { color: #7f96c2; }
-
-        /* ⬇︎ 各セクション間の大きな余白（ゆとりのあるデザインの要） */
-        .my-block {
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-
-        /* ⬇︎ アニメーション */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1.0s ease-out, transform 1.0s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light text-dark">
 
@@ -173,18 +140,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // 一度表示されたら監視を解除して挙動をスムーズに
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => observer.observe(section));
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
