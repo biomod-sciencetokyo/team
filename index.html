@@ -24,101 +24,105 @@
         </div>
     </header>
 
-    <main class="container px-3 px-md-0" style="max-width: 900px;">
+    <main class="w-100 overflow-hidden">
         
-        <!-- 横無限スクロール -->
-        <section class="fade-in-section my-block overflow-hidden">
-            <div class="scrolling-wrapper">
-                <div class="scrolling-track">
-                    <!-- 画像セット1 -->
-                    <div class="scrolling-card">
-                        <img src="img/test1.png" alt="風景1" class="img-fluid rounded shadow-sm">
-                    </div>
-                    <div class="scrolling-card">
-                        <img src="img/test2.png" alt="風景2" class="img-fluid rounded shadow-sm">
-                    </div>
-                    <div class="scrolling-card">
-                        <img src="img/test3.jpeg" alt="風景3" class="img-fluid rounded shadow-sm">
-                    </div>
-                    <div class="scrolling-card">
-                        <img src="img/test4.jpeg" alt="風景4" class="img-fluid rounded shadow-sm">
+        <!-- 1. ABOUT US & ギャラリー（テキストと画像の統合レイアウト） -->
+        <section class="fade-in-section section-padding bg-white">
+            <div class="container px-3 px-md-0" style="max-width: 1000px;"> <!-- 画像と並べるため最大幅を少し広げています -->
+                <div class="row align-items-center gx-5 gy-5">
+                    
+                    <!-- 左側：テキストエリア -->
+                    <div class="col-lg-5">
+                        <!-- 見出しに左線のアクセントを追加 -->
+                        <div class="border-start border-custom-blue border-3 ps-3 mb-4">
+                            <span class="text-custom-sub fw-bold small tracking-widest d-block mb-1">WHO WE ARE</span>
+                            <h2 class="display-6 fw-bold text-custom-blue m-0">ABOUT US</h2>
+                        </div>
+                        <p class="fs-5 text-secondary mb-3" style="line-height: 1.9;">
+                            私たちは、国際的な分子ロボティクス（生体分子ナノテクノロジー）の学生コンテスト「BIOMOD」への出場を目指して活動している、東京科学大学の学生チームです。
+                        </p>
+                        <p class="fs-6 text-muted mb-0" style="line-height: 1.8;">
+                            DNAやRNA、タンパク質といった生体分子を巧みに設計し、ナノサイズのロボットや人工細胞を創り出す研究・開発を行っています。
+                        </p>
                     </div>
 
-                    <!-- 画像セット2（ループ用。セット1と全く同じ要素を配置） -->
-                    <div class="scrolling-card">
-                        <img src="img/test1.png" alt="風景1" class="img-fluid rounded shadow-sm">
+                    <!-- 画像ギャラリー -->
+                    <div class="col-lg-7">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <img src="img/test1.png" alt="風景1" class="img-fluid w-100 rounded-3 shadow-sm" style="height: 100%; min-height: 368px; object-fit: cover;">
+                            </div>
+                            <div class="col-6 d-flex flex-column gap-2">
+                                <img src="img/test2.png" alt="風景2" class="img-fluid w-100 rounded-3 shadow-sm" style="height: 180px; object-fit: cover;">
+                                <img src="img/test3.jpeg" alt="風景3" class="img-fluid w-100 rounded-3 shadow-sm" style="height: 180px; object-fit: cover;">
+                            </div>
+                        </div>
                     </div>
-                    <div class="scrolling-card">
-                        <img src="img/test2.png" alt="風景2" class="img-fluid rounded shadow-sm">
-                    </div>
-                    <div class="scrolling-card">
-                        <img src="img/test3.jpeg" alt="風景3" class="img-fluid rounded shadow-sm">
-                    </div>
-                    <div class="scrolling-card">
-                        <img src="img/test4.jpeg" alt="風景4" class="img-fluid rounded shadow-sm">
-                    </div>
+
                 </div>
             </div>
         </section>
 
-        <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-            <h2 class="display-6 fw-bold text-custom-blue mb-4" style="letter-spacing: 0.1em;">ABOUT US</h2>
-            <div class="mt-4 pt-2">
-                <p class="fs-5 mb-4 text-secondary" style="line-height: 2.0; letter-spacing: 0.05em;">
-                    私たちは、国際的な分子ロボティクス（生体分子ナノテクノロジー）の学生コンテスト「BIOMOD」への出場を目指して活動している、東京科学大学（旧・東京工業大学）の学生チームです。
-                </p>
-                <p class="fs-5 mb-0 text-secondary" style="line-height: 2.0; letter-spacing: 0.05em;">
-                    DNAやRNA、タンパク質といった生体分子を巧みに設計し、ナノサイズのロボットや人工細胞の創り出す研究・開発を行っています。
-                </p>
+       <!-- 3. SOCIAL MEDIA -->
+        <section class="fade-in-section section-padding bg-light text-center">
+            <div class="container px-3 px-md-0" style="max-width: 800px;">
+                <span class="text-custom-sub fw-bold small tracking-widest d-block mb-2">OFFICIAL ACCOUNTS</span>
+                <h2 class="display-6 fw-bold text-custom-blue mb-3">SOCIAL MEDIA</h2>
+                <p class="text-secondary mb-5 fs-6">公式SNSにて、日々の活動様子や研究の進捗を随時発信しています。</p>
+                
+                <div class="d-flex justify-content-center align-items-center gap-4 gap-md-5">
+                    <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" class="sns-card">
+                        <img src="img/logo-x.jpeg" alt="公式X" class="rounded-4 shadow-sm">
+                    </a>
+                    <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" class="sns-card">
+                        <img src="img/logo-instagram.jpeg" alt="公式Instagram" class="rounded-4 shadow-sm">
+                    </a>
+                    <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" class="sns-card">
+                        <img src="img/logo-youtube.jpeg" alt="公式YouTube" class="rounded-4 shadow-sm">
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- ✍️ 【SOCIAL MEDIA リンクセクション】 -->
-        <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-            <h2 class="display-6 fw-bold text-custom-blue mb-4" style="letter-spacing: 0.1em;">SOCIAL MEDIA</h2>
-            <p class="fs-5 text-muted mb-5" style="letter-spacing: 0.05em;">公式SNSアカウントにて、日々の活動様子や研究の進捗を随時発信しています！</p>
-            <div class="d-flex justify-content-center align-items-center gap-5">
-                <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" class="sns-logo-link">
-                    <img src="img/logo-x.jpeg" alt="公式X" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover; transition: transform 0.2s;">
-                </a>
-                <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" class="sns-logo-link">
-                    <img src="img/logo-instagram.jpeg" alt="公式Instagram" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover; transition: transform 0.2s;">
-                </a>
-                <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" class="sns-logo-link">
-                    <img src="img/logo-youtube.jpeg" alt="公式YouTube" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover; transition: transform 0.2s;">
-                </a>
-            </div>
-        </section>
-
-        <!-- 📄 【LATEST NEWS セクション】ここも白箱を無くして境界線を消しました -->
-        <section class="fade-in-section my-block" style="max-width: 800px; margin-left: auto; margin-right: auto;">
-            <h2 class="display-6 fw-bold text-center text-custom-blue mb-5" style="letter-spacing: 0.1em;">LATEST NEWS</h2>
-            <div class="border-top border-secondary-subtle">
-                <a href="news/20251208.html" class="news-item d-flex align-items-center justify-content-between py-4 border-bottom px-2">
-                    <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
-                        <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
-                            <time class="text-muted fw-bold" style="min-width: 90px;">2025.12.08</time>
-                            <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">活動報告</span>
-                        </div>
-                        <span class="fw-bold news-title text-wrap text-md-truncate">Science Tokyoニュースにて活動が紹介されました。</span>
+        <!-- 4. LATEST NEWS -->
+        <section class="fade-in-section section-padding bg-white">
+            <div class="container px-3 px-md-0" style="max-width: 800px;">
+                <div class="d-flex justify-content-between align-items-end mb-4">
+                    <div>
+                        <span class="text-custom-sub fw-bold small tracking-widest d-block mb-1">INFORMATION</span>
+                        <h2 class="display-6 fw-bold text-custom-blue mb-0">LATEST NEWS</h2>
                     </div>
-                    <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
-                </a>
+                    <a href="news.html" class="small text-decoration-none text-custom-blue fw-bold d-none d-md-inline">過去のニュース一覧 ＞</a>
+                </div>
 
-                <a href="news/20251019.html" class="news-item d-flex align-items-center justify-content-between py-4 border-bottom px-2">
-                    <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
-                        <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
-                            <time class="text-muted fw-bold" style="min-width: 90px;">2025.10.19</time>
-                            <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">大会実績</span>
+                <!-- 白背景のカードとしてまとめ、影をつける -->
+                <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 border">
+                    <a href="news/20251208.html" class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
+                        <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
+                            <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
+                                <time class="text-muted fw-bold" style="min-width: 90px;">2025.12.08</time>
+                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">活動報告</span>
+                            </div>
+                            <span class="fw-bold news-title text-wrap text-md-truncate">Science Tokyoニュースにて活動が紹介されました。</span>
                         </div>
-                        <span class="fw-bold news-title text-wrap text-md-truncate">2025 BIOMOD Jamboreeに参加し、Gold Prize（金賞）を獲得しました。</span>
-                    </div>
-                    <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
-                </a>
-            </div>
+                        <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
+                    </a>
 
-            <div class="text-end mt-4">
-                <a href="news.html" class="small text-decoration-none text-custom-blue fw-bold">過去のニュース一覧 ＞</a>
+                    <a href="news/20251019.html" class="news-item d-flex align-items-center justify-content-between py-3 px-2">
+                        <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
+                            <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
+                                <time class="text-muted fw-bold" style="min-width: 90px;">2025.10.19</time>
+                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">大会実績</span>
+                            </div>
+                            <span class="fw-bold news-title text-wrap text-md-truncate">2025 BIOMOD Jamboreeに参加し、Gold Prize（金賞）を獲得しました。</span>
+                        </div>
+                        <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
+                    </a>
+                </div>
+
+                <div class="text-center mt-4 d-md-none">
+                    <a href="news.html" class="small text-decoration-none text-custom-blue fw-bold">過去のニュース一覧 ＞</a>
+                </div>
             </div>
         </section>
 

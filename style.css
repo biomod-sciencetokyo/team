@@ -71,44 +71,40 @@ body { padding-top: 48px; }
 @keyframes logoUp {
     to { opacity: 1; transform: scale(1); }
 }
+
 /* =========================================
-   横無限スクロールアニメーション
+   トップページ レイアウト調整スタイル
    ========================================= */
 
-.scrolling-wrapper {
-    width: 100%;
-    /* 画面幅全体に広げたい場合は以下の2行を有効化 */
-    /* width: 100vw; */
-    /* margin-left: calc(50% - 50vw); */
+/* 各セクションの上下パディング（my-blockの代わりに使用） */
+.section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-.scrolling-track {
-    display: flex;
-    width: max-content;
-    /* 30秒かけて半分の位置（1セット分）まで移動し、0に戻るループ */
-    animation: scroll-left 30s linear infinite;
+/* 文字間隔の広がり（見出し上の英字用） */
+.tracking-widest {
+    letter-spacing: 0.15em;
 }
 
-.scrolling-card {
-    width: 300px; /* 写真の幅 */
-    padding-right: 20px; /* 写真間の余白。ループ計算を狂わせないため margin や gap ではなく padding を使用 */
-    flex-shrink: 0;
+/* PCサイズ時の縦区切り線 */
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 3px solid #1c3177 !important;
+    }
 }
 
-.scrolling-card img {
-    width: 100%;
-    height: 220px; /* 写真の高さ */
+/* SOCIAL MEDIA セクションのアイコンスタイル */
+.sns-card img {
+    width: 75px;
+    height: 75px;
     object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* 全体の半分の幅（セット1周分）移動 */
-        transform: translateX(-50%);
-    }
+.sns-card:hover img {
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* --- about-biomod.html 固有 --- */
