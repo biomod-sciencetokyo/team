@@ -49,6 +49,8 @@ body { padding-top: 48px; }
 }
 
 
+
+
 /* =========================================
    各ページ固有のスタイル
    ========================================= */
@@ -126,4 +128,34 @@ body { padding-top: 48px; }
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 無効だったプロパティを修正 */
+}
+
+
+
+/* =========================================
+   フッターデザイン
+   ========================================= */
+
+/* スムーススクロールの設定（ページ全体に適用） */
+html {
+    scroll-behavior: smooth;
+}
+
+/* フッターのリンクホバー時アニメーション（修正版） */
+.footer-link {
+    display: inline-block; /* 動きを安定させ、transformを有効にするため追加 */
+    transition: color 0.2s, transform 0.2s;
+}
+.footer-link:hover {
+    color: #7f96c2 !important;
+    transform: translateX(6px); /* padding-left の代わりに、右方向へ6px移動させる */
+}
+
+/* Back to top ボタンのホバー設定 */
+.back-to-top {
+    transition: all 0.3s ease;
+}
+.back-to-top:hover {
+    background-color: white;
+    color: #6c757d; /* 背景と同じグレー（bg-secondaryのカラーコード） */
 }
