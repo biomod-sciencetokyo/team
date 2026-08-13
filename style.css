@@ -147,11 +147,10 @@ html {
     transform: translateX(6px); /* padding-left の代わりに、右方向へ6px移動させる */
 }
 
-/* Back to top ボタンのホバー設定 */
-.back-to-top {
-    transition: all 0.3s ease;
+/* Back to top テキストリンクのホバー設定 */
+.back-to-top-text {
+    transition: color 0.3s ease;
 }
-.back-to-top:hover {
-    background-color: white;
-    color: #6c757d; /* 背景と同じグレー（bg-secondaryのカラーコード） */
+.back-to-top-text:hover {
+    color: #ffffff !important;
 }

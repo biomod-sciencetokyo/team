@@ -1,16 +1,19 @@
-<footer class="bg-secondary text-white pt-5 pb-4 mt-5">
-    <div class="container px-3 px-md-0" style="max-width: 900px;">
-        <div class="row gx-5 align-items-center">
+<footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container px-3 px-md-0" style="max-width: 1000px;">
+        <!-- align-items-center を削除し、自然な上端揃えに変更 -->
+        <div class="row gx-5">
             
             <!-- 左側：ロゴ -->
             <div class="col-md-6 mb-4 mb-md-0">
-                <img src="img/team-logo.png" alt="BIOMOD Team Science Tokyo" class="img-fluid" style="max-width: 300px;">
+                <!-- filter: brightness(0) invert(1); で画像を白抜きに変換 -->
+                <img src="logo/team-text.png" alt="BIOMOD Team Science Tokyo" class="img-fluid" style="max-width: 250px; filter: brightness(0) invert(1); opacity: 0.9;">
             </div>
             
             <!-- 右側：サイトマップ（リンク集） -->
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div>
-                    <h6 class="fw-bold mb-3" style="letter-spacing: 0.1em;">MENU</h6>
+                    <!-- タイトルの存在感を少し抑えるために text-white-50 を追加 -->
+                    <h6 class="fw-bold mb-3 text-white-50" style="letter-spacing: 0.1em; font-size: 0.85rem;">MENU</h6>
                     <ul class="list-unstyled mb-0 small" style="line-height: 2.2;">
                         <li><a href="index.html" class="text-white text-decoration-none footer-link">TOP</a></li>
                         <li><a href="about-biomod.html" class="text-white text-decoration-none footer-link">ABOUT BIOMOD</a></li>
@@ -21,14 +24,14 @@
             </div>
         </div>
 
-        <hr class="mt-5 mb-4 border-white" style="opacity: 0.2;">
+        <hr class="mt-5 mb-4 border-white" style="opacity: 0.15;">
 
         <!-- 下部：コピーライトとトップへ戻るボタン -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
             <small class="text-white-50 mb-3 mb-md-0">&copy; 2026 BIOMOD Team Science Tokyo</small>
-            <!-- ページ上部へスクロールするボタン -->
-            <a href="#" class="btn btn-outline-light rounded-pill btn-sm px-4 py-2 fw-bold back-to-top" style="letter-spacing: 0.05em;">
-                ↑ Back to top page
+            <!-- 枠線ボタンを廃止し、シンプルなテキストリンクに変更 -->
+            <a href="#" class="text-white-50 text-decoration-none small fw-bold back-to-top-text" style="letter-spacing: 0.05em;">
+                Back to top &uarr;
             </a>
         </div>
     </div>

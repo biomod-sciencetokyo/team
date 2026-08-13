@@ -7,12 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light text-dark">
+<body class="bg-white text-dark">
 
-    <!-- ヘッダーがここに読み込まれる -->
     <div id="header-placeholder"></div>
 
-    <main class="container px-3 px-md-0" style="max-width: 800px;">
+    <main class="container px-3 px-md-0" style="max-width: 1000px;">
         
         <div class="text-center" style="margin-top: 80px; margin-bottom: 60px;">
             <h1 class="display-5 fw-bold text-custom-blue" style="letter-spacing: 0.1em;">ABOUT BIOMOD</h1>
@@ -21,48 +20,69 @@
         
         <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
             <h2 class="h4 fw-bold text-custom-blue mb-4 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em;">BIOMODとは？</h2>
-            <div class="mt-3">
-                <p class="fs-5 mb-3 text-secondary" style="line-height: 2.0; letter-spacing: 0.03em;">
-                    BIOMOD（Bio-Molecular Design Competition＝バイオモデット）は、大学の学部生を対象とした、生体分子ナノテクノロジーの国際ロボットコンテストです。
+            
+            <div class="mx-auto mt-4 text-start">
+                <p class="fs-5 mb-3 text-secondary" style="line-height: 1.9; letter-spacing: 0.03em;">
+                    BIOMOD（Bio-Molecular Design Competition）は、大学の学部生を対象とした、生体分子ナノテクノロジーの国際ロボットコンテストです。
                 </p>
-                <p class="fs-5 mb-0 text-secondary" style="line-height: 2.0; letter-spacing: 0.03em;">
+                <p class="fs-5 mb-0 text-secondary" style="line-height: 1.9; letter-spacing: 0.03em;">
                     2011年にハーバード大学のWyss研究所によって創設され、世界中から未来の科学者・エンジニアを目指す学生チームが集まり、そのアイデアと技術力を競い合います。
                 </p>
             </div>
         </section>
 
-        <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-            <h2 class="h4 fw-bold text-custom-blue mb-4 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em;">何を創る大会なのか？</h2>
-            <div class="mt-3">
-                <p class="fs-5 mb-3 text-secondary" style="line-height: 2.0; letter-spacing: 0.03em;">
-                    学生たちは、DNA、RNA、タンパク質といった「生き物の体を作っている微小な材料」を意図した通りに設計・制御（プログラミング）し、ナノサイズ（1ミリの100万分の1）のロボットや分子システムを創り出します。
-                </p>
-                <p class="fs-5 mb-0 text-secondary" style="line-height: 2.0; letter-spacing: 0.03em;">
-                    例えば、「がん細胞だけを見つけて薬を届けるカプセル」や「特定の成分に反応して動くナノモーター」など、医療や環境、材料工学の未来を変えるアイデアを形にします。
-                </p>
+        <!-- 何を創る大会なのか？ -->
+        <section class="fade-in-section my-block">
+            <h2 class="h4 fw-bold text-center text-custom-blue mb-5 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em; max-width: 720px; margin: 0 auto;">何を創る大会なのか？</h2>
+            
+            <div class="row align-items-center gx-5">
+                <!-- スマホ：上 / PC：左 -->
+                <div class="col-md-6 order-1 order-md-1 mb-4 mb-md-0">
+                    <p class="fs-5 mb-3 text-secondary" style="line-height: 2.0; letter-spacing: 0.03em;">
+                        学生たちは、DNA、RNA、タンパク質といった「生き物の体を作っている微小な材料」を意図した通りに設計・制御し、ナノサイズのロボットや分子システムを創り出します。
+                    </p>
+                    <p class="fs-5 mb-0 text-secondary" style="line-height: 2.0; letter-spacing: 0.03em;">
+                        例えば、「がん細胞だけを見つけて薬を届けるカプセル」や「特定の成分に反応して動くナノモーター」など、医療や環境、材料工学の未来を変えるアイデアを形にします。
+                    </p>
+                </div>
+                <!-- スマホ：下 / PC：右 -->
+                <div class="col-md-6 order-2 order-md-2">
+                    <img src="img/a-b1.png" alt="何を創る大会なのか？" class="img-fluid rounded-3 shadow-sm border w-100">
+                </div>
             </div>
         </section>
 
-        <section class="fade-in-section my-block" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-            <h2 class="h4 fw-bold text-center text-custom-blue mb-4 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em;">審査の仕組み</h2>
-            <p class="fs-5 text-center text-secondary mb-4" style="line-height: 2.0;">大会での評価は、実験データの正確さだけでなく、以下の3つの総合力で審査されます。</p>
-            <div class="bg-white p-4 rounded shadow-sm">
-                <ul class="list-unstyled mb-0 fs-5 text-secondary" style="line-height: 1.8;">
-                    <li class="mb-3 d-flex align-items-start">
-                        <span class="text-custom-blue fw-bold me-2">・</span>
-                        <div><strong>ウェブサイト（Wiki）の制作：</strong><br><span class="fs-6 text-muted">研究内容を世界に向けて分かりやすく解説するサイトの構築</span></div>
-                    </li>
-                    <li class="mb-3 d-flex align-items-start">
-                        <span class="text-custom-blue fw-bold me-2">・</span>
-                        <div><strong>紹介動画の制作：</strong><br><span class="fs-6 text-muted">プロジェクトの魅力を伝える3分間のYouTube動画</span></div>
-                    </li>
-                    <li class="d-flex align-items-start">
-                        <span class="text-custom-blue fw-bold me-2">・</span>
-                        <div><strong>プレゼンテーション：</strong><br><span class="fs-6 text-muted">大会当日に英語で行う、研究成果の発表</span></div>
-                    </li>
-                </ul>
+        <!-- 審査の仕組み -->
+        <section class="fade-in-section my-block">
+            <h2 class="h4 fw-bold text-center text-custom-blue mb-5 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em; max-width: 720px; margin: 0 auto;">審査の仕組み</h2>
+            
+            <div class="row align-items-center gx-5">
+                <!-- スマホ：下 / PC：左 -->
+                <div class="col-md-6 order-2 order-md-1">
+                    <img src="img/a-b2.png" alt="審査の仕組み" class="img-fluid rounded-3 shadow-sm border w-100">
+                </div>
+                <!-- スマホ：上 / PC：右 -->
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <p class="fs-5 text-secondary mb-4" style="line-height: 2.0;">大会での評価は、実験データの正確さだけでなく、以下の3つの総合力で審査されます。</p>
+                    <div class="bg-light p-4 rounded-3 border shadow-sm">
+                        <ul class="list-unstyled mb-0 fs-5 text-secondary" style="line-height: 1.8;">
+                            <li class="mb-3 d-flex align-items-start">
+                                <span class="text-custom-blue fw-bold me-2">・</span>
+                                <div><strong>ウェブサイト（Wiki）の制作：</strong><br><span class="fs-6 text-muted">研究内容を世界に向けて分かりやすく解説するサイトの構築</span></div>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start">
+                                <span class="text-custom-blue fw-bold me-2">・</span>
+                                <div><strong>紹介動画の制作：</strong><br><span class="fs-6 text-muted">プロジェクトの魅力を伝える3分間のYouTube動画</span></div>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <span class="text-custom-blue fw-bold me-2">・</span>
+                                <div><strong>プレゼンテーション：</strong><br><span class="fs-6 text-muted">大会当日に英語で行う、研究成果の発表</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="mt-4 mb-0 small">&emsp;詳しくは<a href="http://biomod.net/" target="_blank" class="custom-link fw-bold">BIOMOD公式ホームページ</a>をご参照ください。</p>
+                </div>
             </div>
-            <p class="text-center mt-4 mb-0 small">&emsp;詳しくは<a href="http://biomod.net/" target="_blank" class="custom-link fw-bold">BIOMOD公式ホームページ</a>をご参照ください。</p>
         </section>
 
         <hr class="my-5 border-secondary-subtle">
@@ -74,21 +94,30 @@
                     Bow-like DNA bending method using Avidin–Biotin binding<br>
                     <span class="fs-5 text-muted fw-normal">（アビジン‐ビオチン結合を利用した弓状DNA変形法）</span>
                 </h2>
-                <p class="text-muted mt-3 fs-5">※ここにプロジェクトの概要テキストが入ります。</p>
                 
-                <div class="mt-4">
+                <!-- テキスト幅を制限し、左揃え（text-start）で読みやすく配置 -->
+                <div class="mx-auto mt-4 text-start" style="max-width: 720px;">
+                    <p class="text-secondary fs-5" style="line-height: 1.9;">
+                        従来のDNAオリガミを曲げる手法は、周囲の環境変化に弱く設計が複雑になるという課題を抱えていました。そこで本プロジェクトでは、極めて強固で安定した「アビジン-ビオチン結合」を利用し、DNAを弓の弦のように引き絞って湾曲させる新しいツールを提案します。
+                    </p>
+                    <p class="text-secondary fs-5 mb-0" style="line-height: 1.9;">
+                        結合部位の距離やリンカーの長さを調整することで曲げ角度を精密に制御し、あらゆる環境下で安定するDNA3D曲面構造の自在な設計を目指しています。
+                    </p>
+                </div>
+                
+                <div class="mt-5">
                     <a href="https://sites.google.com/view/biomod2025siencetokyo/home?authuser=0" target="_blank" class="btn btn-outline-primary border-custom-sub text-custom-blue fw-bold px-4 py-2 rounded-pill shadow-sm custom-btn" style="transition: all 0.3s;">
-                        🔗 2025 プロジェクトWikiを見る ＞
+                        2025 プロジェクトWikiを見る ＞
                     </a>
                 </div>
             </div>
 
-            <div class="ratio ratio-16x9 rounded shadow overflow-hidden mt-4 mx-auto" style="max-width: 100%;">
+            <div class="ratio ratio-16x9 rounded-3 border shadow-sm overflow-hidden mt-4 mx-auto" style="max-width: 90%;">
                 <iframe src="https://www.youtube.com/embed/YCwQNmHV13E" 
                         title="2025 BIOMOD Team Science Tokyo Video" 
                         style="border:0;" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
+                        loading="lazy" allowfullscreen>
                 </iframe>
             </div>
         </section>
@@ -97,28 +126,35 @@
             <div class="text-center mb-4">
                 <span class="badge badge-custom-sub px-3 py-2 mb-2 fs-6 fw-normal">2024 PROJECT</span>
                 <h2 class="h3 fw-bold text-custom-blue mt-2" style="letter-spacing: 0.05em;">Micro Pill Bug</h2>
-                <p class="text-muted mt-3 fs-5">※ここにプロジェクトの概要テキストが入ります。</p>
                 
-                <div class="mt-4">
+                <!-- テキスト幅を制限し、左揃え（text-start）で読みやすく配置 -->
+                <div class="mx-auto mt-4 text-start" style="max-width: 720px;">
+                    <p class="text-secondary fs-5" style="line-height: 1.9;">
+                        がんなどの早期発見の鍵として注目されるmiRNAですが、生体内の酵素（RNase）によって容易に分解されてしまうため、不安定なmiRNAの研究はこれまで困難でした。
+                    </p>
+                    <p class="text-secondary fs-5 mb-0" style="line-height: 1.9;">
+                        本プロジェクトでは、ダンゴムシのように丸まって標的を保護する分子ロボット「Nano Pill Bug」を開発しました。DNAオリガミの曲げ応力をトラップのように利用することで、極微量のmiRNAを瞬時に捕捉・カプセル化し、酵素による分解から守り抜く新しいデバイスの形を提案します。
+                    </p>
+                </div>
+                
+                <div class="mt-5">
                     <a href="https://t2biomod2024.github.io/2024/index.html" target="_blank" class="btn btn-outline-primary border-custom-sub text-custom-blue fw-bold px-4 py-2 rounded-pill shadow-sm" style="transition: all 0.3s;">
-                        🔗 2024 プロジェクトWikiを見る ＞
+                        2024 プロジェクトWikiを見る ＞
                     </a>
                 </div>
             </div>
 
-            <div class="ratio ratio-16x9 rounded shadow overflow-hidden mt-4 mx-auto" style="max-width: 100%;">
+            <div class="ratio ratio-16x9 rounded-3 border shadow-sm overflow-hidden mt-4 mx-auto" style="max-width: 90%;">
                 <iframe src="https://www.youtube.com/embed/9RaOfTSrvvM" 
                     title="2024 BIOMOD Team Science Tokyo Video" 
                     style="border:0;" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
+                    loading="lazy" allowfullscreen>
                 </iframe>
             </div>
         </section>
-
     </main>
 
-    <!-- フッターがここに読み込まれる -->
     <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

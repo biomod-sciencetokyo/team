@@ -7,12 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light text-dark">
+<body class="bg-white text-dark">
 
-    <!-- ヘッダーがここに読み込まれる -->
     <div id="header-placeholder"></div>
 
-    <main class="container px-3 px-md-0" style="max-width: 800px;">
+    <main class="container px-3 px-md-0" style="max-width: 1000px;">
         
         <div class="text-center" style="margin-top: 80px; margin-bottom: 60px;">
             <h1 class="display-5 fw-bold text-custom-blue" style="letter-spacing: 0.1em;">NEWS</h1>
@@ -20,9 +19,10 @@
         </div>
             
         <section class="fade-in-section my-block">
-            <div class="border-top border-secondary-subtle">
+            <!-- トップページのLATEST NEWSと同様に、全体を白背景のカードで囲むデザインに統一 -->
+            <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 border">
                 
-                <a href="news/20251208.html" class="news-item d-flex align-items-center justify-content-between py-4 border-bottom px-2">
+                <a href="news/20251208.html" class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
                     <div class="d-flex align-items-start align-items-md-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                         <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                             <time class="text-muted fw-bold" style="min-width: 90px;">2025.12.08</time>
@@ -33,7 +33,7 @@
                     <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
                 </a>
 
-                <a href="news/20251019.html" class="news-item d-flex align-items-center justify-content-between py-4 border-bottom px-2">
+                <a href="news/20251019.html" class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
                     <div class="d-flex align-items-start align-items-md-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                         <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                             <time class="text-muted fw-bold" style="min-width: 90px;">2025.10.19</time>
@@ -44,7 +44,7 @@
                     <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
                 </a>
 
-                <a href="news/20241124.html" class="news-item d-flex align-items-center justify-content-between py-4 border-bottom px-2">
+                <a href="news/20241124.html" class="news-item d-flex align-items-center justify-content-between py-3 px-2">
                     <div class="d-flex align-items-start align-items-md-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                         <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                             <time class="text-muted fw-bold" style="min-width: 90px;">2024.11.24</time>
@@ -57,10 +57,8 @@
 
             </div>
         </section>
-
     </main>
 
-    <!-- フッターがここに読み込まれる -->
     <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
