@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-light text-dark">
 
     <!-- ヘッダーがここに読み込まれる -->
     <div id="header-placeholder"></div>
 
-    <header class="position-relative shadow-sm" style="margin-top: -48px; height: 100vh; min-height: 500px; background: url('img/test1.png') center/cover no-repeat; overflow: hidden;">
+    <header class="position-relative shadow-sm"
+        style="margin-top: -48px; height: 100vh; min-height: 500px; background: url('img/test1.png') center/cover no-repeat; overflow: hidden;">
         <div class="position-absolute top-50 start-50 translate-middle w-100 text-center p-3" style="z-index: 3;">
             <div class="mx-auto" style="max-width: 550px; width: 100%;">
-                <img src="logo/team.png" alt="BIOMOD Team Science Tokyo" class="img-fluid logo-fade-in" style="filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.6));">
+                <img src="logo/team.png" alt="BIOMOD Team Science Tokyo" class="img-fluid logo-fade-in"
+                    style="filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.6));">
             </div>
         </div>
-        <div class="position-absolute bottom-0 start-50 translate-middle-x text-center text-white pb-4" style="z-index: 3;">
-            <span class="small fw-bold" style="letter-spacing: 0.2em; font-size: 0.75rem; opacity: 0.8; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">SCROLL</span>
-            <div class="scroll-arrow mx-auto mt-1" style="width: 1px; height: 30px; background-color: rgba(255,255,255,0.8); animation: scrollDown 2s infinite ease-in-out;"></div>
+        <div class="position-absolute bottom-0 start-50 translate-middle-x text-center text-white pb-4"
+            style="z-index: 3;">
+            <span class="small fw-bold"
+                style="letter-spacing: 0.2em; font-size: 0.75rem; opacity: 0.8; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">SCROLL</span>
+            <div class="scroll-arrow mx-auto mt-1"
+                style="width: 1px; height: 30px; background-color: rgba(255,255,255,0.8); animation: scrollDown 2s infinite ease-in-out;">
+            </div>
         </div>
     </header>
 
     <main class="w-100 overflow-hidden">
-        
+
         <!-- 1. ABOUT US & ギャラリー（テキストと画像の統合レイアウト） -->
         <section class="fade-in-section section-padding bg-white">
             <div class="container px-3 px-md-0" style="max-width: 1000px;"> <!-- 画像と並べるため最大幅を少し広げています -->
                 <div class="row align-items-center gx-5 gy-5">
-                    
+
                     <!-- 左側：テキストエリア -->
                     <div class="col-lg-5">
                         <!-- 見出しに左線のアクセントを追加 -->
@@ -50,12 +58,15 @@
                     <div class="col-lg-7">
                         <div class="row g-2">
                             <div class="col-6">
-                                <img src="img/test2.png" alt="風景1" class="img-fluid w-100 rounded-3 shadow-sm" style="height: 100%; min-height: 368px; object-fit: cover;">
+                                <img src="img/test2.png" alt="風景1" class="img-fluid w-100 rounded-3 shadow-sm"
+                                    style="height: 100%; min-height: 368px; object-fit: cover;">
                             </div>
                             <!-- 右列：画像2枚を縦に並べる -->
                             <div class="col-6 d-flex flex-column gap-2">
-                                <img src="img/test3.png" alt="風景2" class="img-fluid w-100 rounded-3 shadow-sm" style="height: 180px; object-fit: cover;">
-                                <img src="img/test4.png" alt="風景3" class="img-fluid w-100 rounded-3 shadow-sm" style="height: 180px; object-fit: cover;">
+                                <img src="img/test3.png" alt="風景2" class="img-fluid w-100 rounded-3 shadow-sm"
+                                    style="height: 180px; object-fit: cover;">
+                                <img src="img/test4.png" alt="風景3" class="img-fluid w-100 rounded-3 shadow-sm"
+                                    style="height: 180px; object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -64,13 +75,13 @@
             </div>
         </section>
 
-       <!-- 3. SOCIAL MEDIA -->
+        <!-- 3. SOCIAL MEDIA -->
         <section class="fade-in-section section-padding bg-light text-center">
             <div class="container px-3 px-md-0" style="max-width: 1000px;">
                 <span class="text-custom-sub fw-bold small tracking-widest d-block mb-2">OFFICIAL ACCOUNTS</span>
                 <h2 class="display-6 fw-bold text-custom-blue mb-3">SOCIAL MEDIA</h2>
                 <p class="text-secondary mb-5 fs-6">公式SNSにて、日々の活動様子や研究の進捗を随時発信しています。</p>
-                
+
                 <div class="d-flex justify-content-center align-items-center gap-4 gap-md-5">
                     <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" class="sns-card">
                         <img src="logo/x.jpeg" alt="公式X" class="rounded-4 shadow-sm">
@@ -93,40 +104,53 @@
                         <span class="text-custom-sub fw-bold small tracking-widest d-block mb-1">INFORMATION</span>
                         <h2 class="display-6 fw-bold text-custom-blue mb-0">LATEST NEWS</h2>
                     </div>
-                    <a href="news.html" class="small text-decoration-none text-custom-blue fw-bold d-none d-md-inline">過去のニュース一覧 ＞</a>
+                    <a href="news.html"
+                        class="small text-decoration-none text-custom-blue fw-bold d-none d-md-inline">過去のニュース一覧 ＞</a>
                 </div>
 
                 <!-- 白背景のカードとしてまとめ、影をつける -->
                 <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 border">
-                    <a href="news/20261004.html" class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
-                        <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
+                    <a href="news/20261004.html"
+                        class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
+                        <div
+                            class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                             <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                                 <time class="text-muted fw-bold" style="min-width: 90px;">2026.10.04</time>
-                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">お知らせ</span>
+                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal"
+                                    style="min-width: 68px; text-align: center;">お知らせ</span>
                             </div>
-                            <span class="fw-bold news-title text-wrap text-md-truncate">2026 BIOMODメキシコ大会出場に向けたクラウドファンディングを開始しました。</span>
+                            <span class="fw-bold news-title text-wrap text-md-truncate">2026
+                                BIOMODメキシコ大会出場に向けたクラウドファンディングを開始しました。</span>
                         </div>
                         <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
                     </a>
 
-                    <a href="news/20251208.html" class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
-                        <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
+                    <a href="news/20251208.html"
+                        class="news-item d-flex align-items-center justify-content-between py-3 border-bottom px-2">
+                        <div
+                            class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                             <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                                 <time class="text-muted fw-bold" style="min-width: 90px;">2025.12.08</time>
-                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">活動報告</span>
+                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal"
+                                    style="min-width: 68px; text-align: center;">活動報告</span>
                             </div>
-                            <span class="fw-bold news-title text-wrap text-md-truncate">Science Tokyoニュースにて活動が紹介されました。</span>
+                            <span class="fw-bold news-title text-wrap text-md-truncate">Science
+                                Tokyoニュースにて活動が紹介されました。</span>
                         </div>
                         <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
                     </a>
 
-                    <a href="news/20251019.html" class="news-item d-flex align-items-center justify-content-between py-3 px-2">
-                        <div class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
+                    <a href="news/20251019.html"
+                        class="news-item d-flex align-items-center justify-content-between py-3 px-2">
+                        <div
+                            class="d-flex align-items-center flex-wrap flex-md-nowrap gap-2 gap-md-4 w-100 overflow-hidden">
                             <div class="d-flex align-items-center gap-2" style="min-width: 175px;">
                                 <time class="text-muted fw-bold" style="min-width: 90px;">2025.10.19</time>
-                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal" style="min-width: 68px; text-align: center;">大会実績</span>
+                                <span class="badge badge-custom-sub px-2 py-1 small fw-normal"
+                                    style="min-width: 68px; text-align: center;">大会実績</span>
                             </div>
-                            <span class="fw-bold news-title text-wrap text-md-truncate">2025 BIOMOD Jamboreeに参加し、Gold Prize（金賞）を獲得しました。</span>
+                            <span class="fw-bold news-title text-wrap text-md-truncate">2025 BIOMOD Jamboreeに参加し、Gold
+                                Prize（金賞）を獲得しました。</span>
                         </div>
                         <div class="news-arrow text-custom-blue fw-bold ms-2 align-self-center">→</div>
                     </a>
@@ -140,11 +164,12 @@
 
     </main>
 
-   <!-- フッターがここに読み込まれる -->
+    <!-- フッターがここに読み込まれる -->
     <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
 
 </body>
+
 </html>
