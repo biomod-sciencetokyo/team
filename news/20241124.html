@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body class="bg-white text-dark">
 
     <div id="header-placeholder"></div>
 
     <main class="container px-3 px-md-0 my-block" style="max-width: 1000px;">
         <article class="bg-white p-4 p-md-5 rounded-3 shadow-sm border mx-auto" style="max-width: 800px;">
-            
+
             <!-- 記事のヘッダー部分（日付とカテゴリ） -->
             <div class="d-flex align-items-center gap-3 mb-3">
                 <time datetime="2024-11-24" class="text-muted fw-bold">2024.11.24</time>
@@ -28,10 +30,23 @@
 
             <!-- 記事の内容 -->
             <div class="mb-4 text-center">
-                <img src="img/20241124.png" alt="ニュース画像" class="img-fluid rounded-3 border shadow-sm" style="max-height: 400px; width: 100%; object-fit: cover;">
+                <img src="img/20241124.png" alt="ニュース画像" class="img-fluid rounded-3 border shadow-sm"
+                    style="max-height: 400px; width: 100%; object-fit: cover;">
             </div>
             <div class="news-content text-secondary" style="line-height: 1.9;">
-                <p>2024年度のBIOMOD Jamboreeにて、当チームはBronze Prizeを受賞いたしました。この経験をもとに、さらなる技術の向上と次年度の金賞獲得を目指し、メンバー一同研究に励んでまいります。</p>
+                <p>福岡県北九州市（九州工業大学）にて開催された国際生体分子デザインコンペティション「BIOMOD 2024 Jamboree」に出場し、当チームはプロジェクトアワードにおいて<strong>Bronze
+                        Prize（銅賞）</strong>を受賞いたしました。</p>
+                <p>2024年度は「<em>Micro Pill
+                        Bug</em>」をテーマに、がんなどの早期発見の鍵として注目されながらも生体内の酵素（RNase）で分解されやすい極微量のmiRNAを守る分子ロボット「Nano Pill
+                    Bug」を開発しました。DNAオリガミの曲げ応力をトラップのように活用し、ダンゴムシのように丸まって標的分子を瞬時に捕捉・カプセル化することで酵素分解から保護する新しいデバイスを提案し、Wiki・紹介動画・プレゼンテーションの審査を経て受賞に至りました。
+                </p>
+                <p>本大会で得た多くの学びと経験を糧に、さらなる技術力の向上と次年度の金賞獲得を目指し、メンバー一同研究に励んでまいります。ご支援・ご声援いただいた皆様に深く感謝申し上げます。</p>
+                <p class="mt-4 mb-1 fw-bold text-dark">【2024年度プロジェクト関連リンク】</p>
+                <ul class="mb-0">
+                    <li>2024 プロジェクトWiki：<a href="https://t2biomod2024.github.io/2024/index.html" target="_blank"
+                            rel="noopener noreferrer" class="custom-link">Micro Pill Bug</a></li>
+                    <li>大会・プロジェクト紹介：<a href="../about-biomod.html" class="custom-link">ABOUT BIOMODページ</a></li>
+                </ul>
             </div>
 
             <!-- 下部ナビゲーション（一覧に戻るボタン） -->
@@ -49,4 +64,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../main.js"></script>
 </body>
+
 </html>
