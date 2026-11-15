@@ -260,3 +260,10 @@ body, section, article, .news-item {
         letter-spacing: 0.03em;
     }
 }
+
+/* ニュース本文: 長いURLや英単語が画面外にはみ出さないよう折り返す */
+.news-content {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+.news-content img { max-width: 100%; height: auto; }
