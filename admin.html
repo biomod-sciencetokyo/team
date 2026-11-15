@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ニュース管理 | BIOMOD Team Science Tokyo</title>
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-bs-theme', t);
+        })();
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { padding-top: 0 !important; }
+        .admin-wrap { max-width: 1100px; }
+        #preview-card .news-content p { margin-bottom: 1rem; }
+        .img-thumb { max-height: 160px; max-width: 100%; object-fit: cover; }
+        .row-actions .btn { white-space: nowrap; }
+    </style>
+</head>
+
+<body class="bg-white text-dark">
+    <nav class="navbar navbar-dark bg-custom-blue shadow-sm mb-4">
+        <div class="container admin-wrap">
+            <span class="navbar-brand fw-bold">BIOMOD ニュース管理</span>
+            <div class="d-flex gap-2">
+                <a href="news.html" target="_blank" class="btn btn-sm btn-outline-light">サイトを見る</a>
+                <button id="btn-logout" class="btn btn-sm btn-outline-light d-none">ログアウト</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container admin-wrap pb-5">
+        <div id="alert" class="alert d-none" role="alert"></div>
+
+        <!-- ログイン -->
+        <section id="view-login" class="d-none mx-auto" style="max-width: 420px;">
+            <div class="card shadow-sm"><div class="card-body p-4">
+                <h1 class="h5 fw-bold text-custom-blue mb-3">ログイン</h1>
+                <form id="form-login">
+                    <label class="form-label small" for="login-pass">合言葉</label>
+                    <input id="login-pass" type="password" class="form-control mb-3" autocomplete="current-password" required>
+                    <button class="btn btn-primary w-100" type="submit">ログイン</button>
+                </form>
+                <p class="small text-muted mt-3 mb-0">合言葉はチームの管理者から共有されたものを入力してください。
+                    <a href="#" id="link-setup">初期設定（管理者のみ）</a></p>
+            </div></div>
+        </section>
+
+        <!-- 初期設定（管理者が最初に1回だけ） -->
+        <section id="view-setup" class="d-none mx-auto" style="max-width: 640px;">
+            <div class="card shadow-sm"><div class="card-body p-4">
+                <h1 class="h5 fw-bold text-custom-blue mb-3">初期設定（管理者用・最初の1回だけ）</h1>
+                <ol class="small text-muted ps-3">
+                    <li>GitHubの Settings → Developer settings → Fine-grained tokens で、<strong>このリポジトリだけ</strong>に
+                        <strong>Contents: Read and write</strong> 権限のトークンを作成します。</li>
+                    <li>下のフォームにリポジトリ情報・トークン・チームで共有する「合言葉」を入力して保存します。
+                        トークンは合言葉で暗号化され、<code>admin-config.json</code> として保存されます（トークンそのものは公開されません）。</li>
+                    <li>以降、メンバーは合言葉だけでログインできます。</li>
+                </ol>
+                <form id="form-setup" class="vstack gap-3">
+                    <div class="row g-2">
+                        <div class="col-6"><label class="form-label small" for="s-owner">オーナー（ユーザー/組織名）</label>
+                            <input id="s-owner" class="form-control" required></div>
+                        <div class="col-6"><label class="form-label small" for="s-repo">リポジトリ名</label>
+                            <input id="s-repo" class="form-control" required></div>
+                    </div>
+                    <div><label class="form-label small" for="s-branch">ブランチ（公開しているブランチ）</label>
+                        <input id="s-branch" class="form-control" value="main" required></div>
+                    <div><label class="form-label small" for="s-token">GitHubトークン</label>
+                        <input id="s-token" type="password" class="form-control" autocomplete="off" required></div>
+                    <div><label class="form-label small" for="s-pass">チーム共有の合言葉（12文字以上を推奨）</label>
+                        <input id="s-pass" type="password" class="form-control" autocomplete="new-password" minlength="8" required></div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" type="submit">暗号化して保存</button>
+                        <button class="btn btn-outline-secondary" type="button" id="btn-setup-cancel">戻る</button>
+                    </div>
+                </form>
+            </div></div>
+        </section>
+
+        <!-- 一覧 -->
+        <section id="view-list" class="d-none">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="h4 fw-bold text-custom-blue mb-0">ニュース一覧</h1>
+                <button id="btn-new" class="btn btn-primary">＋ 新規作成</button>
+            </div>
+            <div class="table-responsive card shadow-sm">
+                <table class="table align-middle mb-0">
+                    <thead><tr><th style="width:110px">日付</th><th style="width:100px">カテゴリ</th><th>タイトル</th><th style="width:80px">状態</th><th style="width:150px"></th></tr></thead>
+                    <tbody id="list-body"><tr><td colspan="5" class="text-muted">読み込み中...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 編集 -->
+        <section id="view-edit" class="d-none">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="h4 fw-bold text-custom-blue mb-0" id="edit-heading">新規作成</h1>
+                <button id="btn-back" class="btn btn-outline-secondary btn-sm">← 一覧に戻る</button>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <form id="form-edit" class="vstack gap-3">
+                        <div><label class="form-label fw-bold" for="f-title">タイトル <span class="text-danger">*</span></label>
+                            <input id="f-title" class="form-control" maxlength="150" required></div>
+                        <div class="row g-2">
+                            <div class="col-6"><label class="form-label fw-bold" for="f-date">日付 <span class="text-danger">*</span></label>
+                                <input id="f-date" type="date" class="form-control" required></div>
+                            <div class="col-6"><label class="form-label fw-bold" for="f-cat">カテゴリ</label>
+                                <select id="f-cat" class="form-select"></select>
+                                <input id="f-cat-new" class="form-control mt-2 d-none" placeholder="新しいカテゴリ名" maxlength="20"></div>
+                        </div>
+                        <div>
+                            <label class="form-label fw-bold" for="f-image">画像（任意）</label>
+                            <input id="f-image" type="file" accept="image/png,image/jpeg,image/webp" class="form-control">
+                            <div class="form-text">自動で幅1600px以内・JPEGに縮小して保存します。</div>
+                            <div id="img-area" class="mt-2 d-none">
+                                <img id="img-preview" class="img-thumb rounded border" alt="">
+                                <button type="button" id="btn-img-remove" class="btn btn-sm btn-outline-danger ms-2">画像を外す</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label fw-bold" for="f-body">本文 <span class="text-danger">*</span></label>
+                            <textarea id="f-body" class="form-control" rows="12" required></textarea>
+                            <details class="small text-muted mt-1">
+                                <summary>書き方のヒント</summary>
+                                <ul class="mb-0 ps-3 mt-1">
+                                    <li>空行で段落が変わります</li>
+                                    <li><code>## 見出し</code> で太字の小見出し</li>
+                                    <li><code>- 項目</code> で箇条書き</li>
+                                    <li><code>**太字**</code> / <code>*斜体*</code></li>
+                                    <li><code>[表示名](https://...)</code> でリンク（URLだけでも自動リンク）</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="f-draft">
+                            <label class="form-check-label" for="f-draft">下書き（サイトには表示しない）</label>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button id="btn-save" class="btn btn-primary" type="submit">保存して公開</button>
+                            <button id="btn-cancel" class="btn btn-outline-secondary" type="button">キャンセル</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="small text-muted mb-1">プレビュー</div>
+                    <article id="preview-card" class="bg-white p-4 rounded-3 shadow-sm border"></article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="news-render.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{
+  "categories": ["お知らせ", "活動報告", "大会実績"],
+  "items": [
+    {
+      "id": "20261004",
+      "date": "2026-10-04",
+      "category": "お知らせ",
+      "title": "2026 BIOMODメキシコ大会出場に向けたクラウドファンディングを開始しました。",
+      "image": "",
+      "body": "この度、BIOMOD Team Science Tokyoは、国際的な生体分子デザインコンペティション「BIOMOD」の2026年世界大会（メキシコ・モンテレイ工科大学にて開催）への出場と過去最高成績（ベスト3入り）を目指し、クラウドファンディングサイト「READYFOR」にてプロジェクトを開始いたしました。\n\nいただいたご支援は、世界大会（Jamboree）への現地渡航費・宿泊費・大会参加登録費などの活動資金として大切に活用させていただきます。メンバー一同、世界の舞台で最高の成果を発揮できるよう研究・準備に励んでまいりますので、温かいご支援・ご声援のほどよろしくお願い申し上げます。\n\n## 【プロジェクト概要】\n- プロジェクト名：『BIOMOD』メキシコ大会に出場し、過去最高成績を目指したい！\n- 募集期間：〜 2026年11月9日（月）\n- プロジェクトページ：https://readyfor.jp/projects/BIOMOD2026ScienceTokyo"
+    },
+    {
+      "id": "20251208",
+      "date": "2025-12-08",
+      "category": "活動報告",
+      "title": "Science Tokyoニュースにて活動が紹介されました。",
+      "image": "news/img/20251208.png",
+      "body": "東京科学大学（Science Tokyo）の公式ニュースにて、国際生体分子デザインコンペティション「BIOMOD 2025」における当チームの金賞（Gold Prize）受賞および日頃の活動内容が紹介されました。\n\n記事では、中国・長春市で開催された世界大会（Jamboree）での発表テーマ「*Bow-like DNA bending method using Avidin–Biotin binding*（アビジン‐ビオチン結合を利用した弓状DNA変形法）」の研究概要や、出場メンバーのコメントなどが掲載されています。\n\n## 【掲載記事】\n- 記事タイトル：BIOMOD 2025でTeam Science Tokyoが金賞を受賞\n- 掲載元：東京科学大学（Science Tokyo）公式ウェブサイト ニュース\n- 記事URL：https://www.isct.ac.jp/ja/news/as2tvfcdqlb7"
+    },
+    {
+      "id": "20251019",
+      "date": "2025-10-19",
+      "category": "大会実績",
+      "title": "2025 BIOMOD Jamboreeに参加し、Gold Prize（金賞）を獲得しました。",
+      "image": "news/img/20251019.png",
+      "body": "中国・長春市（吉林大学）にて開催された国際生体分子デザインコンペティション「BIOMOD 2025 Jamboree」に出場し、当チーム（BIOMOD Team Science Tokyo）はプロジェクトアワードにおいて**Gold Prize（金賞）**を獲得いたしました。\n\n今大会では、「*Bow-like DNA bending method using Avidin–Biotin binding*（アビジン‐ビオチン結合を利用した弓状DNA変形法）」をテーマに研究発表を行いました。強固で安定したアビジン-ビオチン結合を利用してDNA構造を弓のように引き絞って湾曲させ、結合位置やリンカー長によって曲げ角度を精密に制御する新たなDNA 3D曲面設計手法を提案し、Wiki（ウェブサイト）・紹介動画・現地での英語プレゼンテーションの総合審査において高く評価されました。\n\n日頃よりご指導いただいた先生方や、活動を支えてくださった関係者の皆様、温かいご支援・ご声援をいただいた皆様に心より感謝申し上げます。\n\n## 【2025年度プロジェクト関連リンク】\n- 2025 プロジェクトWiki：[Bow-like DNA bending method using Avidin–Biotin binding](https://sites.google.com/view/biomod2025siencetokyo/home?authuser=0)\n- 大会・プロジェクト紹介：[ABOUT BIOMODページ](about-biomod.html)"
+    },
+    {
+      "id": "20241124",
+      "date": "2024-11-24",
+      "category": "大会実績",
+      "title": "2024 BIOMOD Jamboreeに参加し、Bronze Prize（銅賞）を獲得しました。",
+      "image": "news/img/20241124.png",
+      "body": "福岡県北九州市（九州工業大学）にて開催された国際生体分子デザインコンペティション「BIOMOD 2024 Jamboree」に出場し、当チームはプロジェクトアワードにおいて**Bronze Prize（銅賞）**を受賞いたしました。\n\n2024年度は「*Micro Pill Bug*」をテーマに、がんなどの早期発見の鍵として注目されながらも生体内の酵素（RNase）で分解されやすい極微量のmiRNAを守る分子ロボット「Nano Pill Bug」を開発しました。DNAオリガミの曲げ応力をトラップのように活用し、ダンゴムシのように丸まって標的分子を瞬時に捕捉・カプセル化することで酵素分解から保護する新しいデバイスを提案し、Wiki・紹介動画・プレゼンテーションの審査を経て受賞に至りました。\n\n本大会で得た多くの学びと経験を糧に、さらなる技術力の向上と次年度の金賞獲得を目指し、メンバー一同研究に励んでまいります。ご支援・ご声援いただいた皆様に深く感謝申し上げます。\n\n## 【2024年度プロジェクト関連リンク】\n- 2024 プロジェクトWiki：[Micro Pill Bug](https://t2biomod2024.github.io/2024/index.html)\n- 大会・プロジェクト紹介：[ABOUT BIOMODページ](about-biomod.html)"
+    }
+  ]
+}
