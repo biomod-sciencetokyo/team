@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2024 BIOMOD Jamboreeに参加し、Bronze Prize（銅賞）を獲得しました。 | BIOMOD Team Science Tokyo</title>
     <!-- Bootstrapの読み込み -->
+    <!-- 保存済み or OSの設定からテーマを先に決めて、読み込み時のちらつきを防ぐ -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-bs-theme', t);
+        })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>

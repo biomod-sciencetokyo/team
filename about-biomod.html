@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABOUT BIOMOD | BIOMOD Team Science Tokyo</title>
+    <!-- 保存済み or OSの設定からテーマを先に決めて、読み込み時のちらつきを防ぐ -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-bs-theme', t);
+        })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -47,7 +56,7 @@
                 </div>
                 <!-- スマホ：下 / PC：右 -->
                 <div class="col-md-6 order-2 order-md-2">
-                    <img src="img/a-b1.png" alt="何を創る大会なのか？" class="img-fluid rounded-3 shadow-sm border w-100">
+                    <img src="img/a-b1.png" alt="何を創る大会なのか？" class="img-fluid rounded-3 shadow-sm border w-100 img-on-light">
                 </div>
             </div>
         </section>
@@ -59,7 +68,7 @@
             <div class="row align-items-center gx-5">
                 <!-- スマホ：下 / PC：左 -->
                 <div class="col-md-6 order-2 order-md-1">
-                    <img src="img/a-b2.png" alt="審査の仕組み" class="img-fluid rounded-3 shadow-sm border w-100">
+                    <img src="img/a-b2.png" alt="審査の仕組み" class="img-fluid rounded-3 shadow-sm border w-100 img-on-light">
                 </div>
                 <!-- スマホ：上 / PC：右 -->
                 <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
@@ -86,6 +95,45 @@
         </section>
 
         <hr class="my-5 border-secondary-subtle">
+
+        <section class="fade-in-section my-block">
+            <div class="text-center mb-4">
+                <span class="badge badge-custom-sub px-3 py-2 mb-2 fs-6 fw-normal">2026 PROJECT</span>
+                <h2 class="h3 fw-bold text-custom-blue mt-2" style="max-width: 700px; margin: 0 auto; line-height: 1.4;">
+                    Open Sesame!<br>
+                    <span class="fs-4">Hybridization Chain Reaction-Driven DNA Bundling for Lipid Membrane Disruption</span><br>
+                    <span class="fs-5 text-muted fw-normal">（HCRで組み上がるDNAバンドルによる脂質膜破壊）</span>
+                </h2>
+
+                <!-- テキスト幅を制限し、左揃え（text-start）で読みやすく配置 -->
+                <div class="mx-auto mt-4 text-start" style="max-width: 720px;">
+                    <p class="text-secondary fs-5" style="line-height: 1.9;">
+                        細胞が分泌する細胞外小胞（EV）は、もとの細胞の状態を映し出すため、病気のバイオマーカーとして期待されています。しかし、中身を調べるために界面活性剤などで膜を壊すと、すべての小胞が一度に壊れてしまい、「どのEVに由来する分子なのか」という情報が失われてしまいます。
+                    </p>
+                    <p class="text-secondary fs-5" style="line-height: 1.9;">
+                        そこで本プロジェクトでは、標的のEVの近くでだけ働く物理的な膜破壊システムを提案します。独自に設計した「Bundled HCR」では、6種類のヘアピンDNAが決まった順番で開くことで、複数のDNA鎖が束になって伸長し、硬いDNAバンドルを形成します。コレステロール修飾されたバンドルが膜に結合し、脂質膜を突き破ります。
+                    </p>
+                    <p class="text-secondary fs-5 mb-0" style="line-height: 1.9;">
+                        シミュレーションによって膜に穴を開けられるバンドルの太さ（約12ヘリックス）や設計の熱力学的な実現性を検証し、実験ではゲル電気泳動・AFMによるバンドル形成の確認と、巨大リポソーム（GUV）への膜結合を確認しました。
+                    </p>
+                </div>
+
+                <div class="mt-5">
+                    <a href="https://biomod-sciencetokyo.github.io/2026project/index.html" target="_blank" class="btn btn-outline-primary border-custom-sub text-custom-blue fw-bold px-4 py-2 rounded-pill shadow-sm custom-btn" style="transition: all 0.3s;">
+                        2026 プロジェクトWikiを見る ＞
+                    </a>
+                </div>
+            </div>
+
+            <div class="ratio ratio-16x9 rounded-3 border shadow-sm overflow-hidden mt-4 mx-auto" style="max-width: 90%;">
+                <iframe src="https://www.youtube.com/embed/s7VmwAqsfO8"
+                        title="2026 BIOMOD Team Science Tokyo Video"
+                        style="border:0;"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        loading="lazy" allowfullscreen>
+                </iframe>
+            </div>
+        </section>
 
         <section class="fade-in-section my-block">
             <div class="text-center mb-4">

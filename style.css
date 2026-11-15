@@ -2,7 +2,12 @@
    共通スタイル
    ========================================= */
 /* 固定ヘッダーの高さ分全体のコンテンツを下に下げます */
-body { padding-top: 48px; }
+/* --nav-h はナビバーの高さ。狭い画面ではリンクが2段目に回るので高くなる */
+:root { --nav-h: 48px; }
+@media (max-width: 991.98px) { :root { --nav-h: 82px; } }
+body { padding-top: var(--nav-h); }
+/* トップのヒーロー画像はナビバーの裏から始める */
+.hero-under-nav { margin-top: calc(-1 * var(--nav-h)); }
 
 /* メインブランドカラー */
 .bg-custom-blue { background-color: #1c3177; }
@@ -153,4 +158,105 @@ html {
 }
 .back-to-top-text:hover {
     color: #ffffff !important;
+}
+
+
+/* =========================================
+   ダークモード / ライトモード
+   <html data-bs-theme="light|dark"> で切り替え
+   ========================================= */
+:root {
+    --site-bg: #ffffff;
+    --site-bg-alt: #f8f9fa;
+    --brand-text: #1c3177;
+    --brand-text-hover: #7f96c2;
+}
+[data-bs-theme="dark"] {
+    --site-bg: #15181d;
+    --site-bg-alt: #1d2128;
+    --brand-text: #a9bbea;
+    --brand-text-hover: #d0dbf7;
+    --bs-body-bg: #15181d;
+    --bs-secondary-color: rgba(222, 226, 230, 0.75);
+}
+
+/* ブランドカラーの文字は変数経由にして、ダーク時は明るい青に */
+.text-custom-blue { color: var(--brand-text); }
+.custom-link { color: var(--brand-text); }
+.custom-link:hover { color: var(--brand-text-hover); }
+.btn-custom-contact { color: var(--brand-text); }
+.news-item { color: var(--bs-body-color); }
+.news-item:hover { background-color: var(--site-bg-alt); color: var(--brand-text); }
+
+/* Bootstrapの固定色ユーティリティをダーク時だけ上書き */
+[data-bs-theme="dark"] .bg-white { background-color: var(--site-bg) !important; }
+[data-bs-theme="dark"] .bg-light { background-color: var(--site-bg-alt) !important; }
+[data-bs-theme="dark"] .text-dark { color: var(--bs-body-color) !important; }
+[data-bs-theme="dark"] footer.bg-dark { background-color: #0b0d10 !important; }
+[data-bs-theme="dark"] .btn-outline-primary.text-custom-blue:hover { color: #fff; }
+
+/* 切り替え時に色をなめらかに変化させる */
+body, section, article, .news-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ヘッダーの切り替えボタン */
+.theme-toggle {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 6px;
+    padding: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+.theme-icon {
+    width: 18px;
+    height: 18px;
+    background-color: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+}
+.theme-icon.icon-moon {
+    --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E");
+}
+.theme-icon.icon-sun {
+    --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E");
+}
+/* ライト時は月（ダークへ）、ダーク時は太陽（ライトへ）を表示 */
+.theme-toggle .icon-sun { display: none; }
+[data-bs-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-bs-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* 透過背景に濃い文字が入った図版は、ダーク時も明るい下地を敷いて読めるようにする */
+[data-bs-theme="dark"] .img-on-light { background-color: #f1f3f7; }
+
+/* ヘッダーのページリンク */
+@media (min-width: 992px) {
+    .site-nav { margin-left: auto; }
+}
+@media (max-width: 991.98px) {
+    /* ロゴ・切り替えボタンの下に、全幅で中央寄せして並べる */
+    .site-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 4px;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: 2px;
+    }
+    .site-nav .nav-link {
+        font-size: 0.8rem;
+        padding: 6px 8px !important;
+        letter-spacing: 0.03em;
+    }
 }
