@@ -30,6 +30,9 @@
 
     function notify(msg, type) {
         var a = $('#alert');
+        if (msg === 'Failed to fetch') {
+            msg = 'GitHubに接続できませんでした。ネットワーク、広告ブロッカー等の拡張機能、トークンの貼り付け内容（前後の空白や改行）を確認してください。';
+        }
         a.className = 'alert alert-' + (type || 'info');
         a.textContent = msg;
         if (!msg) a.classList.add('d-none');
@@ -79,7 +82,8 @@
     // ---------- GitHub API ----------
     function gh(path, opts) {
         opts = opts || {};
-        return fetch('https://api.github.com/repos/' + S.owner + '/' + S.repo + '/' + path, {
+        // 末尾スラッシュ付きURLはリダイレクトされて通信が失敗することがあるため、path が空なら付けない
+        return fetch('https://api.github.com/repos/' + S.owner + '/' + S.repo + (path ? '/' + path : ''), {
             method: opts.method || 'GET',
             headers: {
                 'Accept': 'application/vnd.github+json',
