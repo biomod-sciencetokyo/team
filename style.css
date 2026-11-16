@@ -3,8 +3,8 @@
    ========================================= */
 /* 固定ヘッダーの高さ分全体のコンテンツを下に下げます */
 /* --nav-h はナビバーの高さ。狭い画面ではリンクが2段目に回るので高くなる */
-:root { --nav-h: 48px; }
-@media (max-width: 991.98px) { :root { --nav-h: 82px; } }
+:root { --nav-h: 68px; }
+@media (max-width: 991.98px) { :root { --nav-h: 100px; } }
 body { padding-top: var(--nav-h); }
 /* トップのヒーロー画像はナビバーの裏から始める */
 .hero-under-nav { margin-top: calc(-1 * var(--nav-h)); }
@@ -202,8 +202,8 @@ body, section, article, .news-item {
 
 /* ヘッダーの切り替えボタン */
 .theme-toggle {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -219,8 +219,8 @@ body, section, article, .news-item {
     border-color: rgba(255, 255, 255, 0.7);
 }
 .theme-icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     background-color: currentColor;
     -webkit-mask: var(--icon) center / contain no-repeat;
     mask: var(--icon) center / contain no-repeat;
@@ -255,10 +255,10 @@ body, section, article, .news-item {
         margin-top: 2px;
     }
     .site-nav .nav-link {
-        font-size: 0.8rem;
-        padding: 6px 8px !important;
-        letter-spacing: 0.03em;
+        font-size: 0.85rem;
+        padding: 10px 10px !important;
     }
+    .site-nav .nav-link::after { bottom: 4px; left: 10px; right: 10px; }
 }
 
 /* ニュース本文: 長いURLや英単語が画面外にはみ出さないよう折り返す */
@@ -536,3 +536,55 @@ body, section, article, .news-item {
 [data-bs-theme="dark"] .score-badge { background: #3a5aa8; }
 .official-inline { color: var(--brand-text); font-weight: 700; text-decoration: underline; }
 .official-inline:hover { color: var(--brand-text-hover); }
+
+/* ===== ヘッダー左端のロゴマーク（背景の紺に合わせ、紺の部分を白にしたもの） ===== */
+.brand-mark { height: 40px; width: auto; margin-right: .7rem; flex-shrink: 0; }
+
+/* ===== ヘッダーを見やすく（高さ・文字の大きさ・現在のページの下線） ===== */
+.site-header { padding-top: 14px; padding-bottom: 14px; }
+.site-header .navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+    padding: 0;
+    margin-right: 1.5rem;
+}
+.site-nav .nav-link {
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.78);
+    padding: 8px 14px !important;
+    transition: color 0.2s ease;
+}
+.site-nav .nav-link:hover,
+.site-nav .nav-link.active { color: #fff; }
+/* 現在のページ・ホバー中のリンクに下線を出す */
+.site-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 14px; right: 14px; bottom: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background: #fff;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+.site-nav .nav-link:hover::after { transform: scaleX(1); opacity: .5; }
+.site-nav .nav-link.active::after { transform: scaleX(1); opacity: 1; }
+@media (max-width: 991.98px) {
+    .site-header { padding-top: 10px; padding-bottom: 0; }
+    .site-header .navbar-brand { font-size: 1.15rem; }
+    .site-header .brand-mark { height: 34px; }
+    .site-nav { margin-top: 10px; }
+}
+/* スマホ幅：5つのリンクが1段に収まるよう、文字間と余白を詰める */
+@media (max-width: 575.98px) {
+    .site-nav { column-gap: 0; }
+    .site-nav .nav-link {
+        font-size: 0.8rem;
+        letter-spacing: 0.01em;
+        padding: 10px 5px !important;
+    }
+    .site-nav .nav-link::after { left: 5px; right: 5px; }
+}

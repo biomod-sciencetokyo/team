@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (basePath === '../') {
                 data = data.replace(/href="([^"]*\.html)"/g, 'href="../$1"');
                 data = data.replace(/src="img\//g, 'src="../img/');
+                data = data.replace(/src="logo\//g, 'src="../logo/');
             }
-            
+
             const headerPlaceholder = document.getElementById('header-placeholder');
             if (headerPlaceholder) {
                 headerPlaceholder.innerHTML = data;
