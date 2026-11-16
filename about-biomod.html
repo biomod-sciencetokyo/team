@@ -72,26 +72,38 @@
                 </div>
                 <!-- スマホ：上 / PC：右 -->
                 <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
-                    <p class="fs-5 text-secondary mb-4" style="line-height: 2.0;">大会での評価は、実験データの正確さだけでなく、以下の3つの総合力で審査されます。</p>
+                    <p class="fs-5 text-secondary mb-4" style="line-height: 2.0;">大会での評価は、実験データの正確さだけでなく、以下の3つの総合力（100点満点）で審査されます。</p>
                     <div class="bg-light p-4 rounded-3 border shadow-sm">
                         <ul class="list-unstyled mb-0 fs-5 text-secondary" style="line-height: 1.8;">
                             <li class="mb-3 d-flex align-items-start">
                                 <span class="text-custom-blue fw-bold me-2">・</span>
-                                <div><strong>ウェブサイト（Wiki）の制作：</strong><br><span class="fs-6 text-muted">研究内容を世界に向けて分かりやすく解説するサイトの構築</span></div>
+                                <div><strong>ウェブサイト（Wiki）の制作：</strong><span class="score-badge">50点</span><br><span class="fs-6 text-muted">研究内容を世界に向けて分かりやすく解説するサイトの構築</span></div>
                             </li>
                             <li class="mb-3 d-flex align-items-start">
                                 <span class="text-custom-blue fw-bold me-2">・</span>
-                                <div><strong>紹介動画の制作：</strong><br><span class="fs-6 text-muted">プロジェクトの魅力を伝える3分間のYouTube動画</span></div>
+                                <div><strong>紹介動画の制作：</strong><span class="score-badge">25点</span><br><span class="fs-6 text-muted">プロジェクトの魅力を伝える3分以内のYouTube動画</span></div>
                             </li>
                             <li class="d-flex align-items-start">
                                 <span class="text-custom-blue fw-bold me-2">・</span>
-                                <div><strong>プレゼンテーション：</strong><br><span class="fs-6 text-muted">大会当日に英語で行う、研究成果の発表</span></div>
+                                <div><strong>プレゼンテーション：</strong><span class="score-badge">25点</span><br><span class="fs-6 text-muted">大会当日に英語で行う、10分間の研究成果の発表</span></div>
                             </li>
                         </ul>
                     </div>
-                    <p class="mt-4 mb-0 small">&emsp;詳しくは<a href="http://biomod.net/" target="_blank" class="custom-link fw-bold">BIOMOD公式ホームページ</a>をご参照ください。</p>
+                    <p class="mt-3 mb-0 small text-muted">総合点に応じてGold / Silver / Bronzeの各賞が、さらに部門別の賞（Best Project Website、Best YouTube Videoなど）が贈られます。</p>
                 </div>
             </div>
+        </section>
+
+        <!-- BIOMOD公式ホームページへの案内 -->
+        <section class="fade-in-section my-block">
+            <a href="https://biomod.net/" target="_blank" rel="noopener" class="official-cta">
+                <span class="official-cta-text">
+                    <span class="official-cta-eyebrow">OFFICIAL WEBSITE</span>
+                    <span class="official-cta-title">BIOMOD公式ホームページ</span>
+                    <span class="official-cta-desc">大会のルール・審査基準・今年の日程・過去の受賞チームなど、詳しい情報はこちら</span>
+                </span>
+                <span class="official-cta-btn">biomod.net を見る<span class="official-cta-arrow" aria-hidden="true">↗</span></span>
+            </a>
         </section>
 
         <hr class="my-5 border-secondary-subtle">
@@ -108,13 +120,10 @@
                 <!-- テキスト幅を制限し、左揃え（text-start）で読みやすく配置 -->
                 <div class="mx-auto mt-4 text-start" style="max-width: 720px;">
                     <p class="text-secondary fs-5" style="line-height: 1.9;">
-                        細胞が分泌する細胞外小胞（EV）は、もとの細胞の状態を映し出すため、病気のバイオマーカーとして期待されています。しかし、中身を調べるために界面活性剤などで膜を壊すと、すべての小胞が一度に壊れてしまい、「どのEVに由来する分子なのか」という情報が失われてしまいます。
-                    </p>
-                    <p class="text-secondary fs-5" style="line-height: 1.9;">
-                        そこで本プロジェクトでは、標的のEVの近くでだけ働く物理的な膜破壊システムを提案します。独自に設計した「Bundled HCR」では、6種類のヘアピンDNAが決まった順番で開くことで、複数のDNA鎖が束になって伸長し、硬いDNAバンドルを形成します。コレステロール修飾されたバンドルが膜に結合し、脂質膜を突き破ります。
+                        病気のバイオマーカーとして期待される細胞外小胞（EV）ですが、界面活性剤などで膜を壊して中身を調べる従来の方法では、すべての小胞が一度に壊れ、「どのEVに由来する分子か」という情報が失われてしまいます。
                     </p>
                     <p class="text-secondary fs-5 mb-0" style="line-height: 1.9;">
-                        シミュレーションによって膜に穴を開けられるバンドルの太さ（約12ヘリックス）や設計の熱力学的な実現性を検証し、実験ではゲル電気泳動・AFMによるバンドル形成の確認と、巨大リポソーム（GUV）への膜結合を確認しました。
+                        本プロジェクトでは、複数のDNA鎖を束ねて伸長させる独自の反応「Bundled HCR」で硬いDNAバンドルを組み上げ、標的のEVの近くでだけ脂質膜を突き破る、新しい膜破壊システムを提案します。
                     </p>
                 </div>
 

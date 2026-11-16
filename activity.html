@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVITY | BIOMOD Team Science Tokyo</title>
+    <!-- 保存済み or OSの設定からテーマを先に決めて、読み込み時のちらつきを防ぐ -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-bs-theme', t);
+        })();
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-dark">
+
+    <div id="header-placeholder"></div>
+
+    <main class="container px-3 px-md-0" style="max-width: 1000px;">
+
+        <div class="text-center" style="margin-top: 80px; margin-bottom: 60px;">
+            <h1 class="display-5 fw-bold text-custom-blue" style="letter-spacing: 0.1em;">ACTIVITY</h1>
+            <p class="text-muted small mt-2" style="letter-spacing: 0.05em;">活動内容 / 活動カレンダー</p>
+        </div>
+
+        <section class="fade-in-section text-center mx-auto" style="max-width: 720px;">
+            <p class="fs-5 text-secondary mb-0 text-start" style="line-height: 1.9;">
+                私たちは、東京科学大学の学生を中心とした有志チームです（上智大学の学生も1名参加しています）。東京科学大学の浜田省吾先生の研究室のもとで、大学院生のメンターから研究面の助言を受けながら活動しています。研究テーマの検討から実験、Webサイトや動画の制作、英語での発表まで、すべて学生が主体となって取り組んでいます。実験を担う「Wet班」、シミュレーションを担う「Dry班」、成果を発信する「Wiki班」「YouTube班」が連携し、一つのプロジェクトを形にしていきます。
+            </p>
+            <nav class="activity-jump mt-4" aria-label="ページ内リンク">
+                <a href="#wet">Wet班</a>
+                <a href="#dry">Dry班</a>
+                <a href="#wiki">Wiki班</a>
+                <a href="#youtube">YouTube班</a>
+                <a href="#calendar">活動カレンダー</a>
+            </nav>
+        </section>
+
+        <!-- ===== 01 TEAMS ===== -->
+        <section class="fade-in-section my-block">
+            <div class="activity-heading mb-5">
+                <span class="activity-num">01</span>
+                <div>
+                    <span class="text-custom-sub fw-bold small tracking-widest d-block">OUR TEAMS</span>
+                    <h2 class="h3 fw-bold text-custom-blue m-0">4つの班の紹介</h2>
+                </div>
+            </div>
+
+            <!--
+                各班の写真を載せる場合は、.team-visual の中身を
+                <img src="img/xxx.png" alt="..." class="w-100 h-100" style="object-fit: cover;">
+                に置き換えてください。
+            -->
+
+            <!-- Wet班 -->
+            <div id="wet" class="row align-items-center gx-5 gy-4 team-row">
+                <div class="col-md-5">
+                    <div class="team-visual team-visual-wet">
+                        <span class="team-visual-label">WET</span>
+                        <span class="team-visual-sub">Laboratory</span>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">Wet班</span>
+                    <h3 class="h4 fw-bold text-custom-blue mb-3">実験でアイデアを確かめる</h3>
+                    <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
+                        横浜キャンパスの浜田研究室で、実際にDNAを扱って実験を進めます。設計したDNA構造が狙いどおりに組み上がり、機能するかを確かめるのが役割です。うまくいかない結果からも原因を考え、Dry班と相談しながら設計の改良につなげています。
+                    </p>
+                    <ol class="team-steps" aria-label="Wet班の活動の流れ">
+                        <li>実験計画</li>
+                        <li>DNA構造の作製</li>
+                        <li>評価・解析</li>
+                        <li>結果の考察</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Dry班 -->
+            <div id="dry" class="row align-items-center gx-5 gy-4 team-row">
+                <div class="col-md-5 order-md-2">
+                    <div class="team-visual team-visual-dry">
+                        <span class="team-visual-label">DRY</span>
+                        <span class="team-visual-sub">Design &amp; Simulation</span>
+                    </div>
+                </div>
+                <div class="col-md-7 order-md-1">
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">Dry班</span>
+                    <h3 class="h4 fw-bold text-custom-blue mb-3">コンピュータで分子を設計する</h3>
+                    <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
+                        コンピュータシミュレーションやデータ解析によって、Wet班の実験データを補完します。分子の動きや反応をモデルで予測し、実験の設計にも役立てます。実験とシミュレーションを組み合わせることで、理論と実験の両面からプロジェクトを支えます。
+                    </p>
+                    <ol class="team-steps" aria-label="Dry班の活動の流れ">
+                        <li>モデル化</li>
+                        <li>シミュレーション</li>
+                        <li>データ解析</li>
+                        <li>Wet班へフィードバック</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Wiki班 -->
+            <div id="wiki" class="row align-items-center gx-5 gy-4 team-row">
+                <div class="col-md-5">
+                    <div class="team-visual team-visual-wiki">
+                        <span class="team-visual-label">WIKI</span>
+                        <span class="team-visual-sub">Website</span>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">Wiki班</span>
+                    <h3 class="h4 fw-bold text-custom-blue mb-3">研究を世界に伝えるサイトをつくる</h3>
+                    <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
+                        BIOMODの審査で最も配点が大きい（100点中50点）、プロジェクト紹介サイト（Wiki）を制作します。英語の研究レポートを掲載するWebサイトを、構築から執筆まで自分たちで行います。研究の背景や設計、実験・シミュレーションの結果を、専門外の人にも伝わるよう図を交えて分かりやすく構成します。
+                    </p>
+                    <ol class="team-steps" aria-label="Wiki班の活動の流れ">
+                        <li>構成・原稿づくり</li>
+                        <li>デザイン</li>
+                        <li>コーディング</li>
+                        <li>公開・提出</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- YouTube班 -->
+            <div id="youtube" class="row align-items-center gx-5 gy-4 team-row mb-0">
+                <div class="col-md-5 order-md-2">
+                    <div class="team-visual team-visual-youtube">
+                        <span class="team-visual-label">YOUTUBE</span>
+                        <span class="team-visual-sub">Video</span>
+                    </div>
+                </div>
+                <div class="col-md-7 order-md-1">
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">YouTube班</span>
+                    <h3 class="h4 fw-bold text-custom-blue mb-3">3分間でプロジェクトの魅力を届ける</h3>
+                    <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
+                        研究内容を3分間で分かりやすく伝える、プロジェクト紹介動画を制作します（審査では100点中25点）。目に見えないナノの世界をどう表現するかを考え、企画・脚本づくりから撮影・編集までを一貫して手がけます。完成した動画はチームの
+                        <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" class="custom-link">YouTubeチャンネル</a>で公開しています。
+                    </p>
+                    <ol class="team-steps" aria-label="YouTube班の活動の流れ">
+                        <li>企画・脚本</li>
+                        <li>絵コンテ</li>
+                        <li>撮影・アニメーション</li>
+                        <li>編集・公開</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5 border-secondary-subtle">
+
+        <!-- ===== 02 CALENDAR ===== -->
+        <section id="calendar" class="fade-in-section my-block">
+            <div class="activity-heading mb-4">
+                <span class="activity-num">02</span>
+                <div>
+                    <span class="text-custom-sub fw-bold small tracking-widest d-block">SCHEDULE</span>
+                    <h2 class="h3 fw-bold text-custom-blue m-0">活動カレンダー</h2>
+                </div>
+            </div>
+
+            <p class="text-secondary fs-6 mb-4" style="line-height: 1.9;">
+                春にチームを結成して研究テーマを検討し、夏から実験・シミュレーションを本格化、9月の国内中間発表会（Japan Open）を経て、秋の世界大会（Jamboree）で成果を発表するのが1年の流れです。
+                大会の公式日程は<a href="https://biomod.net/" target="_blank" rel="noopener" class="official-inline">BIOMOD公式ホームページ<span aria-hidden="true">↗</span></a>で発表されます。
+            </p>
+
+            <!-- 年度切り替えタブ（Bootstrapのタブ機能） -->
+            <ul class="nav year-tabs mb-4" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-2026" data-bs-toggle="tab" data-bs-target="#cal-2026" type="button" role="tab" aria-controls="cal-2026" aria-selected="true">2026</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-2025" data-bs-toggle="tab" data-bs-target="#cal-2025" type="button" role="tab" aria-controls="cal-2025" aria-selected="false">2025</button>
+                </li>
+            </ul>
+
+            <!--
+                カレンダーの編集方法：
+                ・1か月 = 1つの <li class="cal-month"> です。
+                ・<li class="cal-item"> が予定・出来事です。
+                ・大会結果などの実績には class="cal-item is-highlight" を付けると強調表示されます。
+            -->
+            <div class="tab-content">
+
+                <!-- 2026年度 -->
+                <div class="tab-pane fade show active" id="cal-2026" role="tabpanel" aria-labelledby="tab-2026">
+                    <ol class="cal-list">
+                        <li class="cal-month">
+                            <div class="cal-month-label">4〜7月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item">新メンバー募集・チーム結成</li>
+                                <li class="cal-item"><time datetime="2026-04-15">4/15</time> BIOMOD 2026 チーム登録開始（〜6/1）</li>
+                                <li class="cal-item">週数回のミーティングで、関連論文の読み合わせやアイデアの持ち寄り・議論を重ね、研究テーマを検討</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">8・9月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item">研究テーマが決まり、実験・シミュレーションを本格的に開始</li>
+                                <li class="cal-item">大会への個人参加登録、プロジェクト名・要旨（Abstract）の提出（8/15〜9/15）</li>
+                                <li class="cal-item is-highlight"><time datetime="2026-09-06">9/6</time> 日本チーム限定の中間発表会「<a href="https://biomod.jp/japanopen/index.html" target="_blank" rel="noopener" class="custom-link">BIOMOD Japan Open</a>」に参加。英語で発表・質疑応答を行い、副賞として現地滞在費の一部の支援を受ける</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">10月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item is-highlight"><time datetime="2026-10-04">10/4</time> 世界大会出場に向けたクラウドファンディングを開始（〜11/9）</li>
+                                <li class="cal-item">Wiki・紹介動画の制作、英語でのプレゼンテーション・質疑応答のリハーサル</li>
+                                <li class="cal-item">大会で着るチームTシャツの制作（BIOMODにはTシャツ賞もあります）</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">11月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item is-highlight"><time datetime="2026-11-09">11/9</time> クラウドファンディング終了。目標金額を達成</li>
+                                <li class="cal-item"><time datetime="2026-11-14">11/14</time> Wiki・YouTube動画の締切（以降は編集不可）</li>
+                                <li class="cal-item is-highlight"><time datetime="2026-11-20">11/20〜22</time> BIOMOD Jamboree（メキシコ・ケレタロ／モンテレイ工科大学 ケレタロキャンパス）に出場</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">12月〜</div>
+                            <ul class="cal-items">
+                                <li class="cal-item">大学や支援者の皆さまへの活動報告、お礼の発送</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- 2025年度 -->
+                <div class="tab-pane fade" id="cal-2025" role="tabpanel" aria-labelledby="tab-2025">
+                    <ol class="cal-list">
+                        <li class="cal-month">
+                            <div class="cal-month-label">4月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item">新メンバー募集、チーム結成</li>
+                                <li class="cal-item"><time datetime="2025-04-18">4/18</time> BIOMOD 2025 チーム登録開始（〜5/31）</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">5・6月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item">プロジェクトテーマの決定（アビジン‐ビオチン結合を利用した弓状DNA変形法）</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">7〜9月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item">実験・シミュレーション</li>
+                                <li class="cal-item">Wiki・紹介動画の制作</li>
+                                <li class="cal-item">大会への個人参加登録、プロジェクト名・要旨（Abstract）の提出（8/15〜9/15）</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">10月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item"><time datetime="2025-10-11">10/11</time> Wiki・YouTube動画の締切（以降は編集不可）</li>
+                                <li class="cal-item"><time datetime="2025-10-17">10/17〜19</time> BIOMOD Jamboree（中国・長春／吉林大学）に出場</li>
+                                <li class="cal-item is-highlight"><time datetime="2025-10-19">10/19</time> Gold Prize（金賞）を受賞</li>
+                            </ul>
+                        </li>
+                        <li class="cal-month">
+                            <div class="cal-month-label">12月</div>
+                            <ul class="cal-items">
+                                <li class="cal-item is-highlight"><time datetime="2025-12-08">12/8</time> Science Tokyoニュースにて活動が紹介される</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

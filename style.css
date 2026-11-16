@@ -267,3 +267,272 @@ body, section, article, .news-item {
     word-break: break-word;
 }
 .news-content img { max-width: 100%; height: auto; }
+
+
+
+/* =========================================
+   activity.html 固有
+   ========================================= */
+
+/* 番号付きの見出し（01 / 02） */
+.activity-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+.activity-num {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--brand-text);
+    opacity: 0.25;
+    letter-spacing: 0.02em;
+}
+
+/* 班の紹介 */
+.team-row { margin-bottom: 72px; }
+.team-visual {
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+.team-visual-label {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+.team-visual-sub {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+}
+.team-visual-wet     { background: linear-gradient(135deg, #1c3177, #3b5fb0); }
+.team-visual-dry     { background: linear-gradient(135deg, #2a4a9a, #7f96c2); }
+.team-visual-wiki    { background: linear-gradient(135deg, #3b5fb0, #8fb0e0); }
+.team-visual-youtube { background: linear-gradient(135deg, #1c3177, #7f96c2); }
+
+/* 年度切り替えタブ */
+.year-tabs { gap: 8px; }
+.year-tabs .nav-link {
+    border: 1px solid var(--bs-border-color);
+    border-radius: 999px;
+    padding: 6px 22px;
+    color: var(--brand-text);
+    font-weight: 700;
+    background: transparent;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.year-tabs .nav-link:hover { border-color: #7f96c2; }
+.year-tabs .nav-link.active {
+    background-color: #1c3177;
+    border-color: #1c3177;
+    color: #fff;
+}
+
+/* 月ごとの縦タイムライン */
+.cal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.cal-list::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--bs-border-color);
+}
+.cal-month {
+    position: relative;
+    padding-left: 36px;
+    padding-bottom: 28px;
+}
+.cal-month:last-child { padding-bottom: 0; }
+.cal-month::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--site-bg);
+    border: 3px solid #7f96c2;
+}
+.cal-month-label {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--brand-text);
+    margin-bottom: 6px;
+}
+.cal-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.cal-item {
+    position: relative;
+    padding-left: 16px;
+    color: var(--bs-secondary-color);
+    line-height: 1.9;
+}
+.cal-item::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: #7f96c2;
+}
+/* 大会結果などの実績 */
+.cal-item.is-highlight {
+    color: var(--bs-body-color);
+    font-weight: 700;
+}
+.cal-item.is-highlight::before { content: "★"; font-size: 0.8em; top: 0.15em; }
+.cal-item time {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    background: #7f96c2;
+    border-radius: 4px;
+    padding: 0 6px;
+    margin-right: 6px;
+    line-height: 1.6;
+}
+
+/* 班ごとの活動の流れ（ステップ） */
+.team-steps {
+    list-style: none;
+    counter-reset: step;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 6px;
+    padding: 0;
+    margin: 20px 0 0;
+}
+.team-steps li {
+    counter-increment: step;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-text);
+    background: var(--site-bg-alt);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 999px;
+    padding: 4px 12px 4px 4px;
+}
+.team-steps li::before {
+    content: counter(step);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #7f96c2;
+    color: #fff;
+    font-size: 0.75rem;
+}
+.team-steps li:not(:last-child)::after {
+    content: "→";
+    margin-left: 6px;
+    margin-right: -6px;
+    color: #7f96c2;
+}
+
+/* ページ内ジャンプ（activity.html上部） */
+.activity-jump {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+.activity-jump a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-text);
+    text-decoration: none;
+    border: 1px solid #7f96c2;
+    border-radius: 999px;
+    padding: 5px 16px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.activity-jump a:hover { background-color: #1c3177; border-color: #1c3177; color: #fff; }
+
+/* ジャンプ先が固定ヘッダーに隠れないように */
+.team-row, #calendar { scroll-margin-top: calc(var(--nav-h) + 24px); }
+
+/* トップページの班タイル */
+.team-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    padding: 16px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.team-tile:hover {
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.team-tile-label {
+    font-size: clamp(1.1rem, 3.2vw, 1.6rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+}
+.team-tile-sub { font-size: 0.8rem; opacity: 0.85; }
+
+/* ===== BIOMOD公式ホームページへの案内 ===== */
+.score-badge {
+    display: inline-block; margin-left: .5em; padding: .1em .6em;
+    font-size: .8rem; font-weight: 700; line-height: 1.6; vertical-align: .15em;
+    color: #fff; background: #1c3177; border-radius: 999px;
+}
+.official-cta {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    max-width: 880px; margin: 0 auto; padding: 32px 40px;
+    color: #fff; text-decoration: none;
+    background: linear-gradient(120deg, #1c3177 0%, #3a5aa8 100%);
+    border-radius: 16px; box-shadow: 0 10px 30px rgba(28, 49, 119, .25);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.official-cta:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 16px 36px rgba(28, 49, 119, .35); }
+.official-cta-text { display: flex; flex-direction: column; gap: 6px; }
+.official-cta-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .2em; color: #b9c8ec; }
+.official-cta-title { font-size: 1.5rem; font-weight: 700; }
+.official-cta-desc { font-size: .95rem; color: #dbe3f6; line-height: 1.7; }
+.official-cta-btn {
+    flex-shrink: 0; display: inline-flex; align-items: center; gap: .5em;
+    padding: 12px 24px; font-weight: 700; color: #1c3177; background: #fff;
+    border-radius: 999px; white-space: nowrap; transition: background .2s ease;
+}
+.official-cta:hover .official-cta-btn { background: #e8eefb; }
+.official-cta-arrow { transition: transform .2s ease; }
+.official-cta:hover .official-cta-arrow { transform: translate(2px, -2px); }
+@media (max-width: 767.98px) {
+    .official-cta { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+    .official-cta-btn { align-self: stretch; justify-content: center; }
+}
+[data-bs-theme="dark"] .official-cta { background: linear-gradient(120deg, #22356f 0%, #34518f 100%); box-shadow: 0 10px 30px rgba(0, 0, 0, .4); }
+[data-bs-theme="dark"] .score-badge { background: #3a5aa8; }
+.official-inline { color: var(--brand-text); font-weight: 700; text-decoration: underline; }
+.official-inline:hover { color: var(--brand-text-hover); }
