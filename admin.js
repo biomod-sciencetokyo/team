@@ -226,16 +226,35 @@
         }).then(function () { busy(btn, false); });
     });
 
-    // 「合言葉を表示」チェックで●表示と通常表示を切り替え
-    document.querySelectorAll('.pass-toggle').forEach(function (cb) {
-        cb.addEventListener('change', function () {
-            $(cb.dataset.target).classList.toggle('pass-mask', !cb.checked);
+    // 目のボタンで合言葉を一時的に表示（5秒後・送信時・ログアウト時に自動で●に戻す）
+    var PEEK_MS = 5000;
+    function setPeek(btn, on) {
+        var input = $(btn.dataset.target);
+        clearTimeout(btn._peekTimer);
+        input.classList.toggle('pass-mask', !on);
+        btn.classList.toggle('is-showing', on);
+        var label = on ? '合言葉を隠す' : '合言葉を一時的に表示';
+        btn.setAttribute('aria-label', label);
+        btn.setAttribute('title', label);
+        if (on) btn._peekTimer = setTimeout(function () { setPeek(btn, false); }, PEEK_MS);
+    }
+    function hideAllPeeks() {
+        document.querySelectorAll('.pass-peek').forEach(function (b) { setPeek(b, false); });
+    }
+    document.querySelectorAll('.pass-peek').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            setPeek(btn, !btn.classList.contains('is-showing'));
+            $(btn.dataset.target).focus();
         });
+    });
+    ['#form-login', '#form-setup'].forEach(function (s) {
+        $(s).addEventListener('submit', hideAllPeeks, true);
     });
 
     $('#btn-logout').addEventListener('click', function () {
         try { sessionStorage.removeItem('adminSession'); } catch (e) { /* 無視 */ }
         S = null; data = null;
+        hideAllPeeks();
         notify('');
         show('login');
     });

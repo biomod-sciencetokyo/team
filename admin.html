@@ -32,6 +32,16 @@
         .row-actions .btn { white-space: nowrap; }
         /* 合言葉欄: type="password" だと日本語入力(IME)が使えないため、通常のテキスト欄を●で隠す */
         .pass-mask { -webkit-text-security: disc; text-security: disc; }
+        /* 目のアイコン（表示中は斜線入り）。svgタグは使わずCSSマスクで描画 */
+        .pass-peek { display: inline-flex; align-items: center; }
+        .peek-icon {
+            width: 18px; height: 18px; background-color: currentColor;
+            -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+            --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+        }
+        .pass-peek.is-showing .peek-icon {
+            --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M3 3l18 18'/%3E%3C/svg%3E");
+        }
     </style>
 </head>
 
@@ -55,10 +65,10 @@
                 <h1 class="h5 fw-bold text-custom-blue mb-3">ログイン</h1>
                 <form id="form-login">
                     <label class="form-label small" for="login-pass">合言葉</label>
-                    <input id="login-pass" type="text" class="form-control pass-mask" autocomplete="off" autocapitalize="off" spellcheck="false" required>
-                    <div class="form-check small mt-1 mb-3">
-                        <input class="form-check-input pass-toggle" type="checkbox" id="login-pass-show" data-target="#login-pass">
-                        <label class="form-check-label" for="login-pass-show">合言葉を表示</label>
+                    <div class="input-group mb-3">
+                        <input id="login-pass" type="text" class="form-control pass-mask" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+                        <button type="button" class="btn btn-outline-secondary pass-peek" data-target="#login-pass"
+                            aria-label="合言葉を一時的に表示" title="合言葉を一時的に表示"><span class="peek-icon" aria-hidden="true"></span></button>
                     </div>
                     <button class="btn btn-primary w-100" type="submit">ログイン</button>
                 </form>
@@ -90,10 +100,10 @@
                     <div><label class="form-label small" for="s-token">GitHubトークン</label>
                         <input id="s-token" type="password" class="form-control" autocomplete="off" required></div>
                     <div><label class="form-label small" for="s-pass">チーム共有の合言葉（12文字以上を推奨）</label>
-                        <input id="s-pass" type="text" class="form-control pass-mask" autocomplete="off" autocapitalize="off" spellcheck="false" minlength="8" required>
-                        <div class="form-check small mt-1">
-                            <input class="form-check-input pass-toggle" type="checkbox" id="s-pass-show" data-target="#s-pass">
-                            <label class="form-check-label" for="s-pass-show">合言葉を表示</label>
+                        <div class="input-group">
+                            <input id="s-pass" type="text" class="form-control pass-mask" autocomplete="off" autocapitalize="off" spellcheck="false" minlength="8" required>
+                            <button type="button" class="btn btn-outline-secondary pass-peek" data-target="#s-pass"
+                                aria-label="合言葉を一時的に表示" title="合言葉を一時的に表示"><span class="peek-icon" aria-hidden="true"></span></button>
                         </div></div>
                     <div class="d-flex gap-2">
                         <button class="btn btn-primary" type="submit">暗号化して保存</button>
