@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-hscroll]').forEach(sec => {
             const vp = sec.querySelector('.hscroll-viewport');
-            const cards = [...sec.querySelector('.hscroll-track').children];
+            const cards = [...sec.querySelector('.hscroll-track').children].filter(c => !c.classList.contains('hscroll-gap'));
             const fill = sec.querySelector('.hscroll-bar span');
             const steps = [...sec.querySelectorAll('[data-hscroll-to]')];
             const prev = sec.querySelector('[data-hscroll-prev]');

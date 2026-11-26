@@ -1481,6 +1481,18 @@ body.is-top-page .site-header:not(.is-scrolled) .site-nav { border-top-color: rg
 .award-link.ext::after { content: "↗"; }
 .award-link:hover { background: #fff; color: var(--sb); border-color: #fff; }
 .award-card.is-gold .award-project { color: var(--gold-light); }
+.award-team { font-family: var(--ff-en); font-size: .78rem; font-weight: 600; letter-spacing: .08em; color: rgba(255,255,255,0.6); margin: 8px 0 0; }
+/* 2014〜2022年の空白期間の区切り */
+.hscroll-gap {
+    flex: 0 0 auto; align-self: center; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-family: var(--ff-en); font-weight: 700; font-size: .8rem; letter-spacing: .1em; color: rgba(255,255,255,0.45);
+}
+.hscroll-gap i { width: 2px; height: 120px; background: repeating-linear-gradient(180deg, rgba(255,255,255,0.4) 0 6px, transparent 6px 12px); }
+.hscroll-gap small { margin-top: 6px; font-family: var(--ff-jp); font-size: .7rem; font-weight: 500; letter-spacing: .04em; line-height: 1.6; text-align: center; color: rgba(255,255,255,0.55); }
+/* ABOUT BIOMOD：当時のWikiについての注意書き */
+.history-note { max-width: 720px; margin-bottom: 3rem; font-size: .82rem; line-height: 1.8; color: var(--bs-secondary-color); text-align: center; }
+/* ABOUT BIOMOD：チーム名 */
+.project-team { margin: 12px 0 0; font-family: var(--ff-en); font-size: .9rem; font-weight: 600; letter-spacing: .04em; color: var(--sub); }
 .hscroll .award-card { display: flex; flex-direction: column; }
 .hscroll .award-card:not(.is-current) .award-link { pointer-events: none; }   /* 横のカードはクリックで真ん中へ移動 */
 /* カードどうしをつなぐ線（年表らしく） */
@@ -1493,7 +1505,7 @@ body.is-top-page .site-header:not(.is-scrolled) .site-nav { border-top-color: rg
 .hscroll-nav { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
 .hscroll-bar { flex: 1; height: 2px; background: rgba(255,255,255,0.18); border-radius: 2px; overflow: hidden; }
 .hscroll-bar span { display: block; height: 100%; background: var(--gold-light); transform: scaleX(0); transform-origin: 0 50%; }
-.hscroll-steps { display: flex; gap: 6px; }
+.hscroll-steps { display: flex; flex-wrap: wrap; gap: 6px; }
 .hscroll-steps button {
     border: 1px solid rgba(255,255,255,0.25); background: transparent; color: rgba(255,255,255,0.7);
     font-family: var(--ff-en); font-weight: 700; font-size: .8rem; letter-spacing: .06em;
