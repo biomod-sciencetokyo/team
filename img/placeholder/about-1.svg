@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24408c"/><stop offset="1" stop-color="#7f96c2"/></linearGradient>
+<pattern id="s" width="50" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(-36.87)"><rect width="50" height="2" fill="#fff" fill-opacity=".07"/></pattern>
+</defs>
+<rect width="900" height="1100" fill="url(#g)"/>
+<rect width="900" height="1100" fill="url(#s)"/>
+<g transform="translate(450.0 447.6)" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="7.1" stroke-linejoin="round">
+<rect x="-64" y="-39.68" width="128" height="87.04" rx="11.52"/>
+<circle r="24.32" cy="3.84"/>
+<path d="M-22.4 -39.68 l9.6 -16.0 h25.6 l9.6 16.0"/>
+</g>
+<text x="450.0" y="585.2" text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-weight="700" font-size="64" fill="#fff">チーム写真</text>
+<text x="450.0" y="649.2" text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-size="32" fill="#fff" fill-opacity=".8">仮画像：メンバー集合写真（縦長）</text>
+<text x="450.0" y="700.4" text-anchor="middle" font-family="sans-serif" font-size="27" fill="#fff" fill-opacity=".6">推奨 900×1100px</text>
+</svg>

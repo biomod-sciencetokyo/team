@@ -17,6 +17,10 @@
             document.documentElement.setAttribute('data-bs-theme', t);
         })();
     </script>
+    <!-- フォント（英字見出し：Outfit / 日本語：Noto Sans JP） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&family=DotGothic16&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,52 +28,58 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="container px-3 px-md-0" style="max-width: 1000px;">
-        
-        <div class="text-center" style="margin-top: 80px; margin-bottom: 60px;">
-            <h1 class="display-5 fw-bold text-custom-blue" style="letter-spacing: 0.1em;">CONTACT</h1>
-            <p class="text-muted small mt-2" style="letter-spacing: 0.05em;">お問い合わせ</p>
+    <!-- 見出し帯（背景写真：img/placeholder/page-contact.svg を差し替え） -->
+    <section class="page-hero" style="--hero-img: url('img/placeholder/page-contact.svg');">
+        <div class="container page-hero-inner px-4 px-md-3">
+            <p class="page-hero-eyebrow">Contact Us</p>
+            <h1 class="page-hero-title">CONTACT</h1>
+            <p class="page-hero-sub">お問い合わせ</p>
+            <nav class="page-hero-crumb" aria-label="パンくずリスト"><a href="index.html">TOP</a><span>/</span>CONTACT</nav>
         </div>
+    </section>
 
-        <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-            <p class="fs-5 text-secondary mb-4" style="line-height: 2.0; letter-spacing: 0.03em;">
-                BIOMOD Team Science Tokyoに関するご質問、共同研究や協賛のご相談など、<br class="d-none d-md-inline">あらゆるお問い合わせは以下のメールアドレスよりお気軽にご連絡ください。
-            </p>
-            <p class="text-muted small mb-4">※クリックするとお使いのメールアプリが起動します。</p>
-            
-            <div class="mt-4">
-                <a href="mailto:t2biomod@gmail.com" class="btn btn-custom-contact fw-bold px-5 py-3 rounded-pill fs-5 shadow-sm">
-                    ✉ メールを送信する (t2biomod@gmail.com)
-                </a>
+    <main class="container px-4 px-md-3" style="max-width: 1000px;">
+
+        <section class="fade-in-section my-block">
+            <div class="sec-head text-center">
+                <span class="sec-num">01</span>
+                <h2 class="sec-title" data-bg="MAIL">GET IN TOUCH</h2>
+                <p class="sec-sub">メールでのお問い合わせ</p>
+            </div>
+            <div class="panel contact-card mx-auto" style="max-width: 760px;">
+                <div class="contact-icon" aria-hidden="true">✉</div>
+                <p class="text-secondary mb-3" style="line-height: 2;">
+                    BIOMOD Team Science Tokyoに関するご質問、共同研究や協賛のご相談など、<br class="d-none d-md-inline">あらゆるお問い合わせは以下のメールアドレスよりお気軽にご連絡ください。
+                </p>
+                <p class="contact-mail mb-4">t2biomod@gmail.com</p>
+                <a href="mailto:t2biomod@gmail.com" class="btn-sb">メールを送信する</a>
+                <p class="text-muted small mt-3 mb-0">※クリックするとお使いのメールアプリが起動します。</p>
             </div>
         </section>
 
-        <hr class="my-5 border-secondary-subtle">
-
         <section class="fade-in-section my-block">
-            <h2 class="display-6 fw-bold text-center text-custom-blue mb-5" style="letter-spacing: 0.1em;">ACCESS</h2>
-            
-            <!-- max-widthで全体の幅を制限し、中央に配置 -->
-            <div class="row align-items-center gx-5 mx-auto" style="max-width: 900px;">
-                
-                <!-- テキスト部分（スマホ：上 / PC：左） -->
-                <div class="col-md-5 mb-4 mb-md-0 text-start">
-                    <div class="text-secondary fs-5" style="line-height: 2.0; letter-spacing: 0.03em;">
-                        <p class="fw-bold text-dark mb-2">東京科学大学（旧・東京工業大学）<br>横浜キャンパス</p>
-                        <p class="mb-2">〒226-8503<br>神奈川県横浜市緑区長津田町 4259</p>
-                        <p class="mb-0">すずかけ台キャンパス<br>浜田研究室</p>
-                    </div>
+            <div class="sec-head text-center">
+                <span class="sec-num">02</span>
+                <h2 class="sec-title" data-bg="MAP">ACCESS</h2>
+                <p class="sec-sub">アクセス</p>
+            </div>
+            <div class="row align-items-center gx-5 gy-4 mx-auto" style="max-width: 940px;">
+                <div class="col-md-5">
+                    <dl class="access-list mb-0">
+                        <dt>CAMPUS</dt>
+                        <dd class="fw-bold">東京科学大学（旧・東京工業大学）<br>横浜キャンパス</dd>
+                        <dt>ADDRESS</dt>
+                        <dd>〒226-8503<br>神奈川県横浜市緑区長津田町 4259</dd>
+                        <dt>LABORATORY</dt>
+                        <dd class="mb-0">すずかけ台キャンパス<br>浜田研究室</dd>
+                    </dl>
                 </div>
-                
-                <!-- マップ部分（スマホ：下 / PC：右） -->
                 <div class="col-md-7">
-                    <!-- 横並び時の視認性を確保するため ratio-4x3 を指定 -->
-                    <div class="ratio ratio-4x3 rounded-3 border shadow-sm overflow-hidden w-100">
-                        <iframe src="https://maps.google.com/maps?q=School%20of%20Life%20Science%20and%20Technology%2C%20Institute%20of%20Science%20Tokyo&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-                            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="ratio ratio-4x3 rounded-4 overflow-hidden w-100" style="box-shadow: var(--shadow-lg);">
+                        <iframe src="https://maps.google.com/maps?q=School%20of%20Life%20Science%20and%20Technology%2C%20Institute%20of%20Science%20Tokyo&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="地図"></iframe>
                     </div>
                 </div>
-                
             </div>
         </section>
     </main>

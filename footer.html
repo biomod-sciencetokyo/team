@@ -1,39 +1,44 @@
-<footer class="bg-dark text-white pt-5 pb-4">
-    <div class="container px-3 px-md-0" style="max-width: 1000px;">
-        <!-- align-items-center を削除し、自然な上端揃えに変更 -->
-        <div class="row gx-5">
-            
-            <!-- 左側：ロゴ -->
-            <div class="col-md-6 mb-4 mb-md-0">
-                <!-- filter: brightness(0) invert(1); で画像を白抜きに変換 -->
-                <img src="logo/team-text.png" alt="BIOMOD Team Science Tokyo" class="img-fluid" style="max-width: 250px; filter: brightness(0) invert(1); opacity: 0.9;">
+<footer class="site-footer">
+    <div class="container px-4 px-md-3" style="max-width: 1100px;">
+        <div class="row gy-5">
+
+            <!-- ロゴ・紹介文・SNS -->
+            <div class="col-lg-5">
+                <img src="logo/team-text.png" alt="BIOMOD Team Science Tokyo" class="img-fluid footer-logo">
+                <p class="footer-desc">東京科学大学の学生を中心とした、国際生体分子デザインコンペティション「BIOMOD」に挑戦する学生チームです。</p>
+                <div class="footer-sns">
+                    <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" rel="noopener" aria-label="公式X"><img src="logo/x.jpeg" alt=""></a>
+                    <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" rel="noopener" aria-label="公式Instagram"><img src="logo/instagram.jpeg" alt=""></a>
+                    <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" rel="noopener" aria-label="公式YouTube"><img src="logo/youtube.jpeg" alt=""></a>
+                </div>
             </div>
-            
-            <!-- 右側：サイトマップ（リンク集） -->
-            <div class="col-md-6 d-flex justify-content-md-end">
-                <div>
-                    <!-- タイトルの存在感を少し抑えるために text-white-50 を追加 -->
-                    <h6 class="fw-bold mb-3 text-white-50" style="letter-spacing: 0.1em; font-size: 0.85rem;">MENU</h6>
-                    <ul class="list-unstyled mb-0 small" style="line-height: 2.2;">
-                        <li><a href="index.html" class="text-white text-decoration-none footer-link">TOP</a></li>
-                        <li><a href="about-biomod.html" class="text-white text-decoration-none footer-link">ABOUT BIOMOD</a></li>
-                        <li><a href="activity.html" class="text-white text-decoration-none footer-link">ACTIVITY</a></li>
-                        <li><a href="news.html" class="text-white text-decoration-none footer-link">NEWS</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none footer-link">CONTACT</a></li>
-                    </ul>
+
+            <!-- メニュー -->
+            <div class="col-6 col-lg-3 offset-lg-1">
+                <p class="footer-heading">MENU</p>
+                <ul class="list-unstyled mb-0 footer-menu">
+                    <li><a href="index.html" class="footer-link">TOP</a></li>
+                    <li><a href="about-biomod.html" class="footer-link">ABOUT BIOMOD</a></li>
+                    <li><a href="activity.html" class="footer-link">ACTIVITY</a></li>
+                    <li><a href="member.html" class="footer-link">MEMBER</a></li>
+                    <li><a href="news.html" class="footer-link">NEWS</a></li>
+                    <li><a href="contact.html" class="footer-link">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <!-- 連絡先 -->
+            <div class="col-6 col-lg-3">
+                <p class="footer-heading">CONTACT</p>
+                <div class="footer-contact">
+                    <a href="mailto:t2biomod@gmail.com">t2biomod@gmail.com</a><br>
+                    東京科学大学<br>すずかけ台キャンパス<br>浜田研究室
                 </div>
             </div>
         </div>
 
-        <hr class="mt-5 mb-4 border-white" style="opacity: 0.15;">
-
-        <!-- 下部：コピーライトとトップへ戻るボタン -->
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <small class="text-white-50 mb-3 mb-md-0">&copy; 2026 BIOMOD Team Science Tokyo</small>
-            <!-- 枠線ボタンを廃止し、シンプルなテキストリンクに変更 -->
-            <a href="#" class="text-white-50 text-decoration-none small fw-bold back-to-top-text" style="letter-spacing: 0.05em;">
-                Back to top &uarr;
-            </a>
+        <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <small>&copy; 2026 BIOMOD Team Science Tokyo</small>
+            <a href="#" class="footer-top-btn">BACK TO TOP</a>
         </div>
     </div>
 </footer>

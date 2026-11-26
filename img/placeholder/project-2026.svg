@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16285f"/><stop offset="1" stop-color="#4a66b0"/></linearGradient>
+<pattern id="s" width="50" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(-36.87)"><rect width="50" height="2" fill="#fff" fill-opacity=".07"/></pattern>
+</defs>
+<rect width="1600" height="1000" fill="url(#g)"/>
+<rect width="1600" height="1000" fill="url(#s)"/>
+<g transform="translate(800.0 386.4)" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="7.9" stroke-linejoin="round">
+<rect x="-71" y="-44.02" width="142" height="96.56" rx="12.78"/>
+<circle r="26.98" cy="4.26"/>
+<path d="M-24.849999999999998 -44.02 l10.65 -17.75 h28.400000000000002 l10.65 17.75"/>
+</g>
+<text x="800.0" y="539.05" text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-weight="700" font-size="71" fill="#fff">2026 プロジェクト</text>
+<text x="800.0" y="610.05" text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-size="36" fill="#fff" fill-opacity=".8">仮画像：プロジェクトのイメージ図・Wikiのトップ画像</text>
+<text x="800.0" y="666.85" text-anchor="middle" font-family="sans-serif" font-size="30" fill="#fff" fill-opacity=".6">推奨 1600×1000px</text>
+</svg>

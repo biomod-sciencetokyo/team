@@ -59,7 +59,8 @@
 
     // ---------- 暗号 (PBKDF2 + AES-GCM) ----------
     function deriveKey(pass, salt, iter) {
-        return crypto.subtle.importKey('raw', enc.encode(pass), 'PBKDF2', false, ['deriveKey']).then(function (km) {
+        // 日本語の合言葉でも端末ごとに文字の内部表現が揺れないよう NFC に正規化（英数字は変化しない）
+        return crypto.subtle.importKey('raw', enc.encode(String(pass).normalize('NFC')), 'PBKDF2', false, ['deriveKey']).then(function (km) {
             return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: salt, iterations: iter, hash: 'SHA-256' },
                 km, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
         });
@@ -223,6 +224,13 @@
             S = null;
             notify(e.message, 'danger');
         }).then(function () { busy(btn, false); });
+    });
+
+    // 「合言葉を表示」チェックで●表示と通常表示を切り替え
+    document.querySelectorAll('.pass-toggle').forEach(function (cb) {
+        cb.addEventListener('change', function () {
+            $(cb.dataset.target).classList.toggle('pass-mask', !cb.checked);
+        });
     });
 
     $('#btn-logout').addEventListener('click', function () {

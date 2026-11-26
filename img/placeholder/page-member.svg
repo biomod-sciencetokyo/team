@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="700" viewBox="0 0 1920 700">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24408c"/><stop offset="1" stop-color="#7f96c2"/></linearGradient>
+<pattern id="s" width="50" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(-36.87)"><rect width="50" height="2" fill="#fff" fill-opacity=".07"/></pattern>
+</defs>
+<rect width="1920" height="700" fill="url(#g)"/>
+<rect width="1920" height="700" fill="url(#s)"/>
+<g transform="translate(960 250) scale(0.8)" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="7" stroke-linejoin="round"><circle r="34" cy="-30"/><path d="M-62 62 c0 -40 28 -60 62 -60 s62 20 62 60"/></g>
+<text x="960" y="377.5" text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-weight="700" font-size="50" fill="#fff">MEMBER 見出し背景</text>
+<text x="960" y="427.5" text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-size="25" fill="#fff" fill-opacity=".8">仮画像：集合写真など（横長）</text>
+<text x="960" y="467.5" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#fff" fill-opacity=".6">推奨 1920×700px</text>
+</svg>

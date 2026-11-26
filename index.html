@@ -18,152 +18,285 @@
             document.documentElement.setAttribute('data-bs-theme', t);
         })();
     </script>
+    <!-- フォント（英字見出し：Outfit / 日本語：Noto Sans JP） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&family=DotGothic16&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-light text-dark">
+<body class="bg-white text-dark is-top-page">
 
     <!-- ヘッダーがここに読み込まれる -->
     <div id="header-placeholder"></div>
 
-    <header class="position-relative shadow-sm hero-under-nav"
-        style="height: 100vh; min-height: 500px; background: url('img/test1.png') center/cover no-repeat; overflow: hidden;">
-        <div class="position-absolute top-50 start-50 translate-middle w-100 text-center p-3" style="z-index: 3;">
-            <div class="mx-auto" style="max-width: 550px; width: 100%;">
-                <img src="logo/team.png" alt="BIOMOD Team Science Tokyo" class="img-fluid logo-fade-in"
-                    style="filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.6));">
+    <!-- ===== メインビジュアル =====
+         背景写真：img/placeholder/hero.svg を差し替え（横長 1920×1080 程度）。青いグラデーションが自動で重なります -->
+    <header class="hero hero-under-nav">
+        <div class="hero-bg" style="background-image: url('img/placeholder/hero.svg');"></div>
+        <div class="container hero-inner px-4 px-md-3" style="max-width: 1100px;">
+            <img src="logo/team-text.png" alt="BIOMOD Team Science Tokyo" class="hero-logo logo-fade-in">
+            <p class="hero-eyebrow">INTERNATIONAL BIOMOLECULAR DESIGN COMPETITION</p>
+            <!-- キャッチコピー（仮）。自由に書き換えてください -->
+            <h1 class="hero-title">DNAで、<br><span class="accent">ナノの機械</span>をつくる。</h1>
+            <!-- ===== キャラクターが話すメッセージウィンドウ =====
+                 ・ウィンドウをクリック/タップ（またはEnter）するとセリフが次に進み、最後まで行くと最初に戻ります
+                 ・セリフは下の <ol class="msg-lines"> の <li> を書き換え・追加・削除してください
+                 ・<li data-pose="jump"> のように書くと、そのセリフのときの姫のポーズを指定できます
+                   （talk：話す〈省略時〉 / jump：ジャンプ / dance：くるっと回る / wave：手を振る）
+                 ・ポーズの画像は img/character/princess/ にあります -->
+            <div class="msg-scene">
+                <div class="msg-box">
+                    <span class="msg-name">miRNA Princess</span>
+                    <div class="msg-window" data-typing role="button" tabindex="0" aria-label="クリックすると次のセリフへ進みます">
+                        <p aria-live="polite">東京科学大学の学生チームとして、生体分子で分子ロボットを設計する国際大会「BIOMOD」に挑戦しています。</p>
+                        <ol class="msg-lines" hidden>
+                            <li data-pose="talk">東京科学大学の学生チームとして、生体分子で分子ロボットを設計する国際大会「BIOMOD」に挑戦しています。</li>
+                            <li data-pose="jump">2026年のメキシコ大会では、総合2位、Best Website 1位、Computational Biomolecular Design Award、金賞を受賞しました！</li>
+                            <li data-pose="dance">研究は Wet・Dry・Wiki・YouTube の4つの班が連携して進めています。</li>
+                            <li data-pose="talk">今年のプロジェクトは「Open Sesame!」。DNAの束で、細胞外小胞の膜を開けることに挑みました。</li>
+                            <li data-pose="wave">くわしくは、下にスクロールして見てみてね。</li>
+                        </ol>
+                        <span class="msg-count" aria-hidden="true"></span>
+                        <span class="msg-cursor" aria-hidden="true">▼</span>
+                    </div>
+                    <span class="msg-tail" aria-hidden="true"></span>
+                </div>
+                <img src="img/character/princess/idle.gif" alt="" class="hero-chara" width="120" height="122"
+                    data-pose-idle="img/character/princess/idle.gif"
+                    data-pose-talk="img/character/princess/talk.gif"
+                    data-pose-jump="img/character/princess/jump.gif|1400"
+                    data-pose-dance="img/character/princess/dance.gif|4200"
+                    data-pose-wave="img/character/princess/wave.gif|1800">
+            </div>
+            <div class="hero-actions">
+                <a href="activity.html" class="btn-sb btn-sb-light">活動を見る</a>
+                <a href="about-biomod.html#project-2026" class="btn-sb btn-sb-ghost">2026 プロジェクト</a>
             </div>
         </div>
-        <div class="position-absolute bottom-0 start-50 translate-middle-x text-center text-white pb-4"
-            style="z-index: 3;">
-            <span class="small fw-bold"
-                style="letter-spacing: 0.2em; font-size: 0.75rem; opacity: 0.8; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">SCROLL</span>
-            <div class="scroll-arrow mx-auto mt-1"
-                style="width: 1px; height: 30px; background-color: rgba(255,255,255,0.8); animation: scrollDown 2s infinite ease-in-out;">
-            </div>
+        <div class="container hero-stats px-4 px-md-3">
+            <!-- BIOMOD 2026 の受賞（出典：https://biomod.net/winners/） -->
+            <div class="hero-stat"><span class="hero-stat-num is-gold">2nd Place</span><span class="hero-stat-label">総合2位（Grand Prize）</span></div>
+            <div class="hero-stat"><span class="hero-stat-num is-gold">Best Website</span><span class="hero-stat-label">Wiki部門 1位</span></div>
+            <div class="hero-stat"><span class="hero-stat-num is-gold">Computational</span><span class="hero-stat-label">Computational Biomolecular Design Award</span></div>
+            <div class="hero-stat"><span class="hero-stat-num is-gold">Gold</span><span class="hero-stat-label">Project Award 金賞</span></div>
         </div>
+        <span class="hero-scroll" aria-hidden="true">SCROLL</span>
+        <div class="hero-dna" aria-hidden="true"></div>
     </header>
 
-    <main class="w-100 overflow-hidden">
+    <main class="w-100">
 
-        <!-- 1. ABOUT US & ギャラリー（テキストと画像の統合レイアウト） -->
-        <section class="fade-in-section section-padding bg-white">
-            <div class="container px-3 px-md-0" style="max-width: 1000px;"> <!-- 画像と並べるため最大幅を少し広げています -->
+        <!-- ===== 01 ABOUT US ===== -->
+        <section class="fade-in-section section-padding">
+            <div class="container px-4 px-md-3" style="max-width: 1100px;">
                 <div class="row align-items-center gx-5 gy-5">
-
-                    <!-- 左側：テキストエリア -->
                     <div class="col-lg-5">
-                        <!-- 見出しに左線のアクセントを追加 -->
-                        <div class="border-start border-custom-blue border-3 ps-3 mb-4">
-                            <span class="text-custom-sub fw-bold small tracking-widest d-block mb-1">WHO WE ARE</span>
-                            <h2 class="display-6 fw-bold text-custom-blue m-0">ABOUT US</h2>
+                        <div class="sec-head">
+                            <span class="sec-num">01</span>
+                            <h2 class="sec-title" data-bg="ABOUT">ABOUT US</h2>
+                            <p class="sec-sub">私たちについて</p>
                         </div>
-                        <p class="fs-5 text-secondary mb-3" style="line-height: 1.9;">
-                            私たちは、国際的な分子ロボティクス（生体分子ナノテクノロジー）の学生コンテスト「BIOMOD」への出場を目指して活動している、東京科学大学の学生チームです。
+                        <p class="fs-5 mb-3" style="line-height: 2;">
+                            私たちは、国際生体分子デザインコンペティション「BIOMOD」に挑戦している、東京科学大学の学生チームです。
                         </p>
-                        <p class="fs-6 text-muted mb-0" style="line-height: 1.8;">
-                            DNAやRNA、タンパク質といった生体分子を巧みに設計し、ナノサイズのロボットや人工細胞を創り出す研究・開発を行っています。
+                        <p class="text-secondary mb-4" style="line-height: 2;">
+                            DNAやRNA、タンパク質といった生体分子を設計し、ナノサイズのロボットや分子システムを創り出す研究に取り組んでいます。テーマ決めから実験、Webサイト・動画の制作、英語での発表まで、すべて学生が主体です。
                         </p>
+                        <a href="about-biomod.html" class="btn-sb btn-sb-outline">BIOMODについて</a>
                     </div>
-
-                    <!-- 画像ギャラリー -->
+                    <!-- 写真3枚：img/placeholder/about-1〜3.svg を差し替え -->
                     <div class="col-lg-7">
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <img src="img/test2.png" alt="風景1" class="img-fluid w-100 rounded-3 shadow-sm"
-                                    style="height: 100%; min-height: 368px; object-fit: cover;">
-                            </div>
-                            <!-- 右列：画像2枚を縦に並べる -->
-                            <div class="col-6 d-flex flex-column gap-2">
-                                <img src="img/test3.png" alt="風景2" class="img-fluid w-100 rounded-3 shadow-sm"
-                                    style="height: 180px; object-fit: cover;">
-                                <img src="img/test4.png" alt="風景3" class="img-fluid w-100 rounded-3 shadow-sm"
-                                    style="height: 180px; object-fit: cover;">
+                        <div class="mosaic-wrap">
+                            <div class="mosaic">
+                                <img src="img/placeholder/about-1.svg" alt="チームの集合写真">
+                                <img src="img/placeholder/about-2.svg" alt="活動の様子">
+                                <img src="img/placeholder/about-3.svg" alt="実験の様子">
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- 2. ACTIVITY（活動ページへの導線） -->
+        <!-- ===== 02 ACHIEVEMENTS（受賞歴） ===== -->
+        <section class="band-blue section-padding">
+            <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                <div class="sec-head sec-head-light text-center">
+                    <span class="sec-num">02</span>
+                    <h2 class="sec-title" data-bg="AWARDS">ACHIEVEMENTS</h2>
+                    <p class="sec-sub">これまでの実績</p>
+                </div>
+                <div class="award-grid fade-in-section">
+                    <div class="award-card">
+                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                        <div class="award-year">2023</div>
+                        <span class="award-medal bronze">BRONZE</span>
+                        <p class="award-title">Project Award 銅賞</p>
+                        <p class="award-note">東京で開催されたBIOMOD 2023に出場（東工大チームとして）</p>
+                    </div>
+                    <div class="award-card">
+                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                        <div class="award-year">2024</div>
+                        <span class="award-medal bronze">BRONZE</span>
+                        <p class="award-title">Project Award 銅賞</p>
+                        <p class="award-note">Micro Pill Bug</p>
+                    </div>
+                    <div class="award-card is-gold">
+                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                        <div class="award-year">2025</div>
+                        <span class="award-medal gold">GOLD</span>
+                        <p class="award-title">Project Award 金賞</p>
+                        <p class="award-note">Bow-like DNA bending method（中国・吉林大学）</p>
+                    </div>
+                    <div class="award-card is-gold">
+                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                        <div class="award-year">2026</div>
+                        <span class="award-medal gold">2ND PLACE</span>
+                        <p class="award-title">Open Sesame!（メキシコ大会）</p>
+                        <ul class="award-list">
+                            <li>総合2位（Grand Prize）</li>
+                            <li>Best Website 1位</li>
+                            <li>Computational Biomolecular Design Award</li>
+                            <li>Project Award 金賞</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 03 ACTIVITY（4つの班） ===== -->
         <section class="fade-in-section section-padding bg-light">
-            <div class="container px-3 px-md-0 text-center" style="max-width: 1000px;">
-                <span class="text-custom-sub fw-bold small tracking-widest d-block mb-2">WHAT WE DO</span>
-                <h2 class="display-6 fw-bold text-custom-blue mb-3">ACTIVITY</h2>
-                <p class="text-secondary mb-5 fs-6">4つの班が連携して、一つのプロジェクトを形にしています。</p>
-
-                <div class="row g-3 mb-5 text-start">
-                    <div class="col-6 col-md-3">
-                        <a href="activity.html#wet" class="team-tile team-visual-wet">
-                            <span class="team-tile-label">WET</span><span class="team-tile-sub">実験</span>
-                        </a>
+            <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-2">
+                    <div class="sec-head mb-4">
+                        <span class="sec-num">03</span>
+                        <h2 class="sec-title" data-bg="TEAMS">ACTIVITY</h2>
+                        <p class="sec-sub">4つの班が連携して、一つのプロジェクトを形にする</p>
                     </div>
-                    <div class="col-6 col-md-3">
-                        <a href="activity.html#dry" class="team-tile team-visual-dry">
-                            <span class="team-tile-label">DRY</span><span class="team-tile-sub">設計・シミュレーション</span>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <a href="activity.html#wiki" class="team-tile team-visual-wiki">
-                            <span class="team-tile-label">WIKI</span><span class="team-tile-sub">Webサイト制作</span>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <a href="activity.html#youtube" class="team-tile team-visual-youtube">
-                            <span class="team-tile-label">YOUTUBE</span><span class="team-tile-sub">動画制作</span>
-                        </a>
-                    </div>
+                    <a href="activity.html" class="btn-sb btn-sb-outline mb-4">活動内容・カレンダー</a>
                 </div>
-
-                <a href="activity.html" class="btn btn-outline-primary border-custom-sub text-custom-blue fw-bold px-4 py-2 rounded-pill shadow-sm">
-                    活動内容・カレンダーを見る ＞
-                </a>
-            </div>
-        </section>
-
-        <!-- 3. SOCIAL MEDIA -->
-        <section class="fade-in-section section-padding bg-light text-center">
-            <div class="container px-3 px-md-0" style="max-width: 1000px;">
-                <span class="text-custom-sub fw-bold small tracking-widest d-block mb-2">OFFICIAL ACCOUNTS</span>
-                <h2 class="display-6 fw-bold text-custom-blue mb-3">SOCIAL MEDIA</h2>
-                <p class="text-secondary mb-5 fs-6">公式SNSにて、日々の活動様子や研究の進捗を随時発信しています。</p>
-
-                <div class="d-flex justify-content-center align-items-center gap-4 gap-md-5">
-                    <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" class="sns-card">
-                        <img src="logo/x.jpeg" alt="公式X" class="rounded-4 shadow-sm">
-                    </a>
-                    <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" class="sns-card">
-                        <img src="logo/instagram.jpeg" alt="公式Instagram" class="rounded-4 shadow-sm">
-                    </a>
-                    <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" class="sns-card">
-                        <img src="logo/youtube.jpeg" alt="公式YouTube" class="rounded-4 shadow-sm">
-                    </a>
+                <!-- 写真：img/placeholder/wet・dry・wiki・youtube.svg を差し替え -->
+                <div class="row g-3 g-md-4">
+                    <div class="col-6 col-lg-3">
+                        <a href="activity.html#wet" class="photo-tile">
+                            <img src="img/placeholder/wet.svg" alt="">
+                            <span class="photo-tile-num">01</span>
+                            <span class="photo-tile-body"><span class="px-icon px-wet" aria-hidden="true"></span><span class="photo-tile-en">WET</span><span class="photo-tile-jp">実験</span></span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <a href="activity.html#dry" class="photo-tile">
+                            <img src="img/placeholder/dry.svg" alt="">
+                            <span class="photo-tile-num">02</span>
+                            <span class="photo-tile-body"><span class="px-icon px-dry" aria-hidden="true"></span><span class="photo-tile-en">DRY</span><span class="photo-tile-jp">シミュレーション</span></span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <a href="activity.html#wiki" class="photo-tile">
+                            <img src="img/placeholder/wiki.svg" alt="">
+                            <span class="photo-tile-num">03</span>
+                            <span class="photo-tile-body"><span class="px-icon px-wiki" aria-hidden="true"></span><span class="photo-tile-en">WIKI</span><span class="photo-tile-jp">Webサイト制作</span></span>
+                        </a>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <a href="activity.html#youtube" class="photo-tile">
+                            <img src="img/placeholder/youtube.svg" alt="">
+                            <span class="photo-tile-num">04</span>
+                            <span class="photo-tile-body"><span class="px-icon px-youtube" aria-hidden="true"></span><span class="photo-tile-en">YOUTUBE</span><span class="photo-tile-jp">動画制作</span></span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. LATEST NEWS -->
-        <section class="fade-in-section section-padding bg-white">
-            <div class="container px-3 px-md-0" style="max-width: 1000px;">
-                <div class="d-flex justify-content-between align-items-end mb-4">
-                    <div>
-                        <span class="text-custom-sub fw-bold small tracking-widest d-block mb-1">INFORMATION</span>
-                        <h2 class="display-6 fw-bold text-custom-blue mb-0">LATEST NEWS</h2>
-                    </div>
-                    <a href="news.html"
-                        class="small text-decoration-none text-custom-blue fw-bold d-none d-md-inline">過去のニュース一覧 ＞</a>
+        <!-- ===== 04 PROJECT 2026 ===== -->
+        <section class="fade-in-section section-padding feature">
+            <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                <div class="sec-head">
+                    <span class="sec-num">04</span>
+                    <h2 class="sec-title" data-bg="PROJECT">PROJECT</h2>
+                    <p class="sec-sub">今年の研究テーマ</p>
                 </div>
+                <div class="row align-items-center gx-5 gy-5">
+                    <!-- 画像：img/placeholder/project-2026.svg を差し替え -->
+                    <div class="col-lg-6">
+                        <div class="photo-frame" style="aspect-ratio: 16 / 10;">
+                            <img src="img/placeholder/project-2026.svg" alt="2026プロジェクトのイメージ">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="feature-label">2026 PROJECT</span>
+                        <h3 class="feature-title">Open Sesame!</h3>
+                        <p class="feature-subtitle">Hybridization Chain Reaction-Driven DNA Bundling for Lipid Membrane Disruption</p>
+                        <p class="feature-text mb-0">複数のDNA鎖を束ねて伸ばす独自の反応「Bundled HCR」で硬いDNAバンドルを組み上げ、標的の細胞外小胞（EV）の近くでだけ脂質膜を突き破る、新しい膜破壊システムを提案します。</p>
+                        <div class="feature-meta">
+                            <div><b>2nd Place</b>総合2位</div>
+                            <div><b>Best Website</b>Wiki部門 1位</div>
+                            <div><b>Computational</b>Biomolecular Design Award</div>
+                            <div><b>Gold</b>Project Award 金賞</div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="about-biomod.html#project-2026" class="btn-sb">プロジェクト詳細</a>
+                            <a href="https://biomod-sciencetokyo.github.io/2026project/index.html" target="_blank" rel="noopener" class="btn-sb btn-sb-outline ext">Wikiを見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <!-- 白背景のカードとしてまとめ、影をつける -->
-                <div id="news-list" class="bg-white rounded-3 shadow-sm p-3 p-md-4 border">
+        <!-- ===== 05 NEWS ===== -->
+        <section class="fade-in-section section-padding bg-light">
+            <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+                    <div class="sec-head mb-4">
+                        <span class="sec-num">05</span>
+                        <h2 class="sec-title" data-bg="NEWS">LATEST NEWS</h2>
+                        <p class="sec-sub">お知らせ</p>
+                    </div>
+                    <a href="news.html" class="btn-sb btn-sb-outline mb-4">ニュース一覧</a>
+                </div>
+                <div id="news-list" class="panel news-panel">
                     <p class="text-muted text-center my-4">読み込み中...</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="text-center mt-4 d-md-none">
-                    <a href="news.html" class="small text-decoration-none text-custom-blue fw-bold">過去のニュース一覧 ＞</a>
+        <!-- ===== 06 SNS ===== -->
+        <section class="fade-in-section section-padding">
+            <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                <div class="sec-head text-center">
+                    <span class="sec-num">06</span>
+                    <h2 class="sec-title" data-bg="FOLLOW">SOCIAL MEDIA</h2>
+                    <p class="sec-sub">日々の活動や研究の進捗を発信中</p>
+                </div>
+                <div class="sns-row">
+                    <a href="https://x.com/BIOMOD_SciTokyo" target="_blank" rel="noopener" class="panel sns-big">
+                        <img src="logo/x.jpeg" alt=""><span><b>X</b><small>@BIOMOD_SciTokyo</small></span>
+                    </a>
+                    <a href="https://www.instagram.com/biomod_sciencetokyo/" target="_blank" rel="noopener" class="panel sns-big">
+                        <img src="logo/instagram.jpeg" alt=""><span><b>Instagram</b><small>@biomod_sciencetokyo</small></span>
+                    </a>
+                    <a href="https://www.youtube.com/@BIOMODTeamScienceTokyo" target="_blank" rel="noopener" class="panel sns-big">
+                        <img src="logo/youtube.jpeg" alt=""><span><b>YouTube</b><small>@BIOMODTeamScienceTokyo</small></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container px-4 px-md-3 mb-5"><div class="pixel-divider" aria-hidden="true"></div></div>
+
+        <!-- ===== CONTACT への誘導 ===== -->
+        <section class="fade-in-section pb-5 mb-5">
+            <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                <!-- 背景写真：img/placeholder/jamboree.svg を差し替え -->
+                <div class="cta-band" style="--cta-img: url('img/placeholder/jamboree.svg');">
+                    <div>
+                        <h2>CONTACT</h2>
+                        <p>ご質問、共同研究や協賛のご相談など、お気軽にお問い合わせください。</p>
+                    </div>
+                    <a href="contact.html" class="btn-sb btn-sb-light flex-shrink-0">お問い合わせ</a>
                 </div>
             </div>
         </section>

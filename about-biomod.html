@@ -17,6 +17,10 @@
             document.documentElement.setAttribute('data-bs-theme', t);
         })();
     </script>
+    <!-- フォント（英字見出し：Outfit / 日本語：Noto Sans JP） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&family=DotGothic16&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,17 +28,26 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="container px-3 px-md-0" style="max-width: 1000px;">
-        
-        <div class="text-center" style="margin-top: 80px; margin-bottom: 60px;">
-            <h1 class="display-5 fw-bold text-custom-blue" style="letter-spacing: 0.1em;">ABOUT BIOMOD</h1>
-            <p class="text-muted small mt-2" style="letter-spacing: 0.05em;">大会について / 過去のプロジェクト</p>
+    <!-- 見出し帯（背景写真：img/placeholder/page-about.svg を差し替え） -->
+    <section class="page-hero" style="--hero-img: url('img/placeholder/page-about.svg');">
+        <div class="container page-hero-inner px-4 px-md-3">
+            <p class="page-hero-eyebrow">The Competition</p>
+            <h1 class="page-hero-title">ABOUT BIOMOD</h1>
+            <p class="page-hero-sub">大会について / 過去のプロジェクト</p>
+            <nav class="page-hero-crumb" aria-label="パンくずリスト"><a href="index.html">TOP</a><span>/</span>ABOUT BIOMOD</nav>
         </div>
-        
-        <section class="fade-in-section my-block text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-            <h2 class="h4 fw-bold text-custom-blue mb-4 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em;">BIOMODとは？</h2>
-            
-            <div class="mx-auto mt-4 text-start">
+    </section>
+
+    <main class="container px-4 px-md-3" style="max-width: 1000px;">
+
+        <section class="fade-in-section my-block">
+            <div class="sec-head text-center">
+                <span class="sec-num">01</span>
+                <h2 class="sec-title" data-bg="BIOMOD">WHAT IS BIOMOD?</h2>
+                <p class="sec-sub">BIOMODとは？</p>
+            </div>
+
+            <div class="panel intro-card mx-auto" style="max-width: 860px;">
                 <p class="fs-5 mb-3 text-secondary" style="line-height: 1.9; letter-spacing: 0.03em;">
                     BIOMOD（Bio-Molecular Design Competition）は、大学の学部生を対象とした、生体分子ナノテクノロジーの国際ロボットコンテストです。
                 </p>
@@ -42,11 +55,21 @@
                     2011年にハーバード大学のWyss研究所によって創設され、世界中から未来の科学者・エンジニアを目指す学生チームが集まり、そのアイデアと技術力を競い合います。
                 </p>
             </div>
+
+            <!-- 数字で見るBIOMOD（出典：BIOMOD公式サイト・READYFORのプロジェクトページ） -->
+            <div class="band-blue rounded-4 mt-4 mx-auto overflow-hidden" style="max-width: 860px;">
+                <div class="fact-grid">
+                    <div class="fact"><b>2011</b><span>ハーバード大学で創設</span></div>
+                    <div class="fact"><b>16<small>+</small></b><span>参加した国と地域</span></div>
+                    <div class="fact"><b>1,500<small>+</small></b><span>挑戦した学生</span></div>
+                    <div class="fact"><b>100<small>pt</small></b><span>Wiki・動画・発表で審査</span></div>
+                </div>
+            </div>
         </section>
 
         <!-- 何を創る大会なのか？ -->
         <section class="fade-in-section my-block">
-            <h2 class="h4 fw-bold text-center text-custom-blue mb-5 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em; max-width: 720px; margin: 0 auto;">何を創る大会なのか？</h2>
+            <h2 class="sub-head justify-content-center mb-5">何を創る大会なのか？</h2>
             
             <div class="row align-items-center gx-5">
                 <!-- スマホ：上 / PC：左 -->
@@ -60,24 +83,24 @@
                 </div>
                 <!-- スマホ：下 / PC：右 -->
                 <div class="col-md-6 order-2 order-md-2">
-                    <img src="img/a-b1.png" alt="何を創る大会なのか？" class="img-fluid rounded-3 shadow-sm border w-100 img-on-light">
+                    <img src="img/a-b1.png" alt="何を創る大会なのか？" class="img-fluid rounded-4 w-100 img-on-light" style="box-shadow: var(--shadow-lg);">
                 </div>
             </div>
         </section>
 
         <!-- 審査の仕組み -->
         <section class="fade-in-section my-block">
-            <h2 class="h4 fw-bold text-center text-custom-blue mb-5 pb-2 border-bottom border-secondary-subtle" style="letter-spacing: 0.05em; max-width: 720px; margin: 0 auto;">審査の仕組み</h2>
+            <h2 class="sub-head justify-content-center mb-5">審査の仕組み</h2>
             
             <div class="row align-items-center gx-5">
                 <!-- スマホ：下 / PC：左 -->
                 <div class="col-md-6 order-2 order-md-1">
-                    <img src="img/a-b2.png" alt="審査の仕組み" class="img-fluid rounded-3 shadow-sm border w-100 img-on-light">
+                    <img src="img/a-b2.png" alt="審査の仕組み" class="img-fluid rounded-4 w-100 img-on-light" style="box-shadow: var(--shadow-lg);">
                 </div>
                 <!-- スマホ：上 / PC：右 -->
                 <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
                     <p class="fs-5 text-secondary mb-4" style="line-height: 2.0;">大会での評価は、実験データの正確さだけでなく、以下の3つの総合力（100点満点）で審査されます。</p>
-                    <div class="bg-light p-4 rounded-3 border shadow-sm">
+                    <div class="panel p-4">
                         <ul class="list-unstyled mb-0 fs-5 text-secondary" style="line-height: 1.8;">
                             <li class="mb-3 d-flex align-items-start">
                                 <span class="text-custom-blue fw-bold me-2">・</span>
@@ -110,12 +133,22 @@
             </a>
         </section>
 
-        <hr class="my-5 border-secondary-subtle">
+        <div class="sec-head text-center mt-5 pt-4">
+            <span class="sec-num">02</span>
+            <h2 class="sec-title" data-bg="PROJECTS">OUR PROJECTS</h2>
+            <p class="sec-sub">これまでのプロジェクト</p>
+        </div>
 
-        <section class="fade-in-section my-block">
+        <section id="project-2026" class="fade-in-section panel project-block" data-year="2026">
             <div class="text-center mb-4">
-                <span class="badge badge-custom-sub px-3 py-2 mb-2 fs-6 fw-normal">2026 PROJECT</span>
-                <h2 class="h3 fw-bold text-custom-blue mt-2" style="max-width: 700px; margin: 0 auto; line-height: 1.4;">
+                <span class="year-badge">2026 PROJECT</span>
+                <div class="project-awards">
+                    <span class="award-medal gold">2ND PLACE</span>
+                    <span class="award-medal gold">BEST WEBSITE</span>
+                    <span class="award-medal gold">COMPUTATIONAL BIOMOLECULAR DESIGN AWARD</span>
+                    <span class="award-medal gold">GOLD</span>
+                </div>
+                <h2 class="h3 fw-bold text-custom-blue mt-3 font-en" style="max-width: 700px; margin: 0 auto; line-height: 1.4;">
                     Open Sesame!<br>
                     <span class="fs-4">Hybridization Chain Reaction-Driven DNA Bundling for Lipid Membrane Disruption</span><br>
                     <span class="fs-5 text-muted fw-normal">（HCRで組み上がるDNAバンドルによる脂質膜破壊）</span>
@@ -132,13 +165,11 @@
                 </div>
 
                 <div class="mt-5">
-                    <a href="https://biomod-sciencetokyo.github.io/2026project/index.html" target="_blank" class="btn btn-outline-primary border-custom-sub text-custom-blue fw-bold px-4 py-2 rounded-pill shadow-sm custom-btn" style="transition: all 0.3s;">
-                        2026 プロジェクトWikiを見る ＞
-                    </a>
+                    <a href="https://biomod-sciencetokyo.github.io/2026project/index.html" target="_blank" rel="noopener" class="btn-sb btn-sb-outline ext">2026 プロジェクトWikiを見る</a>
                 </div>
             </div>
 
-            <div class="ratio ratio-16x9 rounded-3 border shadow-sm overflow-hidden mt-4 mx-auto" style="max-width: 90%;">
+            <div class="ratio ratio-16x9 rounded-4 overflow-hidden mt-4 mx-auto" style="max-width: 92%; box-shadow: var(--shadow-lg);">
                 <iframe src="https://www.youtube.com/embed/s7VmwAqsfO8"
                         title="2026 BIOMOD Team Science Tokyo Video"
                         style="border:0;"
@@ -148,10 +179,10 @@
             </div>
         </section>
 
-        <section class="fade-in-section my-block">
+        <section id="project-2025" class="fade-in-section panel project-block" data-year="2025">
             <div class="text-center mb-4">
-                <span class="badge badge-custom-sub px-3 py-2 mb-2 fs-6 fw-normal">2025 PROJECT</span>
-                <h2 class="h3 fw-bold text-custom-blue mt-2" style="max-width: 700px; margin: 0 auto; line-height: 1.4;">
+                <span class="year-badge">2025 PROJECT</span><span class="project-award"><span class="award-medal gold">GOLD</span></span>
+                <h2 class="h3 fw-bold text-custom-blue mt-3 font-en" style="max-width: 700px; margin: 0 auto; line-height: 1.4;">
                     Bow-like DNA bending method using Avidin–Biotin binding<br>
                     <span class="fs-5 text-muted fw-normal">（アビジン‐ビオチン結合を利用した弓状DNA変形法）</span>
                 </h2>
@@ -167,13 +198,11 @@
                 </div>
                 
                 <div class="mt-5">
-                    <a href="https://sites.google.com/view/biomod2025siencetokyo/home?authuser=0" target="_blank" class="btn btn-outline-primary border-custom-sub text-custom-blue fw-bold px-4 py-2 rounded-pill shadow-sm custom-btn" style="transition: all 0.3s;">
-                        2025 プロジェクトWikiを見る ＞
-                    </a>
+                    <a href="https://sites.google.com/view/biomod2025siencetokyo/home?authuser=0" target="_blank" rel="noopener" class="btn-sb btn-sb-outline ext">2025 プロジェクトWikiを見る</a>
                 </div>
             </div>
 
-            <div class="ratio ratio-16x9 rounded-3 border shadow-sm overflow-hidden mt-4 mx-auto" style="max-width: 90%;">
+            <div class="ratio ratio-16x9 rounded-4 overflow-hidden mt-4 mx-auto" style="max-width: 92%; box-shadow: var(--shadow-lg);">
                 <iframe src="https://www.youtube.com/embed/YCwQNmHV13E" 
                         title="2025 BIOMOD Team Science Tokyo Video" 
                         style="border:0;" 
@@ -183,10 +212,10 @@
             </div>
         </section>
 
-        <section class="fade-in-section my-block">
+        <section id="project-2024" class="fade-in-section panel project-block" data-year="2024">
             <div class="text-center mb-4">
-                <span class="badge badge-custom-sub px-3 py-2 mb-2 fs-6 fw-normal">2024 PROJECT</span>
-                <h2 class="h3 fw-bold text-custom-blue mt-2" style="letter-spacing: 0.05em;">Micro Pill Bug</h2>
+                <span class="year-badge">2024 PROJECT</span><span class="project-award"><span class="award-medal bronze">BRONZE</span></span>
+                <h2 class="h3 fw-bold text-custom-blue mt-3 font-en" style="letter-spacing: 0.05em;">Micro Pill Bug</h2>
                 
                 <!-- テキスト幅を制限し、左揃え（text-start）で読みやすく配置 -->
                 <div class="mx-auto mt-4 text-start" style="max-width: 720px;">
@@ -199,13 +228,11 @@
                 </div>
                 
                 <div class="mt-5">
-                    <a href="https://t2biomod2024.github.io/2024/index.html" target="_blank" class="btn btn-outline-primary border-custom-sub text-custom-blue fw-bold px-4 py-2 rounded-pill shadow-sm" style="transition: all 0.3s;">
-                        2024 プロジェクトWikiを見る ＞
-                    </a>
+                    <a href="https://t2biomod2024.github.io/2024/index.html" target="_blank" rel="noopener" class="btn-sb btn-sb-outline ext">2024 プロジェクトWikiを見る</a>
                 </div>
             </div>
 
-            <div class="ratio ratio-16x9 rounded-3 border shadow-sm overflow-hidden mt-4 mx-auto" style="max-width: 90%;">
+            <div class="ratio ratio-16x9 rounded-4 overflow-hidden mt-4 mx-auto" style="max-width: 92%; box-shadow: var(--shadow-lg);">
                 <iframe src="https://www.youtube.com/embed/9RaOfTSrvvM" 
                     title="2024 BIOMOD Team Science Tokyo Video" 
                     style="border:0;" 

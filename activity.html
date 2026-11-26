@@ -17,6 +17,10 @@
             document.documentElement.setAttribute('data-bs-theme', t);
         })();
     </script>
+    <!-- フォント（英字見出し：Outfit / 日本語：Noto Sans JP） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&family=DotGothic16&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,12 +28,17 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="container px-3 px-md-0" style="max-width: 1000px;">
-
-        <div class="text-center" style="margin-top: 80px; margin-bottom: 60px;">
-            <h1 class="display-5 fw-bold text-custom-blue" style="letter-spacing: 0.1em;">ACTIVITY</h1>
-            <p class="text-muted small mt-2" style="letter-spacing: 0.05em;">活動内容 / 活動カレンダー</p>
+    <!-- 見出し帯（背景写真：img/placeholder/page-activity.svg を差し替え） -->
+    <section class="page-hero" style="--hero-img: url('img/placeholder/page-activity.svg');">
+        <div class="container page-hero-inner px-4 px-md-3">
+            <p class="page-hero-eyebrow">What We Do</p>
+            <h1 class="page-hero-title">ACTIVITY</h1>
+            <p class="page-hero-sub">活動内容 / 活動カレンダー</p>
+            <nav class="page-hero-crumb" aria-label="パンくずリスト"><a href="index.html">TOP</a><span>/</span>ACTIVITY</nav>
         </div>
+    </section>
+
+    <main class="container px-4 px-md-3" style="max-width: 1000px;">
 
         <section class="fade-in-section text-center mx-auto" style="max-width: 720px;">
             <p class="fs-5 text-secondary mb-0 text-start" style="line-height: 1.9;">
@@ -46,30 +55,20 @@
 
         <!-- ===== 01 TEAMS ===== -->
         <section class="fade-in-section my-block">
-            <div class="activity-heading mb-5">
-                <span class="activity-num">01</span>
-                <div>
-                    <span class="text-custom-sub fw-bold small tracking-widest d-block">OUR TEAMS</span>
-                    <h2 class="h3 fw-bold text-custom-blue m-0">4つの班の紹介</h2>
-                </div>
+            <div class="sec-head">
+                <span class="sec-num">01</span>
+                <h2 class="sec-title" data-bg="TEAMS">OUR TEAMS</h2>
+                <p class="sec-sub">4つの班の紹介</p>
             </div>
-
-            <!--
-                各班の写真を載せる場合は、.team-visual の中身を
-                <img src="img/xxx.png" alt="..." class="w-100 h-100" style="object-fit: cover;">
-                に置き換えてください。
-            -->
+            <!-- 各班の写真：img/placeholder/wet・dry・wiki・youtube.svg を差し替え -->
 
             <!-- Wet班 -->
             <div id="wet" class="row align-items-center gx-5 gy-4 team-row">
                 <div class="col-md-5">
-                    <div class="team-visual team-visual-wet">
-                        <span class="team-visual-label">WET</span>
-                        <span class="team-visual-sub">Laboratory</span>
-                    </div>
+                    <div class="team-photo"><img src="img/placeholder/wet.svg" alt="Wet班の活動の様子"><span class="team-photo-label">WET</span></div>
                 </div>
                 <div class="col-md-7">
-                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">Wet班</span>
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal team-badge"><span class="px-icon px-wet" aria-hidden="true"></span>Wet班</span>
                     <h3 class="h4 fw-bold text-custom-blue mb-3">実験でアイデアを確かめる</h3>
                     <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
                         横浜キャンパスの浜田研究室で、実際にDNAを扱って実験を進めます。設計したDNA構造が狙いどおりに組み上がり、機能するかを確かめるのが役割です。うまくいかない結果からも原因を考え、Dry班と相談しながら設計の改良につなげています。
@@ -86,13 +85,10 @@
             <!-- Dry班 -->
             <div id="dry" class="row align-items-center gx-5 gy-4 team-row">
                 <div class="col-md-5 order-md-2">
-                    <div class="team-visual team-visual-dry">
-                        <span class="team-visual-label">DRY</span>
-                        <span class="team-visual-sub">Design &amp; Simulation</span>
-                    </div>
+                    <div class="team-photo"><img src="img/placeholder/dry.svg" alt="Dry班の活動の様子"><span class="team-photo-label">DRY</span></div>
                 </div>
                 <div class="col-md-7 order-md-1">
-                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">Dry班</span>
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal team-badge"><span class="px-icon px-dry" aria-hidden="true"></span>Dry班</span>
                     <h3 class="h4 fw-bold text-custom-blue mb-3">コンピュータで分子を設計する</h3>
                     <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
                         コンピュータシミュレーションやデータ解析によって、Wet班の実験データを補完します。分子の動きや反応をモデルで予測し、実験の設計にも役立てます。実験とシミュレーションを組み合わせることで、理論と実験の両面からプロジェクトを支えます。
@@ -109,13 +105,10 @@
             <!-- Wiki班 -->
             <div id="wiki" class="row align-items-center gx-5 gy-4 team-row">
                 <div class="col-md-5">
-                    <div class="team-visual team-visual-wiki">
-                        <span class="team-visual-label">WIKI</span>
-                        <span class="team-visual-sub">Website</span>
-                    </div>
+                    <div class="team-photo"><img src="img/placeholder/wiki.svg" alt="Wiki班の活動の様子"><span class="team-photo-label">WIKI</span></div>
                 </div>
                 <div class="col-md-7">
-                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">Wiki班</span>
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal team-badge"><span class="px-icon px-wiki" aria-hidden="true"></span>Wiki班</span>
                     <h3 class="h4 fw-bold text-custom-blue mb-3">研究を世界に伝えるサイトをつくる</h3>
                     <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
                         BIOMODの審査で最も配点が大きい（100点中50点）、プロジェクト紹介サイト（Wiki）を制作します。英語の研究レポートを掲載するWebサイトを、構築から執筆まで自分たちで行います。研究の背景や設計、実験・シミュレーションの結果を、専門外の人にも伝わるよう図を交えて分かりやすく構成します。
@@ -132,13 +125,10 @@
             <!-- YouTube班 -->
             <div id="youtube" class="row align-items-center gx-5 gy-4 team-row mb-0">
                 <div class="col-md-5 order-md-2">
-                    <div class="team-visual team-visual-youtube">
-                        <span class="team-visual-label">YOUTUBE</span>
-                        <span class="team-visual-sub">Video</span>
-                    </div>
+                    <div class="team-photo"><img src="img/placeholder/youtube.svg" alt="YouTube班の活動の様子"><span class="team-photo-label">YOUTUBE</span></div>
                 </div>
                 <div class="col-md-7 order-md-1">
-                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal">YouTube班</span>
+                    <span class="badge badge-custom-sub px-3 py-2 mb-2 fw-normal team-badge"><span class="px-icon px-youtube" aria-hidden="true"></span>YouTube班</span>
                     <h3 class="h4 fw-bold text-custom-blue mb-3">3分間でプロジェクトの魅力を届ける</h3>
                     <p class="text-secondary fs-6 mb-0" style="line-height: 1.9;">
                         研究内容を3分間で分かりやすく伝える、プロジェクト紹介動画を制作します（審査では100点中25点）。目に見えないナノの世界をどう表現するかを考え、企画・脚本づくりから撮影・編集までを一貫して手がけます。完成した動画はチームの
@@ -154,16 +144,14 @@
             </div>
         </section>
 
-        <hr class="my-5 border-secondary-subtle">
+        <div class="pixel-divider my-5" aria-hidden="true"></div>
 
         <!-- ===== 02 CALENDAR ===== -->
         <section id="calendar" class="fade-in-section my-block">
-            <div class="activity-heading mb-4">
-                <span class="activity-num">02</span>
-                <div>
-                    <span class="text-custom-sub fw-bold small tracking-widest d-block">SCHEDULE</span>
-                    <h2 class="h3 fw-bold text-custom-blue m-0">活動カレンダー</h2>
-                </div>
+            <div class="sec-head">
+                <span class="sec-num">02</span>
+                <h2 class="sec-title" data-bg="CALENDAR">SCHEDULE</h2>
+                <p class="sec-sub">活動カレンダー</p>
             </div>
 
             <p class="text-secondary fs-6 mb-4" style="line-height: 1.9;">
@@ -221,7 +209,8 @@
                             <ul class="cal-items">
                                 <li class="cal-item is-highlight"><time datetime="2026-11-09">11/9</time> クラウドファンディング終了。目標金額を達成</li>
                                 <li class="cal-item"><time datetime="2026-11-14">11/14</time> Wiki・YouTube動画の締切（以降は編集不可）</li>
-                                <li class="cal-item is-highlight"><time datetime="2026-11-20">11/20〜22</time> BIOMOD Jamboree（メキシコ・ケレタロ／モンテレイ工科大学 ケレタロキャンパス）に出場</li>
+                                <li class="cal-item"><time datetime="2026-11-20">11/20〜22</time> BIOMOD Jamboree（メキシコ・ケレタロ／モンテレイ工科大学 ケレタロキャンパス）に出場</li>
+                                <li class="cal-item is-highlight"><time datetime="2026-11-22">11/22</time> 総合2位（Grand Prize 2nd）、Best Website 1位、Computational Biomolecular Design Award、Project Award 金賞を受賞</li>
                             </ul>
                         </li>
                         <li class="cal-month">
