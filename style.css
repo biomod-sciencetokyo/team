@@ -1375,3 +1375,152 @@ body.is-top-page .site-header:not(.is-scrolled) .site-nav { border-top-color: rg
     100% { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .chara-speech { animation: none; } }
+
+/* =====================================================================
+   モーション（main.js の「サイト全体の動き」とセット）
+   ・html に .js-motion が付いているときだけ、登場前の状態（非表示）にする
+     → JavaScriptが動かない環境や「視差効果を減らす」設定では、最初から普通に表示される
+   ===================================================================== */
+
+/* ---- スクロール進捗バー ---- */
+.scroll-progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 1100;
+    background: linear-gradient(90deg, var(--sub), var(--gold-light));
+    transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+}
+
+/* ---- 見出しの1文字ずつの登場 ---- */
+.split-word { display: inline-block; white-space: nowrap; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+.split-ch { display: inline-block; }
+.js-motion .split .split-ch {
+    transform: translateY(105%); opacity: 0;
+    transition: transform .8s cubic-bezier(.2, .8, .2, 1), opacity .5s ease;
+    transition-delay: calc(var(--i) * 28ms);
+}
+.js-motion .split.is-in .split-ch { transform: none; opacity: 1; }
+
+/* ---- 見出しの後ろの袋文字が、スクロールに合わせて横にスライド ---- */
+.sec-title[data-bg]::before { transform: translateX(var(--bg-shift, 0px)); will-change: transform; }
+
+/* ---- 子要素を順番に表示 ---- */
+.js-motion .stagger > * {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .6s ease, transform .7s cubic-bezier(.2, .8, .2, 1);
+    transition-delay: calc(var(--i, 0) * 90ms);
+}
+.js-motion .stagger.is-in > * { opacity: 1; transform: none; }
+/* 順番表示が終わったあとはホバー時の動きを元の速さに戻す */
+.js-motion .stagger.is-in > .member-card { transition: opacity .6s ease, transform .3s ease, box-shadow .3s ease; transition-delay: calc(var(--i, 0) * 90ms), 0s, 0s; }
+
+/* ---- カードの立体的な傾き（マウスの位置に光沢が付いてくる） ---- */
+.tilt { transform-style: preserve-3d; }
+.tilt.is-tilting {
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px) !important;
+    transition: transform .08s linear, box-shadow .3s ease, background .3s ease !important;
+}
+.tilt::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 3;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.22), transparent 55%);
+    opacity: 0; transition: opacity .3s ease;
+}
+.tilt.is-tilting::after { opacity: 1; }
+.member-card.tilt, .sns-big.tilt, .chara-card.tilt { position: relative; }
+
+/* ---- ボタンの吸い寄せ ---- */
+.btn-sb { transition: transform .25s ease, box-shadow .25s ease, background-position .4s ease, translate .35s cubic-bezier(.2, .8, .2, 1); }
+
+/* ---- 横スクロールの年表 ---- */
+.hscroll-inner { position: relative; }
+.hscroll-bgtext {
+    position: absolute; left: 4vw; bottom: -4%; z-index: 0; pointer-events: none; white-space: nowrap;
+    font-family: var(--ff-en); font-weight: 800; font-size: clamp(5rem, 16vw, 15rem); line-height: 1;
+    color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+}
+.hscroll-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 36px; }
+.hscroll-arrows { display: flex; gap: 10px; }
+.hscroll-arrow {
+    width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.35);
+    background: transparent; color: #fff; font-family: var(--ff-en); font-size: 1.2rem; line-height: 1;
+    transition: background .25s, color .25s, border-color .25s, opacity .25s;
+}
+.hscroll-arrow:hover:not(:disabled) { background: #fff; color: var(--sb); border-color: #fff; }
+.hscroll-arrow:disabled { opacity: .3; cursor: default; }
+/* 年表のカード列。最初と最後のカードも画面の真ん中で止まるよう、左右に余白を取る */
+.hscroll { --card-w: min(500px, 84vw); scroll-margin-top: var(--nav-h); }
+.hscroll-viewport {
+    position: relative; z-index: 1; outline: none;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; padding-block: 10px; cursor: grab;
+}
+.hscroll-viewport::-webkit-scrollbar { display: none; }
+.hscroll-viewport.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.hscroll-viewport:focus-visible { box-shadow: inset 0 0 0 2px var(--gold-light); }
+.hscroll .hscroll-track {
+    display: flex; gap: 32px; width: max-content;
+    padding-inline: calc((100vw - var(--card-w)) / 2);
+}
+.hscroll .award-card {
+    flex: 0 0 auto; width: var(--card-w); padding: 36px 32px 32px; scroll-snap-align: center; overflow: visible;
+    transition: transform .5s cubic-bezier(.2, .8, .2, 1), background .3s ease, border-color .3s ease, opacity .5s ease;
+}
+.hscroll .award-card:not(.is-current) { opacity: .5; transform: scale(.94); cursor: pointer; }
+.hscroll .award-year { font-size: clamp(3rem, 6vw, 4.6rem); }
+/* カードの中のプロジェクト紹介 */
+.award-medals { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 18px; }
+.award-medals .award-medal { margin: 0; }
+.award-project { font-family: var(--ff-en); font-weight: 800; font-size: 1.5rem; line-height: 1.25; margin: 0 0 4px; color: #fff; }
+.award-project-sub { font-size: .85rem; font-weight: 700; color: var(--sub-soft); margin: 0 0 14px; }
+.award-text { font-size: .9rem; line-height: 1.85; color: rgba(255,255,255,0.78); margin: 0 0 20px; }
+.award-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.award-link {
+    display: inline-flex; align-items: center; gap: .4em; padding: 6px 16px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none;
+    font-size: .82rem; font-weight: 700; letter-spacing: .04em; transition: background .25s, color .25s, border-color .25s;
+}
+.award-link::after { content: "→"; font-family: var(--ff-en); }
+.award-link.ext::after { content: "↗"; }
+.award-link:hover { background: #fff; color: var(--sb); border-color: #fff; }
+.award-card.is-gold .award-project { color: var(--gold-light); }
+.hscroll .award-card { display: flex; flex-direction: column; }
+.hscroll .award-card:not(.is-current) .award-link { pointer-events: none; }   /* 横のカードはクリックで真ん中へ移動 */
+/* カードどうしをつなぐ線（年表らしく） */
+.hscroll .award-card::before {
+    content: ""; position: absolute; top: 50%; right: -33px; width: 34px; height: 2px;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0 4px, transparent 4px 8px);
+}
+.hscroll .award-card:last-child::before { display: none; }
+
+.hscroll-nav { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+.hscroll-bar { flex: 1; height: 2px; background: rgba(255,255,255,0.18); border-radius: 2px; overflow: hidden; }
+.hscroll-bar span { display: block; height: 100%; background: var(--gold-light); transform: scaleX(0); transform-origin: 0 50%; }
+.hscroll-steps { display: flex; gap: 6px; }
+.hscroll-steps button {
+    border: 1px solid rgba(255,255,255,0.25); background: transparent; color: rgba(255,255,255,0.7);
+    font-family: var(--ff-en); font-weight: 700; font-size: .8rem; letter-spacing: .06em;
+    padding: 5px 12px; border-radius: 999px; transition: background .25s, color .25s, border-color .25s;
+}
+.hscroll-steps button:hover { border-color: #fff; color: #fff; }
+.hscroll-steps button.is-current { background: var(--gold-light); border-color: var(--gold-light); color: var(--sb-deep); }
+@media (max-width: 991.98px) {
+    .hscroll .hscroll-track { gap: 16px; }
+    .hscroll .award-card::before { right: -17px; width: 18px; }
+    .hscroll-nav { flex-direction: column; align-items: stretch; gap: 14px; }
+    .hscroll-steps { justify-content: center; }
+    .hscroll-arrows { display: none; }   /* スマホはスワイプと年のボタンで操作 */
+}
+
+/* ---- 4つの班：スマホでは横スワイプ ---- */
+@media (max-width: 767.98px) {
+    .snap-row {
+        flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+        margin-right: -1.5rem; padding-right: 1.5rem; padding-bottom: 6px;
+    }
+    .snap-row::-webkit-scrollbar { display: none; }
+    .snap-row > * { flex: 0 0 64%; max-width: 64%; scroll-snap-align: start; }
+}
+
+/* ---- 動きを減らす設定 ---- */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress { display: none; }
+    .hscroll .award-card:not(.is-current) { opacity: 1; transform: none; }
+}

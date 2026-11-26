@@ -72,7 +72,7 @@
             </div>
             <div class="hero-actions">
                 <a href="activity.html" class="btn-sb btn-sb-light">活動を見る</a>
-                <a href="about-biomod.html#project-2026" class="btn-sb btn-sb-ghost">2026 プロジェクト</a>
+                <a href="#projects" class="btn-sb btn-sb-ghost">プロジェクトと実績</a>
             </div>
         </div>
         <div class="container hero-stats px-4 px-md-3">
@@ -87,6 +87,7 @@
     </header>
 
     <main class="w-100">
+
 
         <!-- ===== 01 ABOUT US ===== -->
         <section class="fade-in-section section-padding">
@@ -120,47 +121,76 @@
             </div>
         </section>
 
-        <!-- ===== 02 ACHIEVEMENTS（受賞歴） ===== -->
-        <section class="band-blue section-padding">
-            <div class="container px-4 px-md-3" style="max-width: 1100px;">
-                <div class="sec-head sec-head-light text-center">
-                    <span class="sec-num">02</span>
-                    <h2 class="sec-title" data-bg="AWARDS">ACHIEVEMENTS</h2>
-                    <p class="sec-sub">これまでの実績</p>
+        <!-- ===== 02 PROJECTS & AWARDS（プロジェクトと受賞歴） =====
+             横スクロールの年表です。スマホは指でスワイプ、PCは矢印・年のボタン・トラックパッドの横スクロール・ドラッグで動かせます。
+             ・1年 = 1枚のカード（<article class="award-card">）。プロジェクト名・ひとこと・紹介文・受賞・リンクを書きます
+             ・カードを追加すると自動で年表が伸びます。最初は一番右（最新の年）が表示されます
+             ・下の年ボタン（data-hscroll-to）もカードと同じ順番・数にそろえてください -->
+        <section id="projects" class="band-blue hscroll section-padding" data-hscroll aria-labelledby="awards-title">
+            <div class="hscroll-inner">
+                <span class="hscroll-bgtext" aria-hidden="true">2023 — 2026</span>
+                <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                    <div class="hscroll-head">
+                        <div class="sec-head sec-head-light mb-0">
+                            <span class="sec-num">02</span>
+                            <h2 class="sec-title" id="awards-title" data-bg="PROJECTS">PROJECTS</h2>
+                            <p class="sec-sub">これまでのプロジェクトと受賞歴</p>
+                        </div>
+                        <div class="hscroll-arrows">
+                            <button type="button" class="hscroll-arrow" data-hscroll-prev aria-label="前の年へ">←</button>
+                            <button type="button" class="hscroll-arrow" data-hscroll-next aria-label="次の年へ">→</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="award-grid fade-in-section">
-                    <div class="award-card">
-                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
-                        <div class="award-year">2023</div>
-                        <span class="award-medal bronze">BRONZE</span>
-                        <p class="award-title">Project Award 銅賞</p>
-                        <p class="award-note">東京で開催されたBIOMOD 2023に出場（東工大チームとして）</p>
+                <div class="hscroll-viewport" tabindex="0" aria-label="プロジェクトと受賞歴の年表（横にスクロールできます）">
+                    <div class="hscroll-track award-grid fade-in-section">
+                        <article class="award-card">
+                            <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                            <div class="award-year">2023</div>
+                            <div class="award-medals"><span class="award-medal bronze">BRONZE</span></div>
+                            <h3 class="award-project">Micro Invader Game</h3>
+                            <p class="award-project-sub">生体分子でつくるミクロなインベーダーゲーム</p>
+                            <p class="award-text">免疫のしくみをインベーダーゲームに見立てた分子システム。DNAで修飾したビーズの「弾」を撃ち出し、リポソームの「敵」が当たると蛍光や自壊で応答します。</p>
+                            <div class="award-links"><a href="about-biomod.html#project-2023" class="award-link">詳しく</a><a href="https://t2biomod2023.github.io/" target="_blank" rel="noopener" class="award-link ext">Wiki</a></div>
+                        </article>
+                        <article class="award-card">
+                            <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                            <div class="award-year">2024</div>
+                            <div class="award-medals"><span class="award-medal bronze">BRONZE</span></div>
+                            <h3 class="award-project">Nano Pill Bug</h3>
+                            <p class="award-project-sub">miRNAを守るダンゴムシ型分子ロボット</p>
+                            <p class="award-text">分解されやすいmiRNAを、ダンゴムシのように丸まって捕まえ、酵素から守る分子ロボット。DNAオリガミの曲げ応力をトラップのように利用しました。</p>
+                            <div class="award-links"><a href="about-biomod.html#project-2024" class="award-link">詳しく</a><a href="https://t2biomod2024.github.io/2024/index.html" target="_blank" rel="noopener" class="award-link ext">Wiki</a></div>
+                        </article>
+                        <article class="award-card is-gold">
+                            <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                            <div class="award-year">2025</div>
+                            <div class="award-medals"><span class="award-medal gold">GOLD</span></div>
+                            <h3 class="award-project">Bow-like DNA bending method</h3>
+                            <p class="award-project-sub">アビジン‐ビオチン結合を利用した弓状DNA変形法</p>
+                            <p class="award-text">強固なアビジン‐ビオチン結合でDNAを弓の弦のように引き絞って曲げる新しい手法。結合位置やリンカー長で曲げ角度を精密に制御します。</p>
+                            <div class="award-links"><a href="about-biomod.html#project-2025" class="award-link">詳しく</a><a href="https://sites.google.com/view/biomod2025siencetokyo/home" target="_blank" rel="noopener" class="award-link ext">Wiki</a></div>
+                        </article>
+                        <article class="award-card is-gold">
+                            <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
+                            <div class="award-year">2026</div>
+                            <div class="award-medals"><span class="award-medal gold">2ND PLACE</span><span class="award-medal gold">BEST WEBSITE</span><span class="award-medal gold">COMPUTATIONAL</span><span class="award-medal gold">GOLD</span></div>
+                            <h3 class="award-project">Open Sesame!</h3>
+                            <p class="award-project-sub">HCRで組み上がるDNAバンドルによる脂質膜破壊</p>
+                            <p class="award-text">DNA鎖を束ねて伸ばす独自の反応「Bundled HCR」で硬いDNAバンドルを組み上げ、標的の細胞外小胞（EV）の近くでだけ脂質膜を突き破るシステムを提案しました。</p>
+                            <div class="award-links"><a href="about-biomod.html#project-2026" class="award-link">詳しく</a><a href="https://biomod-sciencetokyo.github.io/2026project/index.html" target="_blank" rel="noopener" class="award-link ext">Wiki</a></div>
+                        </article>
                     </div>
-                    <div class="award-card">
-                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
-                        <div class="award-year">2024</div>
-                        <span class="award-medal bronze">BRONZE</span>
-                        <p class="award-title">Project Award 銅賞</p>
-                        <p class="award-note">Micro Pill Bug</p>
-                    </div>
-                    <div class="award-card is-gold">
-                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
-                        <div class="award-year">2025</div>
-                        <span class="award-medal gold">GOLD</span>
-                        <p class="award-title">Project Award 金賞</p>
-                        <p class="award-note">Bow-like DNA bending method（中国・吉林大学）</p>
-                    </div>
-                    <div class="award-card is-gold">
-                        <div class="unlock"><span class="px-icon px-medal" aria-hidden="true"></span>ACHIEVEMENT UNLOCKED</div>
-                        <div class="award-year">2026</div>
-                        <span class="award-medal gold">2ND PLACE</span>
-                        <p class="award-title">Open Sesame!（メキシコ大会）</p>
-                        <ul class="award-list">
-                            <li>総合2位（Grand Prize）</li>
-                            <li>Best Website 1位</li>
-                            <li>Computational Biomolecular Design Award</li>
-                            <li>Project Award 金賞</li>
-                        </ul>
+                </div>
+                <div class="container px-4 px-md-3" style="max-width: 1100px;">
+                    <div class="hscroll-nav">
+                        <div class="hscroll-bar" aria-hidden="true"><span></span></div>
+                        <div class="hscroll-steps">
+                            <button type="button" data-hscroll-to>2023</button>
+                            <button type="button" data-hscroll-to>2024</button>
+                            <button type="button" data-hscroll-to>2025</button>
+                            <button type="button" data-hscroll-to>2026</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -178,7 +208,7 @@
                     <a href="activity.html" class="btn-sb btn-sb-outline mb-4">活動内容・カレンダー</a>
                 </div>
                 <!-- 写真：img/placeholder/wet・dry・wiki・youtube.svg を差し替え -->
-                <div class="row g-3 g-md-4">
+                <div class="row g-3 g-md-4 snap-row stagger">
                     <div class="col-6 col-lg-3">
                         <a href="activity.html#wet" class="photo-tile">
                             <img src="img/placeholder/wet.svg" alt="">
@@ -211,47 +241,12 @@
             </div>
         </section>
 
-        <!-- ===== 04 PROJECT 2026 ===== -->
-        <section class="fade-in-section section-padding feature">
-            <div class="container px-4 px-md-3" style="max-width: 1100px;">
-                <div class="sec-head">
-                    <span class="sec-num">04</span>
-                    <h2 class="sec-title" data-bg="PROJECT">PROJECT</h2>
-                    <p class="sec-sub">今年の研究テーマ</p>
-                </div>
-                <div class="row align-items-center gx-5 gy-5">
-                    <!-- 画像：img/placeholder/project-2026.svg を差し替え -->
-                    <div class="col-lg-6">
-                        <div class="photo-frame" style="aspect-ratio: 16 / 10;">
-                            <img src="img/placeholder/project-2026.svg" alt="2026プロジェクトのイメージ">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <span class="feature-label">2026 PROJECT</span>
-                        <h3 class="feature-title">Open Sesame!</h3>
-                        <p class="feature-subtitle">Hybridization Chain Reaction-Driven DNA Bundling for Lipid Membrane Disruption</p>
-                        <p class="feature-text mb-0">複数のDNA鎖を束ねて伸ばす独自の反応「Bundled HCR」で硬いDNAバンドルを組み上げ、標的の細胞外小胞（EV）の近くでだけ脂質膜を突き破る、新しい膜破壊システムを提案します。</p>
-                        <div class="feature-meta">
-                            <div><b>2nd Place</b>総合2位</div>
-                            <div><b>Best Website</b>Wiki部門 1位</div>
-                            <div><b>Computational</b>Biomolecular Design Award</div>
-                            <div><b>Gold</b>Project Award 金賞</div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a href="about-biomod.html#project-2026" class="btn-sb">プロジェクト詳細</a>
-                            <a href="https://biomod-sciencetokyo.github.io/2026project/index.html" target="_blank" rel="noopener" class="btn-sb btn-sb-outline ext">Wikiを見る</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== 05 NEWS ===== -->
+        <!-- ===== 04 NEWS ===== -->
         <section class="fade-in-section section-padding bg-light">
             <div class="container px-4 px-md-3" style="max-width: 1100px;">
                 <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
                     <div class="sec-head mb-4">
-                        <span class="sec-num">05</span>
+                        <span class="sec-num">04</span>
                         <h2 class="sec-title" data-bg="NEWS">LATEST NEWS</h2>
                         <p class="sec-sub">お知らせ</p>
                     </div>
@@ -263,11 +258,11 @@
             </div>
         </section>
 
-        <!-- ===== 06 SNS ===== -->
+        <!-- ===== 05 SNS ===== -->
         <section class="fade-in-section section-padding">
             <div class="container px-4 px-md-3" style="max-width: 1100px;">
                 <div class="sec-head text-center">
-                    <span class="sec-num">06</span>
+                    <span class="sec-num">05</span>
                     <h2 class="sec-title" data-bg="FOLLOW">SOCIAL MEDIA</h2>
                     <p class="sec-sub">日々の活動や研究の進捗を発信中</p>
                 </div>

@@ -230,3 +230,226 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// =====================================================================
+// サイト全体の動き（モーション）
+// ・スクロール進捗バー / 見出しの1文字ずつの登場 / 袋文字の横スライド
+// ・パララックス（data-parallax="0.2" のように係数を指定。正で遅く、負で速く動く）
+// ・カードの順番表示（.stagger の子要素）/ カードの立体的な傾き / ボタンの吸い寄せ
+// ・横スクロールの年表（[data-hscroll]）
+// 「視差効果を減らす」設定（prefers-reduced-motion）の人には、動きを止めて普通に表示する
+// =====================================================================
+(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const root = document.documentElement;
+    if (!reduce) root.classList.add('js-motion');
+
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const navH = () => parseFloat(getComputedStyle(root).getPropertyValue('--nav-h')) || 68;
+
+    // スクロールのたびに呼ぶ処理をまとめて、1フレームに1回だけ実行する
+    const onFrame = [];
+    let ticking = false;
+    const requestTick = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => { ticking = false; onFrame.forEach(fn => fn()); });
+    };
+    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('resize', requestTick);
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // ---- スクロール進捗バー ----
+        const bar = document.createElement('div');
+        bar.className = 'scroll-progress';
+        bar.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(bar);
+        onFrame.push(() => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            bar.style.transform = `scaleX(${max > 0 ? clamp(window.scrollY / max, 0, 1) : 0})`;
+        });
+
+        // ---- 見出しを1文字ずつ登場させる（単語の途中で改行しないよう、単語ごとにまとめる） ----
+        const splitIO = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('is-in'); splitIO.unobserve(e.target); }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('.sec-title, .page-hero-title').forEach(el => {
+            if (reduce || el.children.length || !el.textContent.trim()) return;
+            const text = el.textContent.trim();
+            el.setAttribute('aria-label', text);
+            el.textContent = '';
+            let i = 0;
+            text.split(/(\s+)/).forEach(part => {
+                if (/^\s+$/.test(part)) { el.appendChild(document.createTextNode(' ')); return; }
+                const word = document.createElement('span');
+                word.className = 'split-word';
+                word.setAttribute('aria-hidden', 'true');
+                [...part].forEach(ch => {
+                    const s = document.createElement('span');
+                    s.className = 'split-ch';
+                    s.style.setProperty('--i', i++);
+                    s.textContent = ch;
+                    word.appendChild(s);
+                });
+                el.appendChild(word);
+            });
+            el.classList.add('split');
+            splitIO.observe(el);
+        });
+
+        // ---- 子要素を順番に表示する ----
+        const staggerIO = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('is-in'); staggerIO.unobserve(e.target); }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.stagger, .member-grid, .sns-row, .feature-meta, .team-steps, .cal-items').forEach(el => {
+            el.classList.add('stagger');
+            [...el.children].forEach((c, i) => c.style.setProperty('--i', i));
+            if (reduce) el.classList.add('is-in'); else staggerIO.observe(el);
+        });
+
+        if (reduce) return;   // ここから下は動きだけの演出
+
+        // ---- パララックス ----
+        document.querySelectorAll('.hero-bg').forEach(el => el.dataset.parallax ??= '0.35');
+        document.querySelectorAll('.page-hero-inner').forEach(el => el.dataset.parallax ??= '0.3');
+        document.querySelectorAll('.mosaic img').forEach((el, i) => el.dataset.parallax ??= ['-0.06', '0.08', '-0.12'][i % 3]);
+        const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
+        const titleBgs = [...document.querySelectorAll('.sec-title[data-bg]')];
+        onFrame.push(() => {
+            const vh = window.innerHeight;
+            parallaxEls.forEach(el => {
+                const r = el.getBoundingClientRect();
+                if (r.bottom < -200 || r.top > vh + 200) return;
+                const k = parseFloat(el.dataset.parallax) || 0;
+                // ページ最上部の要素（ヒーロー）はスクロール量そのもの、それ以外は画面中央からのずれに比例
+                const base = el.closest('.hero, .page-hero') ? window.scrollY : (r.top + r.height / 2 - vh / 2) * -1;
+                el.style.translate = `0 ${(base * k).toFixed(1)}px`;
+            });
+            titleBgs.forEach(el => {
+                const r = el.getBoundingClientRect();
+                if (r.bottom < -200 || r.top > vh + 200) return;
+                el.style.setProperty('--bg-shift', `${((r.top - vh / 2) * 0.25).toFixed(1)}px`);
+            });
+        });
+
+        // ---- カードの立体的な傾き（マウス操作の端末だけ） ----
+        if (finePointer) {
+            document.querySelectorAll('.award-card, .photo-tile, .member-card, .sns-big, .team-photo, .chara-card').forEach(card => {
+                card.classList.add('tilt');
+                card.addEventListener('pointermove', e => {
+                    const r = card.getBoundingClientRect();
+                    const x = (e.clientX - r.left) / r.width - 0.5;
+                    const y = (e.clientY - r.top) / r.height - 0.5;
+                    card.style.setProperty('--rx', `${(-y * 8).toFixed(2)}deg`);
+                    card.style.setProperty('--ry', `${(x * 10).toFixed(2)}deg`);
+                    card.style.setProperty('--mx', `${((x + 0.5) * 100).toFixed(1)}%`);
+                    card.style.setProperty('--my', `${((y + 0.5) * 100).toFixed(1)}%`);
+                    card.classList.add('is-tilting');
+                });
+                card.addEventListener('pointerleave', () => {
+                    card.classList.remove('is-tilting');
+                    card.style.removeProperty('--rx');
+                    card.style.removeProperty('--ry');
+                });
+            });
+
+            // ---- ボタンがカーソルに少し吸い寄せられる ----
+            document.querySelectorAll('.btn-sb').forEach(btn => {
+                btn.addEventListener('pointermove', e => {
+                    const r = btn.getBoundingClientRect();
+                    btn.style.translate = `${((e.clientX - r.left - r.width / 2) * 0.18).toFixed(1)}px ${((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1)}px`;
+                });
+                btn.addEventListener('pointerleave', () => { btn.style.translate = ''; });
+            });
+        }
+    });
+
+    // ---- 横スクロールの年表 ----
+    // 普通の横スクロール（カードが1枚ずつ止まる）。画面を固定したり、縦スクロールで動かしたりはしない
+    // ・スマホ：指でスワイプ / PC：矢印・年のボタン・トラックパッドの横スクロール・マウスでドラッグ
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-hscroll]').forEach(sec => {
+            const vp = sec.querySelector('.hscroll-viewport');
+            const cards = [...sec.querySelector('.hscroll-track').children];
+            const fill = sec.querySelector('.hscroll-bar span');
+            const steps = [...sec.querySelectorAll('[data-hscroll-to]')];
+            const prev = sec.querySelector('[data-hscroll-prev]');
+            const next = sec.querySelector('[data-hscroll-next]');
+            let current = 0;
+
+            const goTo = i => {
+                const card = cards[clamp(i, 0, cards.length - 1)];
+                vp.scrollTo({ left: card.offsetLeft - (vp.clientWidth - card.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+            };
+
+            const update = () => {
+                const m = vp.scrollWidth - vp.clientWidth;
+                if (fill) fill.style.transform = `scaleX(${m > 0 ? vp.scrollLeft / m : 0})`;
+                // 画面の真ん中に一番近いカードを「今の年」にする
+                const mid = vp.scrollLeft + vp.clientWidth / 2;
+                let bestD = Infinity;
+                cards.forEach((c, i) => {
+                    const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+                    if (d < bestD) { bestD = d; current = i; }
+                });
+                cards.forEach((c, i) => c.classList.toggle('is-current', i === current));
+                steps.forEach((s, i) => s.classList.toggle('is-current', i === current));
+                if (prev) prev.disabled = current === 0;
+                if (next) next.disabled = current === cards.length - 1;
+            };
+
+            steps.forEach((btn, i) => btn.addEventListener('click', () => goTo(i)));
+            if (prev) prev.addEventListener('click', () => goTo(current - 1));
+            if (next) next.addEventListener('click', () => goTo(current + 1));
+            vp.addEventListener('keydown', e => {
+                if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+                if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+            });
+            // カードをクリックすると、そのカードを真ん中へ
+            cards.forEach((c, i) => c.addEventListener('click', () => { if (!dragged) goTo(i); }));
+
+            // マウスでドラッグして動かす（タッチ操作は端末のスワイプに任せる）
+            let dragging = false, dragged = false, startX = 0, startLeft = 0;
+            vp.addEventListener('pointerdown', e => {
+                if (e.pointerType !== 'mouse' || e.button !== 0) return;
+                dragging = true; dragged = false; startX = e.clientX; startLeft = vp.scrollLeft;
+            });
+            window.addEventListener('pointermove', e => {
+                if (!dragging) return;
+                const dx = e.clientX - startX;
+                if (!dragged && Math.abs(dx) > 5) { dragged = true; vp.classList.add('is-dragging'); }
+                if (dragged) vp.scrollLeft = startLeft - dx;
+            });
+            window.addEventListener('pointerup', () => {
+                if (!dragging) return;
+                dragging = false;
+                vp.classList.remove('is-dragging');
+                if (dragged) { goTo(current); setTimeout(() => { dragged = false; }, 0); }
+            });
+
+            vp.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+
+            // 最初は一番右（最新の年）を表示。画面幅が変わっても今の年を真ん中に保つ
+            const center = i => {
+                const card = cards[i];
+                const prevSnap = vp.style.scrollSnapType;
+                vp.style.scrollSnapType = 'none';
+                vp.scrollLeft = card.offsetLeft - (vp.clientWidth - card.offsetWidth) / 2;
+                vp.style.scrollSnapType = prevSnap;
+                update();
+            };
+            current = cards.length - 1;
+            center(current);
+            window.addEventListener('resize', () => center(current));
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => center(current));
+        });
+
+        requestTick();
+    });
+})();
