@@ -315,6 +315,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (reduce) return;   // ここから下は動きだけの演出
 
+        // ---- 数字のカウントアップ（data-count="100" data-count-delay="ミリ秒"） ----
+        const countIO = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                countIO.unobserve(e.target);
+                const el = e.target, target = Number(el.dataset.count) || 0;
+                const delay = Number(el.dataset.countDelay) || 0, dur = 1200;
+                el.textContent = '0';
+                setTimeout(() => {
+                    const start = performance.now();
+                    const step = now => {
+                        const t = Math.min(1, (now - start) / dur);
+                        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+                        if (t < 1) requestAnimationFrame(step);
+                    };
+                    requestAnimationFrame(step);
+                }, delay);
+            });
+        }, { threshold: 0.6 });
+        document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
         // ---- パララックス ----
         document.querySelectorAll('.hero-bg').forEach(el => el.dataset.parallax ??= '0.35');
         document.querySelectorAll('.page-hero-inner').forEach(el => el.dataset.parallax ??= '0.3');

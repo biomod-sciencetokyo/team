@@ -49,18 +49,18 @@
 
             <div class="panel intro-card mx-auto" style="max-width: 860px;">
                 <p class="fs-5 mb-3 text-secondary" style="line-height: 1.9; letter-spacing: 0.03em;">
-                    BIOMOD（Bio-Molecular Design Competition）は、大学の学部生を対象とした、生体分子ナノテクノロジーの国際ロボットコンテストです。
+                    BIOMOD（Biomolecular Design Competition）は、大学の学部生チームが生体分子のデザインを競う国際コンテストです（日本では「分子ロボコン」とも呼ばれます）。
                 </p>
                 <p class="fs-5 mb-0 text-secondary" style="line-height: 1.9; letter-spacing: 0.03em;">
                     2011年にハーバード大学のWyss研究所によって創設され、世界中から未来の科学者・エンジニアを目指す学生チームが集まり、そのアイデアと技術力を競い合います。
                 </p>
             </div>
 
-            <!-- 数字で見るBIOMOD（出典：BIOMOD公式サイト・READYFORのプロジェクトページ） -->
+            <!-- 数字で見るBIOMOD（出典：創設年・配点はBIOMOD公式サイト、国数・学生数はチームのREADYFORプロジェクトページ） -->
             <div class="band-blue rounded-4 mt-4 mx-auto overflow-hidden" style="max-width: 860px;">
                 <div class="fact-grid">
                     <div class="fact"><b>2011</b><span>ハーバード大学で創設</span></div>
-                    <div class="fact"><b>16<small>+</small></b><span>参加した国と地域</span></div>
+                    <div class="fact"><b>16<small>+</small></b><span>参加した国</span></div>
                     <div class="fact"><b>1,500<small>+</small></b><span>挑戦した学生</span></div>
                     <div class="fact"><b>100<small>pt</small></b><span>Wiki・動画・発表で審査</span></div>
                 </div>
@@ -83,7 +83,16 @@
                 </div>
                 <!-- スマホ：下 / PC：右 -->
                 <div class="col-md-6 order-2 order-md-2">
-                    <img src="img/a-b1.png" alt="何を創る大会なのか？" class="img-fluid rounded-4 w-100 img-on-light" style="box-shadow: var(--shadow-lg);">
+                    <!-- 図：素材（Materials）と設計（Design）が重なるところに、ナノロボットが生まれる（画像ではなくHTMLで描画） -->
+                    <figure class="bm-venn" role="img" aria-label="生体分子という素材（Materials）と設計（Design）が重なるところに、ナノロボット（Nano Robot）が生まれることを表す図">
+                        <div class="bm-circle is-left" aria-hidden="true"><span class="bm-ring"></span>
+                            <div class="bm-node"><svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3c0 4.5 10 4.5 10 9s-10 4.5-10 9"/><path d="M17 3c0 4.5-10 4.5-10 9s10 4.5 10 9"/><path d="M8.6 6h6.8M8.6 18h6.8M10 9.3h4M10 14.7h4"/></svg><b>Materials</b><small>DNA・RNA・タンパク質</small></div>
+                        </div>
+                        <div class="bm-circle is-right" aria-hidden="true"><span class="bm-ring"></span>
+                            <div class="bm-node"><svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19.5h20"/><path d="M10.2 8.6 8 10.5l2.2 1.9M13.8 8.6l2.2 1.9-2.2 1.9"/></svg><b>Design</b><small>設計・シミュレーション</small></div>
+                        </div>
+                        <div class="bm-core" aria-hidden="true"><svg class="bm-icon is-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 5v3"/><circle cx="12" cy="4" r="1.1"/><g class="bm-eyes"><circle cx="9.4" cy="13" r="1.3" fill="currentColor" stroke="none"/><circle cx="14.6" cy="13" r="1.3" fill="currentColor" stroke="none"/></g><path d="M9.5 16.3h5M2.8 12v3.4M21.2 12v3.4"/></svg><b>Nano Robot</b></div>
+                    </figure>
                 </div>
             </div>
         </section>
@@ -95,7 +104,25 @@
             <div class="row align-items-center gx-5">
                 <!-- スマホ：下 / PC：左 -->
                 <div class="col-md-6 order-2 order-md-1">
-                    <img src="img/a-b2.png" alt="審査の仕組み" class="img-fluid rounded-4 w-100 img-on-light" style="box-shadow: var(--shadow-lg);">
+                    <!-- 図：Wiki 50点 + 動画 25点 + プレゼン 25点 = 100点（画像ではなくHTMLで描画） -->
+                    <figure class="bm-score" role="img" aria-label="Wiki 50点、紹介動画 25点、プレゼンテーション 25点の合計100点で審査されることを表す図">
+                        <div class="bm-items" aria-hidden="true">
+                            <div class="bm-item"><svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M10.2 11.8 8.4 13.7l1.8 1.9M13.8 11.8l1.8 1.9-1.8 1.9"/></svg><b>Wiki</b><em>50</em></div>
+                            <span class="bm-plus">+</span>
+                            <div class="bm-item"><svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2.2"/><path d="m16 10.2 5-3v9.6l-5-3z"/></svg><b>Video</b><em>25</em></div>
+                            <span class="bm-plus">+</span>
+                            <div class="bm-item"><svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="5" r="2"/><path d="M6.5 8.5v5.5M6.5 14l-2 6M6.5 14l2 6M6.5 10.5l5.5-2"/><rect x="12" y="3.5" width="9" height="7.5" rx="1.2"/></svg><b>Presentation</b><em>25</em></div>
+                        </div>
+                        <div class="bm-bar" aria-hidden="true">
+                            <span class="is-wiki" style="--w: 50%;">Wiki 50</span>
+                            <span class="is-video" style="--w: 25%;">Video 25</span>
+                            <span class="is-talk" style="--w: 25%;">Talk 25</span>
+                        </div>
+                        <div class="bm-total" aria-hidden="true">
+                            <div class="bm-trophy"><svg class="bm-icon is-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5.5a4 4 0 0 1-8 0z"/><path d="M8 6H5.2A3 3 0 0 0 8 10.2M16 6h2.8A3 3 0 0 1 16 10.2"/><path d="M12 13.5V17M9 20.5h6M10 17h4"/></svg></div>
+                            <div><b><span data-count="100" data-count-delay="2300">100</span><small>pt</small></b><span>Gold / Silver / Bronze</span></div>
+                        </div>
+                    </figure>
                 </div>
                 <!-- スマホ：上 / PC：右 -->
                 <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
@@ -116,7 +143,7 @@
                             </li>
                         </ul>
                     </div>
-                    <p class="mt-3 mb-0 small text-muted">総合点に応じてGold / Silver / Bronzeの各賞が、さらに部門別の賞（Best Project Website、Best YouTube Videoなど）が贈られます。</p>
+                    <p class="mt-3 mb-0 small text-muted">Wiki・動画・発表をすべて提出したチームにはBronze、得点の高いチームにはSilver・Goldのプロジェクトアワードが贈られます。さらに総合順位の上位3チーム（Grand Prizeなど）、部門賞（Best Project Website、Best YouTube Video、Best Presentationなど）、特別賞もあります。</p>
                 </div>
             </div>
         </section>

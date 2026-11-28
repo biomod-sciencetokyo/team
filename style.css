@@ -1536,3 +1536,128 @@ body.is-top-page .site-header:not(.is-scrolled) .site-nav { border-top-color: rg
     .scroll-progress { display: none; }
     .hscroll .award-card:not(.is-current) { opacity: 1; transform: none; }
 }
+
+/* =====================================================================
+   ABOUT BIOMOD：画像の代わりにHTMLで描いた図（重なりの図・審査の図）
+   セクション（.fade-in-section）が画面に入って .is-visible が付くとアニメーションが始まる
+   ===================================================================== */
+.bm-venn, .bm-score {
+    --bm-fill: rgba(127, 150, 194, 0.12);
+    --bm-line: #7f96c2;
+    --bm-card: var(--surface);
+    --bm-ink: var(--brand-text);
+    margin: 0;
+}
+[data-bs-theme="dark"] .bm-venn, [data-bs-theme="dark"] .bm-score { --bm-fill: rgba(127, 150, 194, 0.10); --bm-line: #8ea3cc; }
+.bm-icon { width: 30px; height: 30px; color: var(--bm-line); flex: none; }
+.bm-icon.is-lg { width: 44px; height: 44px; color: var(--bm-ink); }
+
+/* ---- 重なりの図 ---- */
+.bm-venn { position: relative; aspect-ratio: 4 / 3; width: 100%; }
+.bm-circle {
+    position: absolute; top: 50%; width: 60%; aspect-ratio: 1; border-radius: 50%;
+    background: var(--bm-fill); translate: 0 -50%;
+    display: flex; align-items: center;
+}
+.bm-circle.is-left { left: 0; justify-content: flex-start; }
+.bm-circle.is-right { right: 0; justify-content: flex-end; }
+.bm-ring { position: absolute; inset: 0; border-radius: 50%; border: 2px dashed var(--bm-line); opacity: .8; }
+.bm-node {
+    position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    width: 42%; text-align: center; padding: 0 2%;
+}
+.bm-circle.is-left .bm-node { margin-left: 5%; }
+.bm-circle.is-right .bm-node { margin-right: 5%; }
+.bm-node .bm-icon {
+    width: clamp(46px, 8vw, 64px); height: clamp(46px, 8vw, 64px); padding: 12px;
+    background: var(--bm-card); border: 2px solid var(--bm-line); border-radius: 18px;
+}
+.bm-node b { font-family: var(--ff-en); font-weight: 700; font-size: clamp(.85rem, 1.6vw, 1rem); color: var(--bm-line); letter-spacing: .03em; }
+.bm-node small { font-size: .68rem; line-height: 1.4; color: var(--bs-secondary-color); }
+.bm-core {
+    position: absolute; left: 50%; top: 50%; translate: -50% -50%; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    padding: 18px 20px 14px; border-radius: 22px; background: var(--bm-card);
+    border: 3px solid var(--bm-ink); box-shadow: var(--shadow-lg);
+}
+.bm-core b { font-family: var(--ff-en); font-weight: 800; font-size: clamp(.95rem, 1.9vw, 1.2rem); color: var(--bm-ink); white-space: nowrap; }
+
+/* ---- 審査の図 ---- */
+.bm-score {
+    display: flex; flex-direction: column; gap: 22px; padding: 28px 24px 26px;
+    border-radius: 24px; background: var(--bm-fill); border: 1px solid var(--line);
+}
+.bm-items { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.bm-item {
+    flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    padding: 14px 6px 12px; border-radius: 18px; background: var(--bm-card); border: 2px solid var(--bm-line);
+}
+.bm-item b { font-family: var(--ff-en); font-weight: 700; font-size: .78rem; color: var(--bm-ink); letter-spacing: .02em; }
+.bm-item em { font-style: normal; font-family: var(--ff-en); font-weight: 800; font-size: 1.3rem; line-height: 1; color: var(--bm-line); }
+.bm-item em::after { content: "pt"; font-size: .6em; margin-left: 1px; }
+.bm-plus { font-family: var(--ff-en); font-weight: 700; font-size: 1.4rem; color: var(--bm-line); }
+.bm-bar { display: flex; height: 30px; border-radius: 999px; overflow: hidden; background: var(--line); }
+.bm-bar span {
+    width: var(--w); display: flex; align-items: center; justify-content: center; white-space: nowrap; overflow: hidden;
+    font-family: var(--ff-en); font-weight: 700; font-size: .72rem; letter-spacing: .04em; color: #fff;
+    transform-origin: 0 50%;
+}
+.bm-bar .is-wiki { background: var(--sb); }
+.bm-bar .is-video { background: #4a63a8; }
+.bm-bar .is-talk { background: var(--bm-line); }
+.bm-total { position: relative; display: flex; align-items: center; justify-content: center; gap: 16px; padding-top: 16px; }
+.bm-total::before { content: ""; position: absolute; top: -10px; left: 50%; width: 2px; height: 18px; background: var(--bm-line); }
+.bm-trophy {
+    position: relative; display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; overflow: hidden;
+    background: var(--bm-card); border: 3px solid var(--gold); color: var(--gold);
+}
+.bm-trophy .bm-icon { color: var(--gold); width: 36px; height: 36px; }
+.bm-total b { display: block; font-family: var(--ff-en); font-weight: 800; font-size: 2.4rem; line-height: 1; color: var(--bm-ink); }
+.bm-total b small { font-size: .45em; margin-left: 2px; }
+.bm-total > div > span { font-family: var(--ff-en); font-size: .74rem; font-weight: 600; letter-spacing: .06em; color: var(--bs-secondary-color); }
+@media (max-width: 575.98px) {
+    .bm-score { padding: 22px 14px; }
+    .bm-items { gap: 4px; }
+    .bm-item b { font-size: .66rem; }
+    .bm-plus { font-size: 1.1rem; }
+}
+
+/* ---- アニメーション（動きを減らす設定では表示のみ） ---- */
+@media (prefers-reduced-motion: no-preference) {
+    /* 円が左右から寄ってきて重なる → 点線の輪がゆっくり回る */
+    .js-motion .fade-in-section:not(.is-visible) .bm-circle.is-left { translate: -18% -50%; opacity: 0; }
+    .js-motion .fade-in-section:not(.is-visible) .bm-circle.is-right { translate: 18% -50%; opacity: 0; }
+    .bm-circle { transition: translate 1s cubic-bezier(.2, .8, .2, 1) .2s, opacity .8s ease .2s; }
+    .bm-ring { animation: bmSpin 40s linear infinite; }
+    .bm-circle.is-right .bm-ring { animation-direction: reverse; }
+    /* 真ん中のロボットがポンと現れ、ふわふわ浮く。目はときどきまばたき */
+    .js-motion .fade-in-section:not(.is-visible) .bm-core { scale: .4; opacity: 0; }
+    .bm-core { transition: scale .6s cubic-bezier(.3, 1.6, .5, 1) 1s, opacity .3s ease 1s; animation: bmFloat 4s ease-in-out 1.8s infinite; }
+    .bm-eyes { transform-box: fill-box; transform-origin: center; animation: bmBlink 5s ease-in-out 2.5s infinite; }
+
+    /* 審査の図：アイコンが順に現れ → バーが順に伸び → トロフィーが光る */
+    .js-motion .fade-in-section:not(.is-visible) .bm-item,
+    .js-motion .fade-in-section:not(.is-visible) .bm-plus { opacity: 0; translate: 0 14px; }
+    .bm-item, .bm-plus { transition: opacity .5s ease, translate .6s cubic-bezier(.2, .8, .2, 1); }
+    .bm-items > :nth-child(1) { transition-delay: .15s; }
+    .bm-items > :nth-child(2) { transition-delay: .3s; }
+    .bm-items > :nth-child(3) { transition-delay: .45s; }
+    .bm-items > :nth-child(4) { transition-delay: .6s; }
+    .bm-items > :nth-child(5) { transition-delay: .75s; }
+    .js-motion .fade-in-section:not(.is-visible) .bm-bar span { transform: scaleX(0); }
+    .bm-bar span { transition: transform .7s cubic-bezier(.6, 0, .2, 1); }
+    .bm-bar .is-wiki { transition-delay: 1s; }
+    .bm-bar .is-video { transition-delay: 1.5s; }
+    .bm-bar .is-talk { transition-delay: 1.85s; }
+    .js-motion .fade-in-section:not(.is-visible) .bm-total { opacity: 0; }
+    .bm-total { transition: opacity .5s ease 2.3s; }
+    .bm-trophy::after {
+        content: ""; position: absolute; inset: -20%; pointer-events: none;
+        background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.75) 50%, transparent 60%);
+        translate: -100% 0; animation: bmShine 3.5s ease-in-out 2.8s infinite;
+    }
+}
+@keyframes bmSpin { to { rotate: 360deg; } }
+@keyframes bmFloat { 50% { translate: -50% calc(-50% - 6px); } }
+@keyframes bmBlink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes bmShine { 0% { translate: -100% 0; } 40%, 100% { translate: 100% 0; } }
